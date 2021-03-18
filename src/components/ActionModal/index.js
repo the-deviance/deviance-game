@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import useGameData from "../../utils/useGameData";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";

@@ -1,5 +1,4 @@
 import React from "react";
-import { colours } from "../../data/constants";
 
 export default function Chick() {
   return (

@@ -313,6 +313,7 @@ const getCardForTargetInDeck = ({
       } else {
         return task;
       }
+      return null;
     });
   });
 
@@ -325,6 +326,7 @@ const getCardForTargetInDeck = ({
       task.dress_level_to >= target.dress
     )
       return task;
+    return null;
   });
 
   console.log(`${deck.length} Action cards at dress level: ${target.dress}`);
@@ -336,6 +338,7 @@ const getCardForTargetInDeck = ({
   deck = deck.filter((task) => {
     if (task.target_sex === target.gender + 1 || task.target_sex === 0)
       return task;
+    return null;
   });
 
   console.log(

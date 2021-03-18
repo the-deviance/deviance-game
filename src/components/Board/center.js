@@ -73,6 +73,7 @@ export default function Card({ id }) {
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rolling]);
 
   const checkRent = (property) => {

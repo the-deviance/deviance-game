@@ -21,6 +21,7 @@ export default function NewGameModal({ player }) {
       blindfolded: false,
       resisting: false,
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updatePlayer = (e) => {
@@ -118,8 +119,9 @@ export default function NewGameModal({ player }) {
                 return "Topless";
               case 3:
                 return "Fully Clothed";
+              default:
+                return "";
             }
-            return "";
           }}
           onChange={updatePlayer}
         />

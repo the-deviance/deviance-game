@@ -46,6 +46,7 @@ export default function SpecialModal({ property, next }) {
     }
     console.log("Got Task: ", task);
     setTask(task);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [property]);
 
   if (run) {

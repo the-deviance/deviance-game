@@ -11,6 +11,7 @@ export default function useGameData() {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("gameData"));
     if (data) setGameData(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const saveGameData = (gameData) => {

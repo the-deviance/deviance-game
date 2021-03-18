@@ -19,6 +19,7 @@ export default function usePropertyData() {
     const data = JSON.parse(localStorage.getItem("propertyData"));
     if (data) return savePropertyData(data);
     setPropertyData(properties);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const buyProperty = (property) => {

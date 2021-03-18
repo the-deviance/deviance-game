@@ -1,5 +1,4 @@
 import React from "react";
-import usePropertyData from "../../utils/usePropertyData";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
 
 export default function NoFundsModal({ property, next }) {

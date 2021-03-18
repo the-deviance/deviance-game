@@ -79,6 +79,7 @@ export default function Card({ id }) {
                       }}
                     ></div>
                   );
+                return null;
               })}
             </div>
           )}
