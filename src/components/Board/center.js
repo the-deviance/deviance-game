@@ -209,9 +209,13 @@ export default function Card({ id }) {
                       bottom: "20px",
                     }}
                   >
-                    <h2>{`${
-                      gameData.players[gameData.currentPlayer].name
-                    }'s Turn`}</h2>
+                    <h2>
+                      {gameData.players[gameData.currentPlayer].name
+                        ? `${
+                            gameData.players[gameData.currentPlayer].name
+                          }'s Turn`
+                        : ""}
+                    </h2>
                   </div>
                 )}
 
