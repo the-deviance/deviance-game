@@ -31,12 +31,11 @@ export default function AddPlayers({
     <Modal isOpen={modal} toggle={toggleModal}>
       <ModalHeader toggle={toggleModal}>Players</ModalHeader>
       <ModalBody>
-        <Accordion openId={openId} toggle={toggle}>
+        <Accordion open={openId} toggle={toggle}>
           {gameData.players?.map((player, index) => (
             <AccordionItem key={index}>
-              <AccordionHeader targetId={(index + 1).toString()}>{`Player ${
-                index + 1
-              }`}</AccordionHeader>
+              <AccordionHeader targetId={(index + 1).toString()}>{`Player ${index + 1
+                }`}</AccordionHeader>
               <AccordionBody accordionId={(index + 1).toString()}>
                 <PlayerForm player={gameData.players[index]} />
               </AccordionBody>

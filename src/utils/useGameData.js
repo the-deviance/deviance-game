@@ -212,9 +212,12 @@ export default function useGameData() {
 
   const endTurn = () => {
     // Increment turn counter
-    setTurnCounter(turnCounter + 1);
+    const newturn = turnCounter + 1
+    setTurnCounter(newturn);
 
-    let shouldIncreaseLevel = turnCounter % numberOfTurns === 0;
+    console.log('remainder')
+    console.log(newturn % numberOfTurns)
+    let shouldIncreaseLevel = parseFloat(newturn) % parseFloat(numberOfTurns) === 0;
 
     if (shouldIncreaseLevel) {
       if (gameData.spiceLevel === 4) {
