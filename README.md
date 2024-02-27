@@ -9,3 +9,7 @@ This is a simple React.js game created as a bit of fun for kinky partys. Can hav
 
 ## Development
 To run, simply use `yarn start`.
+
+## Have a play
+
+go to https://deviance-game.netlify.app/
