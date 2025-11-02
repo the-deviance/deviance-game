@@ -40,15 +40,15 @@ export default function useGameData() {
         }
     }, [setGameData]);
 
-    const increaseSpiceLevel = useCallback(() => {
-        if (gameData.spiceLevel > 2) {
+    const increaseSpiceLevel = useCallback((freshData) => {
+        if (freshData.spiceLevel > 2) {
             console.log('Max spice level reached')
             return
         }
 
         saveGameData({
-            ...gameData,
-            spiceLevel: gameData.spiceLevel + 1,
+            ...freshData,
+            spiceLevel: freshData.spiceLevel + 1,
         });
     }, [gameData, saveGameData]);
 

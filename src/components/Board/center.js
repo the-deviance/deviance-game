@@ -14,25 +14,19 @@ import Chick from "../../components/Chick";
 import {toast} from 'react-toastify';
 
 export default function Card({id}) {
-    const {gameData, movePlayer, endTurn} = useGameData();
+    const {gameData, movePlayer, endTurn, increaseSpiceLevel} = useGameData();
     const {propertyData} = usePropertyData();
 
-    const incrementMoveAndCheckSpice = () => {
+    const incrementMoveAndCheckSpice = (freshData) => {
         console.log('incrementMoveAndCheckSpice called');
-        const currentData = JSON.parse(localStorage.getItem("gameData") || '{}');
-        const newMoveCount = (currentData.totalMoves || 0) + 1;
-        let shouldIncrementSpice = newMoveCount % 10 === 0;
+        const usedCards = JSON.parse(localStorage.getItem("cardData") || '[]');
 
-        console.log(`Move count: ${newMoveCount}, should increment spice: ${shouldIncrementSpice}`);
-
-        currentData.totalMoves = newMoveCount;
-        if (shouldIncrementSpice && currentData.spiceLevel < 3) {
-            currentData.spiceLevel = Math.min((currentData.spiceLevel || 0) + 1, 4);
-            console.log(`Spice level increased to ${currentData.spiceLevel} after ${newMoveCount} moves`);
-            toast.info("Spice Level Increased", {theme: 'dark'})
+        console.log(`used cards length: ${usedCards.length}`)
+        // When each player has played ~ 3 cards, increase spice
+        if (usedCards.length && usedCards.length % (gameData.players.length * 3) === 0) {
+            console.log('Increasing spice');
+            increaseSpiceLevel(freshData);
         }
-
-        localStorage.setItem("gameData", JSON.stringify(currentData));
     };
 
     const [setupStep, setSetupStep] = useState(false);
@@ -70,8 +64,6 @@ export default function Card({id}) {
             console.log('Current player data:', gameData.players[gameData.currentPlayer]);
             movePlayer(value).then(() => {
                 console.log('Player has finished moving...')
-                // Increment move count and check for spice level increase
-                incrementMoveAndCheckSpice();
 
                 // Get fresh data from localStorage to avoid stale state
                 const freshData = JSON.parse(localStorage.getItem("gameData"));
@@ -111,6 +103,9 @@ export default function Card({id}) {
                         checkRent(property);
                     }
                 }
+
+                // Increment move count and check for spice level increase
+                incrementMoveAndCheckSpice(freshData);
 
             });
         }

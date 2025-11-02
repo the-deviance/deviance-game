@@ -297,6 +297,7 @@ const getCardForTargetInDeck = ({
                                     skip = 0,
                                     gameData,
                                     allSpice = false,
+                                    includeUsed = false
                                 }) => {
     console.log({target});
 
@@ -365,7 +366,7 @@ const getCardForTargetInDeck = ({
 
     // Exclude used cards
     if (usedCardPile && usedCardPile.length) {
-        deckCopy = deckCopy.filter((task) => {
+        deckCopy.filter((task) => {
             let hasBeenUsed = false;
             console.log({usedCardPile})
             usedCardPile.forEach((card) => {
@@ -390,6 +391,18 @@ const getCardForTargetInDeck = ({
         });
     }
 
+    if (!deckCopy.length && !includeUsed) {
+        console.log('Getting cards from all spices')
+        return getCardForTargetInDeck({
+            target,
+            deck,
+            skip,
+            gameData,
+            allSpice: true,
+            includeUsed: true
+        });
+    }
+
     if (!deckCopy.length) {
         console.log("Used card pile: ", usedCardPile);
         console.log(`No cards found for target: ${target}`)
@@ -411,6 +424,6 @@ const getCardForTargetInDeck = ({
     usedCardPile.push(deckCopy[skip]);
     localStorage.setItem('cardData', JSON.stringify(
         usedCardPile
-    ));s
+    ));
     return deckCopy[skip];
 };
