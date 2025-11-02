@@ -231,6 +231,11 @@ const replacePlaceholders = ({task, players, target}) => {
     }
 
     if (task.message.includes("%m2%")) {
+        task.message = task.message.replaceAll("%m3%", "3");
+        task.timer = 120;
+    }
+
+    if (task.message.includes("%m2%")) {
         task.message = task.message.replaceAll("%m2%", "2");
         task.timer = 120;
     }
@@ -393,10 +398,12 @@ const getCardForTargetInDeck = ({
     console.log({skip})
     if (skip >= deckCopy.length) return null;
 
-    const prioritised = deckCopy.filter(card => card.lose_dress_level === true);
+    if (gameData.totalMoves % 3 === 0) {
+        const prioritised = deckCopy.filter(card => card.lose_dress_level === true);
 
-    if (prioritised.length && prioritised.length > skip) {
-        deckCopy = prioritised
+        if (prioritised.length && prioritised.length > skip) {
+            deckCopy = prioritised
+        }
     }
 
     console.log("Returning", deckCopy[skip]);
@@ -404,6 +411,6 @@ const getCardForTargetInDeck = ({
     usedCardPile.push(deckCopy[skip]);
     localStorage.setItem('cardData', JSON.stringify(
         usedCardPile
-    ));
+    ));s
     return deckCopy[skip];
 };
