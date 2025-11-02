@@ -19,6 +19,7 @@ export default function Card({ id }) {
         width: "140px",
         margin: "5px",
         color: "#ccc",
+        position: "relative",
       }}
     >
       <div
@@ -61,10 +62,10 @@ export default function Card({ id }) {
             <>{property.price && <div>{`Price: £${property?.price}`}</div>}</>
           )}
           {property.name === "Go" ? <div>Collect £200</div> : null}
-          {gameData.currentPlayer !== undefined && (
+          {gameData.players && gameData.players.length > 0 && (
             <div>
-              {gameData.players.map(({ position }, index) => {
-                if (position === id)
+              {gameData.players.map((player, index) => {
+                if (player.position === id)
                   return (
                     <div
                       key={index}
@@ -73,9 +74,9 @@ export default function Card({ id }) {
                         height: "20px",
                         width: "20px",
                         borderRadius: "10px",
-                        bottom: "15px",
-                        left: `${30 + index * 30}px`,
                         position: "absolute",
+                        bottom: "5px",
+                        left: `${5 + index * 25}px`,
                       }}
                     ></div>
                   );

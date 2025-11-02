@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import useGameData from "../../utils/useGameData";
 import {
   Modal,
@@ -18,13 +18,23 @@ import toys from "../../data/toys.json";
 export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
   const { gameData, updateToyList } = useGameData();
 
-  if (!gameData.started) return null;
+  const [toyList, setToyList] = useState(gameData.toys || {})
+
+  if (!modal) return null;
 
   const updateToys = (e) => {
-    gameData.toys[e.target.id] = e.target.checked;
+      console.log(e.target.id)
+    const data = {...toyList};
+      if (e.target.id === "all") {
+          toys.forEach((toy) => {
+              data[toy.toLowerCase()] = e.target.checked;
+          });
+      } else {
+          data[e.target.id] = e.target.checked;
+      }
+      console.log("Add Toys gamedata:", data);
+      setToyList(data);
   };
-
-  console.log("Add Toys gamedata:", gameData);
 
   return (
     <Modal isOpen={modal} toggle={toggleModal}>
@@ -34,7 +44,19 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
           <Row>
             <Col>
               <Label for="limits">Which toys are available?</Label>
+                <FormGroup check key={100}>
+                    <Input
+                        id="all"
+                        type="checkbox"
+                        onChange={updateToys}
+                    />
+                    <Label check>
+                        Select All
+                    </Label>
+                </FormGroup>
+                <hr/>
               {toys.map((toy, index) => {
+                  console.log(toy.toLowerCase())
                 if (index % 2 === 0) return null;
                 return (
                   <FormGroup check key={index}>
@@ -42,15 +64,17 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
                       id={toy.toLowerCase()}
                       type="checkbox"
                       onChange={updateToys}
+                      defaultChecked={toyList[toy.toLowerCase()]}
                     />
-                    <Label for={toy.toLowerCase()} check>
+                        <Label for={toy.toLowerCase()} check>
                       {toy}
                     </Label>
                   </FormGroup>
                 );
               })}
             </Col>
-            <Col>
+            <Col style={{marginTop: '60px'}}>
+
               <Label for="limits" className="mb-4"></Label>
               {toys.map((toy, index) => {
                 if (index % 2 !== 0) return null;
@@ -59,6 +83,7 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
                     <Input
                       id={toy.toLowerCase()}
                       type="checkbox"
+                      checked={toyList[toy.toLowerCase()]}
                       onChange={updateToys}
                     />
                     <Label for={toy.toLowerCase()} check>
@@ -85,11 +110,11 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
         <Button
           color="secondary"
           onClick={() => {
-            updateToyList(gameData.toys);
+            updateToyList(toyList);
             setSetupStep(0);
           }}
         >
-          Next Step
+          Start Game!
         </Button>
       </ModalFooter>
     </Modal>

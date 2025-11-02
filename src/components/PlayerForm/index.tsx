@@ -1,36 +1,92 @@
 import React, { useEffect, useState } from "react";
-import InputRange from "react-input-range";
 import { Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
 
-export default function NewGameModal({ player }) {
+interface Player {
+  position?: number;
+  gender?:  number;
+  sexuality?:  number;
+  dress?:  number;
+  name?: string;
+  prefs?: {
+    dominant?: boolean;
+    submissive?: boolean;
+    humiliation_giving?: boolean;
+    humiliation_receiving?: boolean;
+    anal_giving?: boolean;
+    anal_receiving?: boolean;
+    blindfolded?: boolean;
+    resisting?: boolean;
+  };
+  pronouns?: {
+    he: string;
+    him: string;
+    his: string;
+  };
+  [key: string]: any;
+}
+
+interface PlayerFormProps {
+  player: Player;
+}
+
+export default function PlayerForm({ player }: PlayerFormProps) {
   const [dress, setDress] = useState(3);
 
   useEffect(() => {
     // Setup defaults
     player.position = 0;
-    player.gender = "Male";
-    player.sexuality = "Straight";
-    player.dress = "3";
+    player.gender = 0;
+    player.sexuality = 0;
+    player.dress = 0;
     player.prefs = {
       dominant: false,
       submissive: false,
       humiliation_giving: false,
-      humiliation_recieving: false,
+      humiliation_receiving: false,
       anal_giving: false,
-      anal_recieving: false,
+      anal_receiving: false,
       blindfolded: false,
       resisting: false,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updatePlayer = (e) => {
-    if (!e.target) {
+  const getDressLabel = (value: number): string => {
+    switch (value) {
+      case 0: return "Naked";
+      case 1: return "Underwear only";
+      case 2: return "Topless";
+      case 3: return "Fully Clothed";
+      default: return "";
+    }
+  };
+
+  const updatePlayer = (e: React.ChangeEvent<HTMLInputElement> | number) => {
+    if (typeof e === 'number') {
       player.dress = e;
-      setDress(e);
+      console.log(`Setting dress level to ${e}`)
+      setDress(3-e);
       return;
     }
-    if (e.target.name === "pronouns") {
+    if (!e.target) return;
+
+    let value: any = e.target.value;
+      if (e.target.name === "gender" || e.target.name === "sexuality") {
+          switch (value) {
+              case "0":
+                  value = 0;
+                  break;
+              case "1":
+                  value = 1;
+                  break;
+              case "2":
+                  value = 2;
+                  break;
+              default:
+                  return;
+          }
+      }
+      if (e.target.name === "pronouns") {
       switch (e.target.value) {
         case "1":
           return (player.pronouns = { he: "he", him: "him", his: "his" });
@@ -44,9 +100,11 @@ export default function NewGameModal({ player }) {
     }
     if (e.target.type === "checkbox") {
       if (!player.prefs) player.prefs = {};
-      return (player.prefs[e.target.id] = e.target.checked);
+      player.prefs[e.target.id as keyof typeof player.prefs] = e.target.checked
     }
-    player[e.target.name] = e.target.value;
+    player[e.target.name] = value;
+    console.log(`Updated player: ${e.target.name} with ${value}`);
+    console.log(player)
   };
 
   return (
@@ -70,8 +128,8 @@ export default function NewGameModal({ player }) {
           className="form-control"
           onChange={updatePlayer}
         >
-          <option>Male</option>
-          <option>Female</option>
+          <option value={0}>Male</option>
+          <option value={1}>Female</option>
         </Input>
       </FormGroup>
       <FormGroup>
@@ -83,14 +141,14 @@ export default function NewGameModal({ player }) {
           className="form-control"
           onChange={updatePlayer}
         >
-          <option>Straight</option>
-          <option>Bi</option>
-          <option>Bi-Curious</option>
-          <option>Gay</option>
+          <option value={0}>Straight</option>
+            <option value={1}>Bi-Curious</option>
+            <option value={2}>Bi</option>
+          <option value={3}>Gay</option>
         </Input>
       </FormGroup>
       <FormGroup>
-        <Label for="pronouns">pronouns</Label>
+        <Label for="pronouns">Pronouns</Label>
         <Input
           type="select"
           name="pronouns"
@@ -104,27 +162,26 @@ export default function NewGameModal({ player }) {
         </Input>
       </FormGroup>
       <FormGroup>
-        <Label for="dress">Dress</Label>
-        <InputRange
-          maxValue={3}
-          minValue={0}
+        <Label for="dress">Dress Level: {getDressLabel(dress)}</Label>
+        <Input
+          type="range"
+          name="dress"
+          id="dress"
+          min={0}
+          max={3}
           value={dress}
-          formatLabel={(value) => {
-            switch (value) {
-              case 0:
-                return "Naked";
-              case 1:
-                return "Underwear only";
-              case 2:
-                return "Topless";
-              case 3:
-                return "Fully Clothed";
-              default:
-                return "";
-            }
+          onChange={(e) => {
+            const value = parseInt(e.target.value);
+            setDress(value);
+            updatePlayer(3-value); // Invert the numbers (3 = naked, 0 = fully dressed)
           }}
-          onChange={updatePlayer}
         />
+        <div className="d-flex justify-content-between small text-muted">
+          <span>Naked</span>
+          <span>Underwear</span>
+          <span>Topless</span>
+          <span>Fully Clothed</span>
+        </div>
       </FormGroup>
       <Row>
         <Col>
@@ -157,12 +214,12 @@ export default function NewGameModal({ player }) {
           </FormGroup>
           <FormGroup check>
             <Input
-              id="humiliation_recieving"
+              id="humiliation_receiving"
               type="checkbox"
               onChange={updatePlayer}
             />
-            <Label for="humiliation_recieving" check>
-              Recieving
+            <Label for="humiliation_receiving" check>
+              Receiving
             </Label>
           </FormGroup>
         </Col>
@@ -180,12 +237,12 @@ export default function NewGameModal({ player }) {
           </FormGroup>
           <FormGroup check>
             <Input
-              id="anal_recieving"
+              id="anal_receiving"
               type="checkbox"
               onChange={updatePlayer}
             />
-            <Label for="anal_recieving" check>
-              Recieving
+            <Label for="anal_receiving" check>
+              Receiving
             </Label>
           </FormGroup>
         </Col>

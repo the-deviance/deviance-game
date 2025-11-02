@@ -118,16 +118,30 @@ body {
   margin: 20px;
 }
 
+.accordion-item {
+    border-color: #303030;
+    background-color: #303030;
+}
+
 /*# sourceMappingURL=index.css.map */
 .accordion-header {
   font-size: 1rem !important;
+    height: 40px;
+    display:flex;
+    /*margin:10px;*/
 }
 
 .accordion-header button {
   background-color: transparent;
   border: none;
-  color: var(--primary);
-  padding: 0;
+  color: #fff;
+  padding: 10px;
+}
+
+.accordion-header button:not(.collapsed) {
+    background-color: transparent;
+    color: #fff;
+
 }
 
 p {

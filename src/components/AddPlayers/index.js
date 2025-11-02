@@ -20,27 +20,31 @@ export default function AddPlayers({
 }) {
   const [openId, setOpenId] = useState("1");
   const toggle = (id) => {
-    openId === id ? setOpenId(undefined) : setOpenId(id);
+    setOpenId(openId === id ? "" : id);
   };
 
   const { gameData, addPlayer, removePlayer, updatePlayers } = useGameData();
 
-  if (!gameData.started) return null;
+  if (!modal) return null;
 
   return (
     <Modal isOpen={modal} toggle={toggleModal}>
       <ModalHeader toggle={toggleModal}>Players</ModalHeader>
       <ModalBody>
         <Accordion open={openId} toggle={toggle}>
-          {gameData.players?.map((player, index) => (
-            <AccordionItem key={index}>
-              <AccordionHeader targetId={(index + 1).toString()}>{`Player ${index + 1
-                }`}</AccordionHeader>
-              <AccordionBody accordionId={(index + 1).toString()}>
-                <PlayerForm player={gameData.players[index]} />
-              </AccordionBody>
-            </AccordionItem>
-          ))}
+          {gameData.players?.map((player, index) => {
+            const itemId = (index + 1).toString();
+            return (
+              <AccordionItem key={index}>
+                <AccordionHeader targetId={itemId}>
+                  {`Player ${index + 1}${player.name ? ` - ${player.name}` : ''}`}
+                </AccordionHeader>
+                <AccordionBody accordionId={itemId}>
+                  <PlayerForm player={gameData.players[index]} />
+                </AccordionBody>
+              </AccordionItem>
+            );
+          })}
         </Accordion>
       </ModalBody>
       <ModalFooter>
@@ -60,7 +64,7 @@ export default function AddPlayers({
           disabled={gameData.players.length > 3}
           onClick={() => {
             addPlayer();
-            setOpenId((parseInt(openId, 10) + 1).toString());
+            setOpenId((gameData.players.length + 1).toString());
           }}
         >
           Add Another Player

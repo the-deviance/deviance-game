@@ -22,8 +22,6 @@ export default function ActionModal({ property, next }) {
     setTask(task);
   }, [property]);
 
-  console.log("TASK:", task);
-
   if (run) {
     if (run > 1) {
       setTimeout(() => {
@@ -42,9 +40,9 @@ export default function ActionModal({ property, next }) {
   return (
     <Modal isOpen={property}>
       <ModalHeader>{task && task.name}</ModalHeader>
-      <ModalBody>{task && <div>{task.message}</div>}</ModalBody>
+      <ModalBody>{task ? <div>{task.message}</div> : <div>No Tasks Found...</div>}</ModalBody>
       <ModalFooter>
-        <Button
+          {task && <Button
           className="ml-3"
           style={{ left: "0px", position: "absolute" }}
           color="secondary"
@@ -54,7 +52,7 @@ export default function ActionModal({ property, next }) {
           }}
         >
           Opt Out
-        </Button>
+        </Button>}
         {task?.timer ? (
           <Button
             color="primary"
@@ -69,13 +67,13 @@ export default function ActionModal({ property, next }) {
           <Button
             color="primary"
             onClick={() => {
-              if (task.lose_dress_level) {
+              if (task?.lose_dress_level) {
                 removeItemOfClothingForPlayer(target.id);
               }
               next(false);
             }}
           >
-            Let's Do it!
+              {task ? "Let's Do it!" : "Close"}
           </Button>
         )}
       </ModalFooter>
