@@ -290,3 +290,56 @@ body {
     transform: none;
   }
 }
+
+/* ---------- Countdown timer ---------- */
+
+.dv-timer {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 1.25rem auto 0.5rem;
+}
+
+.dv-timer svg {
+  display: block;
+  transform: rotate(-90deg);
+}
+
+.dv-timer-track {
+  fill: none;
+  stroke: var(--dv-surface-2);
+}
+
+.dv-timer-ring {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+  filter: drop-shadow(0 0 7px rgba(255, 87, 51, 0.45));
+}
+
+.dv-timer-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--dv-text);
+}
+
+.dv-timer-value.final {
+  color: var(--dv-flame);
+  animation: dv-timer-pulse 1s ease-in-out infinite;
+}
+
+@keyframes dv-timer-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}

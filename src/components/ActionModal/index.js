@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import useGameData from "../../utils/useGameData";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
 import { getActionCardforTarget } from "../../data/cardManager";
+import CountdownTimer from "../CountdownTimer";
 
 export default function ActionModal({ property, next }) {
   const {
@@ -22,25 +23,32 @@ export default function ActionModal({ property, next }) {
     setTask(task);
   }, [property]);
 
-  if (run) {
-    if (run > 1) {
-      setTimeout(() => {
-        setRun(run - 1);
-      }, 1000);
-    } else {
-      if (task?.lose_dress_level) {
-        removeItemOfClothingForPlayer(target.id);
-      }
-      setTask(null);
-      setRun(null);
-      next(false);
+  const completeTask = () => {
+    if (task?.lose_dress_level) {
+      removeItemOfClothingForPlayer(target.id);
     }
-  }
+    setTask(null);
+    setRun(null);
+    next(false);
+  };
+
+  useEffect(() => {
+    if (!run) return undefined;
+    if (run > 1) {
+      const tick = setTimeout(() => setRun(run - 1), 1000);
+      return () => clearTimeout(tick);
+    }
+    completeTask();
+    return undefined;
+  }, [run]);
 
   return (
     <Modal isOpen={property}>
       <ModalHeader>{task && task.name}</ModalHeader>
-      <ModalBody>{task ? <div>{task.message}</div> : <div>No Tasks Found...</div>}</ModalBody>
+      <ModalBody>
+        {task ? <div>{task.message}</div> : <div>No Tasks Found...</div>}
+        {run ? <CountdownTimer total={task?.timer} remaining={run - 1} /> : null}
+      </ModalBody>
       <ModalFooter>
           {task && <Button
           className="ml-3"
@@ -54,15 +62,20 @@ export default function ActionModal({ property, next }) {
           Opt Out
         </Button>}
         {task?.timer ? (
-          <Button
-            color="primary"
-            disabled={!!run}
-            onClick={() => {
-              setRun(task.timer + 1);
-            }}
-          >
-            {run ? `${run - 1}` : `Start Timer (${task.timer})`}
-          </Button>
+          run ? (
+            <Button color="success" onClick={completeTask}>
+              Finish
+            </Button>
+          ) : (
+            <Button
+              color="primary"
+              onClick={() => {
+                setRun(task.timer + 1);
+              }}
+            >
+              {`Start Timer (${task.timer}s)`}
+            </Button>
+          )
         ) : (
           <Button
             color="primary"

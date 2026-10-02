@@ -8,6 +8,7 @@ import {
   getChamberCardForPlayer,
   getEncounterCardForPlayer,
 } from "../../data/cardManager";
+import CountdownTimer from "../CountdownTimer";
 
 export default function SpecialModal({ property, next }) {
   const {
@@ -49,38 +50,44 @@ export default function SpecialModal({ property, next }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [property]);
 
-  if (run) {
-    if (run > 1) {
-      setTimeout(() => {
-        setRun(run - 1);
-      }, 1000);
-    } else {
-      if (task && task.lose_dress_level) {
-        removeItemOfClothingForPlayer(gameData.currentPlayer);
-      }
-      if (task && task.delta_optOut) {
-        adjustOptOutFromPlayer(
-          gameData.players[gameData.currentPlayer],
-          task.delta_optOut
-        );
-      }
-      if (task && task.delta_money) {
-        adjustMoneyForPlayer({
-          player: gameData.players[gameData.currentPlayer],
-          delta: task.delta_money,
-        });
-      }
-      setTask(null);
-      setRun(null);
-      next(false);
+  const completeTask = () => {
+    if (task && task.lose_dress_level) {
+      removeItemOfClothingForPlayer(gameData.currentPlayer);
     }
-  }
+    if (task && task.delta_optOut) {
+      adjustOptOutFromPlayer(
+        gameData.players[gameData.currentPlayer],
+        task.delta_optOut
+      );
+    }
+    if (task && task.delta_money) {
+      adjustMoneyForPlayer({
+        player: gameData.players[gameData.currentPlayer],
+        delta: task.delta_money,
+      });
+    }
+    setTask(null);
+    setRun(null);
+    next(false);
+  };
+
+  useEffect(() => {
+    if (!run) return undefined;
+    if (run > 1) {
+      const tick = setTimeout(() => setRun(run - 1), 1000);
+      return () => clearTimeout(tick);
+    }
+    completeTask();
+    return undefined;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [run]);
 
   return (
     <Modal isOpen={property}>
       <ModalHeader>{task ? task.name : "No Tasks Found"}</ModalHeader>
       <ModalBody>
         {task ? <div>{task.message}</div> : "Sorry, we've run out of ideas!"}
+        {run ? <CountdownTimer total={task?.timer} remaining={run - 1} /> : null}
       </ModalBody>
       <ModalFooter>
         {task ? (
@@ -100,15 +107,20 @@ export default function SpecialModal({ property, next }) {
           </Button>
         ) : null}
         {task?.timer ? (
-          <Button
-            color="primary"
-            disabled={!!run}
-            onClick={() => {
-              setRun(task.timer + 1);
-            }}
-          >
-            {run ? `${run - 1}` : `Start Timer (${task.timer})`}
-          </Button>
+          run ? (
+            <Button color="success" onClick={completeTask}>
+              Finish
+            </Button>
+          ) : (
+            <Button
+              color="primary"
+              onClick={() => {
+                setRun(task.timer + 1);
+              }}
+            >
+              {`Start Timer (${task.timer}s)`}
+            </Button>
+          )
         ) : (
           <Button
             color="primary"
