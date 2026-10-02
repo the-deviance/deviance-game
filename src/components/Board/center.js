@@ -17,7 +17,7 @@ export default function Card({id}) {
     const {gameData, movePlayer, endTurn, increaseSpiceLevel} = useGameData();
     const {propertyData} = usePropertyData();
 
-    const incrementMoveAndCheckSpice = (freshData) => {
+    const incrementMoveAndCheckSpice = () => {
         console.log('incrementMoveAndCheckSpice called');
         const usedCards = JSON.parse(localStorage.getItem("cardData") || '[]');
 
@@ -25,7 +25,7 @@ export default function Card({id}) {
         // When each player has played ~ 3 cards, increase spice
         if (usedCards.length && usedCards.length % (gameData.players.length * 3) === 0) {
             console.log('Increasing spice');
-            increaseSpiceLevel(freshData);
+            increaseSpiceLevel();
         }
     };
 
@@ -62,12 +62,10 @@ export default function Card({id}) {
         if (gameData.currentPlayer !== undefined && !rolling && value) {
             console.log('Moving player', gameData.currentPlayer, 'by', value, 'steps');
             console.log('Current player data:', gameData.players[gameData.currentPlayer]);
-            movePlayer(value).then(() => {
+            movePlayer(value).then((player) => {
                 console.log('Player has finished moving...')
 
-                // Get fresh data from localStorage to avoid stale state
-                const freshData = JSON.parse(localStorage.getItem("gameData"));
-                const player = freshData.players[freshData.currentPlayer];
+                if (!player) return;
                 console.log('Player after move:', player);
                 const property = propertyData[player.position];
 
@@ -95,7 +93,7 @@ export default function Card({id}) {
                 } else {
                     // Property is owned
                     // Is it owned by the player?
-                    if (property.owner === freshData.currentPlayer) {
+                    if (property.owner === gameData.currentPlayer) {
                         // Property is owned by the player, nothing else to do
                         endPlayerTurn();
                     } else {
@@ -105,7 +103,7 @@ export default function Card({id}) {
                 }
 
                 // Increment move count and check for spice level increase
-                incrementMoveAndCheckSpice(freshData);
+                incrementMoveAndCheckSpice();
 
             });
         }
