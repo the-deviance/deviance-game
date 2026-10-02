@@ -205,7 +205,11 @@ export default function Card({id}) {
 
                     {gameData.players[gameData.currentPlayer] && (
                         <div className="turn-banner">
-                            <h2 style={{margin: 0, fontSize: "18px"}}>
+                            <h2
+                                key={gameData.currentPlayer}
+                                className="turn-banner-text"
+                                style={{borderLeftColor: colours[gameData.currentPlayer]}}
+                            >
                                 {gameData.players[gameData.currentPlayer].name}'s Turn
                             </h2>
                         </div>
@@ -224,7 +228,7 @@ export default function Card({id}) {
                                 6: "#fff",
                             }}
                         />
-                        <p style={{margin: "10px 0 0 0", fontSize: "12px"}}>
+                        <p className="dice-hint">
                             Tap the die to roll it.
                         </p>
                     </div>

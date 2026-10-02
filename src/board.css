@@ -4,7 +4,10 @@
    per-tile detail text hides (tap a tile to see it). */
 
 .game-screen {
-  background-color: #282c34;
+  background:
+    radial-gradient(1100px 700px at 85% -10%, rgba(199, 0, 57, 0.16), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(88, 24, 69, 0.4), transparent 60%),
+    var(--dv-bg-0);
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
@@ -27,8 +30,8 @@
 }
 
 .main-title {
-  color: #aaa;
   margin: 0;
+  font-size: 34px;
 }
 
 .board-grid {
@@ -47,15 +50,43 @@
 }
 
 .board-tile {
-  background-color: #000;
-  color: #ccc;
+  background: linear-gradient(180deg, var(--dv-surface), var(--dv-bg-1));
+  color: #d9d7e0;
   position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border: 2px solid transparent;
-  border-radius: 3px;
+  border: 2px solid var(--dv-border);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   cursor: pointer;
   min-width: 0;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .board-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.board-tile:active {
+  transform: scale(0.96);
+}
+
+/* The tile the current player is standing on */
+.tile-current {
+  animation: dv-tile-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dv-tile-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(255, 87, 51, 0.45), 0 0 14px rgba(255, 87, 51, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.75), 0 0 22px rgba(255, 87, 51, 0.45);
+  }
 }
 
 .tile-stripe {
@@ -70,15 +101,22 @@
 }
 
 .tile-name {
-  font-weight: 900;
-  font-size: clamp(10px, 1.5vw, 15px);
+  font-weight: 800;
+  font-size: clamp(11px, 1.6vw, 15px);
   line-height: 1.15;
   padding: 0 2px;
   overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .tile-detail {
-  font-size: clamp(9px, 1.3vw, 14px);
+  font-size: clamp(11px, 1.4vw, 14px);
+  color: var(--dv-text-dim);
+}
+
+.tile-detail p {
+  font-size: inherit;
+  margin-bottom: 0;
 }
 
 .player-token {
@@ -87,14 +125,29 @@
   border-radius: 50%;
   position: absolute;
   bottom: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  animation: dv-token-drop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes dv-token-drop {
+  from {
+    transform: translateY(-10px) scale(0.3);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .center-panel {
   grid-area: c;
-  background-color: #000;
-  color: #fff;
-  border-radius: 3px;
+  background: linear-gradient(180deg, var(--dv-surface), var(--dv-bg-1));
+  color: var(--dv-text);
+  border: 1px solid var(--dv-border);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   min-width: 0;
 }
 
@@ -102,20 +155,26 @@
   position: relative;
   height: 100%;
   box-sizing: border-box;
-  padding: 16px 16px 110px 16px;
+  padding: 18px 18px 116px 18px;
 }
 
 .stat-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .stat-head {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dv-text-dim);
   margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--dv-border);
 }
 
 .stat-col-player {
@@ -141,15 +200,43 @@
 
 .turn-banner {
   position: absolute;
-  left: 16px;
-  bottom: 16px;
+  left: 18px;
+  bottom: 18px;
+}
+
+.turn-banner-text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 14px;
+  background: var(--dv-surface-2);
+  border-left: 3px solid var(--dv-flame);
+  border-radius: 8px;
+  animation: dv-banner-in 0.35s ease-out;
+}
+
+@keyframes dv-banner-in {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .dice-dock {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
+  right: 18px;
+  bottom: 18px;
   text-align: center;
+}
+
+.dice-hint {
+  margin: 10px 0 0 0;
+  font-size: 13px;
+  color: var(--dv-text-dim);
 }
 
 @media (max-width: 767px) {
@@ -165,13 +252,13 @@
     order: -1;
     width: 100%;
     text-align: center;
-    font-size: 26px;
+    font-size: 30px;
   }
 
   .board-grid {
-    --token-size: 12px;
-    --token-step: 14px;
-    gap: 3px;
+    --token-size: 13px;
+    --token-step: 15px;
+    gap: 4px;
     grid-template-areas:
       "t0  t1  t2  t3  t4 t5"
       "t15 .   .   .   .  t6"
@@ -180,8 +267,13 @@
       "c   c   c   c   c  c";
   }
 
+  .board-tile {
+    border-radius: 7px;
+    border-width: 2px;
+  }
+
   .tile-name {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: -0.2px;
     padding: 0 1px;
   }
@@ -195,29 +287,39 @@
   }
 
   .center-panel {
-    margin-top: 8px;
-    min-height: 220px;
+    margin-top: 10px;
+    min-height: 230px;
   }
 
   .center-inner {
-    padding: 12px 12px 100px 12px;
+    padding: 14px 12px 104px 12px;
   }
 
   .stat-row {
-    font-size: 12px;
+    font-size: 15px;
+  }
+
+  .stat-head {
+    font-size: 11px;
   }
 
   .turn-banner {
     left: 12px;
     bottom: 12px;
+    max-width: 55%;
   }
 
-  .turn-banner h2 {
-    font-size: 15px !important;
+  .turn-banner-text {
+    font-size: 15px;
+    padding: 7px 10px;
   }
 
   .dice-dock {
     right: 12px;
     bottom: 12px;
+  }
+
+  .dice-hint {
+    font-size: 12px;
   }
 }

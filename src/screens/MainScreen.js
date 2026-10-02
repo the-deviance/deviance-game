@@ -30,27 +30,21 @@ export default function MainScreen() {
     return (
         <div className="game-screen">
             <div className="main-header">
-                <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
+                <div className="spice-control">
                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <span style={{color: "#aaa"}}>Current Spice Level:</span>
-                        <button style={{
-                            color: "#6363c8",
-                            fontSize: '12px',
-                            backgroundColor: 'transparent',
-                            border: 'none',
-                            textAlign: 'left',
-                            marginLeft: '-5px'
-                        }} onClick={increaseSpiceLevel}>Increase Spice Level
+                        <span className="spice-label">Spice Level</span>
+                        <button className="spice-button" onClick={increaseSpiceLevel}>
+                            Increase Spice Level
                         </button>
                     </div>
-                    <div style={{display: "flex", gap: "5px", marginTop: '-15px'}}>
+                    <div className="spice-flames">
                         {spiceArray.map((_, index) => (
                             <Flame key={index}/>
                         ))}
                     </div>
                 </div>
 
-                <h1 className="main-title">Deviance</h1>
+                <h1 className="main-title dv-title">Deviance</h1>
 
                 <Button color="secondary" size="sm" onClick={handleNewGameClick}>
                     Start New Game

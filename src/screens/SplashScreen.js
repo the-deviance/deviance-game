@@ -18,46 +18,13 @@ export default function SplashScreen() {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1605910470315-abac78c52d73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1857&q=80')",
-        backgroundColor: "#282c34",
-        minHeight: "100vh",
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: "RGBA(40, 44, 52, 0.6)",
-          minHeight: "100vh",
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        <h1
-          style={{
-            padding: "30px",
-            textAlign: "center",
-            color: "#aaa",
-          }}
-        >
-          Deviance
-        </h1>
-        <div style={{ textAlign: "center", padding: "0 16px" }}>
+    <div className="splash-screen">
+      <div className="splash-overlay">
+        <h1 className="splash-title dv-title">Deviance</h1>
+        <div className="splash-strap">
           Welcome to Deviance, the Adult Only board game!
         </div>
-        <div className="p-4" style={{ maxWidth: "640px" }}>
+        <div className="splash-disclaimer">
           <p>
             This website is for adults only. Whilst the game contains no
             pornographic images, it does contain material of an adult nature.
@@ -70,15 +37,8 @@ export default function SplashScreen() {
             over, and that you consent to see materials of a sexual nature.
           </p>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div className="splash-actions">
           <Button
-            className="m-3"
             onClick={() => {
               track("Under 18");
               window.location.href = "https://theuselessweb.com/";
@@ -91,7 +51,6 @@ export default function SplashScreen() {
             <>
               <Button
                 color="primary"
-                className="m-3"
                 onClick={() => {
                   track("Resume Game");
                   navigate("/game");
@@ -99,18 +58,18 @@ export default function SplashScreen() {
               >
                 Yes, resume our game
               </Button>
-              <Button color="danger" className="m-3" onClick={startFresh}>
+              <Button color="danger" onClick={startFresh}>
                 Yes, start a new game
               </Button>
             </>
           ) : (
-            <Button color="primary" className="m-3" onClick={startFresh}>
+            <Button color="primary" onClick={startFresh}>
               Yes, I'm over 18
             </Button>
           )}
         </div>
         {canResume && (
-          <div style={{ color: "#aaa", fontSize: "14px" }}>
+          <div className="splash-resume-note">
             You have a game in progress with{" "}
             {gameData.players
               .filter((p) => p.name)

@@ -144,11 +144,5 @@ body {
 
 }
 
-p {
-  font-size: 12px;
-}
-
-h5 {
-  font-size: 12px;
-  font-weight: 700;
-}
+/* The old global p/h5 12px overrides lived here; body text now
+   inherits the 16px base set in theme.css. */

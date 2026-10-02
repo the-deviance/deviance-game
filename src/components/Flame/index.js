@@ -3,11 +3,7 @@ import { colours } from "../../data/constants";
 
 export default function Flame() {
   return (
-    <span
-      style={{
-        width: "20px",
-      }}
-    >
+    <span className="flame">
       <svg
         version="1.1"
         id="Layer_1"

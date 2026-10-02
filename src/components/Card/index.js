@@ -13,12 +13,20 @@ export default function Card({ id, onSelect }) {
   const ownerColour =
     property.owner !== undefined ? colours[property.owner] : undefined;
 
+  const isCurrentTile =
+    gameData.players?.[gameData.currentPlayer]?.position === id;
+
   return (
     <div
-      className="board-tile"
+      className={`board-tile${isCurrentTile ? " tile-current" : ""}`}
       style={{
         gridArea: `t${id}`,
-        borderColor: ownerColour || "transparent",
+        ...(ownerColour
+          ? {
+              borderColor: ownerColour,
+              boxShadow: `0 0 10px ${ownerColour}99`,
+            }
+          : {}),
       }}
       onClick={() => onSelect && onSelect(id)}
     >
