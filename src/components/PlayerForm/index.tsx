@@ -1,33 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
-
-interface Player {
-  position?: number;
-  gender?:  number;
-  sexuality?:  number;
-  dress?:  number;
-  name?: string;
-  prefs?: {
-    dominant?: boolean;
-    submissive?: boolean;
-    humiliation_giving?: boolean;
-    humiliation_receiving?: boolean;
-    anal_giving?: boolean;
-    anal_receiving?: boolean;
-    blindfolded?: boolean;
-    resisting?: boolean;
-  };
-  pronouns?: {
-    he: string;
-    him: string;
-    his: string;
-  };
-  [key: string]: any;
-}
+import {
+  Player,
+  DressLevel,
+  DRESS_LABELS,
+  Gender,
+  Sexuality,
+} from "../../types/game";
 
 interface PlayerFormProps {
   player: Player;
 }
+
+// The slider runs the opposite way to the game scale: slider 0 = Naked,
+// slider 3 = Fully Clothed. Game scale is the reverse (DressLevel).
+const sliderToDress = (value: number): DressLevel => (3 - value) as DressLevel;
 
 export default function PlayerForm({ player }: PlayerFormProps) {
   const [dress, setDress] = useState(3);
@@ -35,9 +22,9 @@ export default function PlayerForm({ player }: PlayerFormProps) {
   useEffect(() => {
     // Setup defaults
     player.position = 0;
-    player.gender = 0;
-    player.sexuality = 0;
-    player.dress = 0;
+    player.gender = Gender.Male;
+    player.sexuality = Sexuality.Straight;
+    player.dress = DressLevel.FullyClothed;
     player.prefs = {
       dominant: false,
       submissive: false,
@@ -51,19 +38,12 @@ export default function PlayerForm({ player }: PlayerFormProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getDressLabel = (value: number): string => {
-    switch (value) {
-      case 0: return "Naked";
-      case 1: return "Underwear only";
-      case 2: return "Topless";
-      case 3: return "Fully Clothed";
-      default: return "";
-    }
-  };
+  const getDressLabel = (value: number): string =>
+    DRESS_LABELS[sliderToDress(value)] || "";
 
   const updatePlayer = (e: React.ChangeEvent<HTMLInputElement> | number) => {
     if (typeof e === 'number') {
-      player.dress = e;
+      player.dress = e as DressLevel;
       console.log(`Setting dress level to ${e}`)
       setDress(3-e);
       return;
@@ -72,19 +52,8 @@ export default function PlayerForm({ player }: PlayerFormProps) {
 
     let value: any = e.target.value;
       if (e.target.name === "gender" || e.target.name === "sexuality") {
-          switch (value) {
-              case "0":
-                  value = 0;
-                  break;
-              case "1":
-                  value = 1;
-                  break;
-              case "2":
-                  value = 2;
-                  break;
-              default:
-                  return;
-          }
+          value = parseInt(value, 10);
+          if (Number.isNaN(value)) return;
       }
       if (e.target.name === "pronouns") {
       switch (e.target.value) {
@@ -102,7 +71,7 @@ export default function PlayerForm({ player }: PlayerFormProps) {
       if (!player.prefs) player.prefs = {};
       player.prefs[e.target.id as keyof typeof player.prefs] = e.target.checked
     }
-    player[e.target.name] = value;
+    (player as Record<string, any>)[e.target.name] = value;
     console.log(`Updated player: ${e.target.name} with ${value}`);
     console.log(player)
   };
@@ -128,8 +97,8 @@ export default function PlayerForm({ player }: PlayerFormProps) {
           className="form-control"
           onChange={updatePlayer}
         >
-          <option value={0}>Male</option>
-          <option value={1}>Female</option>
+          <option value={Gender.Male}>Male</option>
+          <option value={Gender.Female}>Female</option>
         </Input>
       </FormGroup>
       <FormGroup>
@@ -141,10 +110,10 @@ export default function PlayerForm({ player }: PlayerFormProps) {
           className="form-control"
           onChange={updatePlayer}
         >
-          <option value={0}>Straight</option>
-            <option value={1}>Bi-Curious</option>
-            <option value={2}>Bi</option>
-          <option value={3}>Gay</option>
+          <option value={Sexuality.Straight}>Straight</option>
+          <option value={Sexuality.BiCurious}>Bi-Curious</option>
+          <option value={Sexuality.Bi}>Bi</option>
+          <option value={Sexuality.Gay}>Gay</option>
         </Input>
       </FormGroup>
       <FormGroup>
@@ -173,7 +142,7 @@ export default function PlayerForm({ player }: PlayerFormProps) {
           onChange={(e) => {
             const value = parseInt(e.target.value);
             setDress(value);
-            updatePlayer(3-value); // Invert the numbers (3 = naked, 0 = fully dressed)
+            updatePlayer(sliderToDress(value));
           }}
         />
         <div className="d-flex justify-content-between small text-muted">

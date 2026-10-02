@@ -7,7 +7,7 @@ import {
   MAX_SPICE_LEVEL,
   MAX_DRESS_LEVEL,
 } from './GameContext';
-import { GameData } from '../types/game';
+import { GameData, DressLevel } from '../types/game';
 
 function stateWithPlayers(count: number, overrides: Partial<GameData> = {}): GameData {
   return {
@@ -128,7 +128,7 @@ describe('gameReducer', () => {
       let state = stateWithPlayers(1);
       state = gameReducer(state, {
         type: 'UPDATE_PLAYER',
-        payload: { id: 0, updates: { dress: MAX_DRESS_LEVEL - 1 } },
+        payload: { id: 0, updates: { dress: DressLevel.Underwear } },
       });
       state = gameReducer(state, { type: 'REMOVE_CLOTHING', payload: { playerId: 0 } });
       expect(state.players[0].dress).toBe(MAX_DRESS_LEVEL);

@@ -3,6 +3,7 @@ import {fateCards} from "./fateCards";
 import {chamberCards} from "./chamberCards";
 import {stageCards} from "./stageCards";
 import toys from "./toys.json";
+import {Gender, Sexuality, TargetSex, genderToTargetSex} from "../types/game";
 
 const usedCardPile = JSON.parse(localStorage.getItem('cardData')) || [];
 
@@ -199,7 +200,7 @@ const replacePlaceholders = ({task, players, target}) => {
     task.message = task.message.replaceAll(`%ts%`, target.pronouns.him);
     task.message = task.message.replaceAll(`%tp%`, target.pronouns.his);
 
-    if (target.gender === 1) {
+    if (target.gender === Gender.Female) {
         task.message = task.message.replaceAll("%and bra%", "and bra");
     } else {
         task.message = task.message.replaceAll("%and bra%", "");
@@ -260,28 +261,15 @@ const replacePlaceholders = ({task, players, target}) => {
 
 export const canPlayersInteract = ({owner, player}) => {
     if (!owner || !player) return false;
-    if (player.gender === 0) {
-        // Player is male
-        if (owner.gender === 0) {
-            // Owner is male - both must be gay, bi, or curious
-            if (player.sexuality > 0 && owner.sexuality > 0) return true;
-        } else if (owner.gender === 1) {
-            // Owner is female - both must be not gay
-            if (player.sexuality !== 3 && owner.sexuality !== 3) return true;
-        } else if (owner.gender === 2) {
-            // Owner is neutral - THIS MAKES NO SENSE!!!
-        }
-    } else if (player.gender === 1) {
-        // Player is femail
-        if (owner.gender === 1) {
-            // Owner is male - both must be gay, bi, or curious
-            if (player.sexuality > 0 && owner.sexuality > 0) return true;
-        } else if (owner.gender === 0) {
-            // Owner is male - both must be not gay
-            if (player.sexuality !== 3 && owner.sexuality !== 3) return true;
-        }
+    const genders = [Gender.Male, Gender.Female];
+    if (!genders.includes(player.gender) || !genders.includes(owner.gender)) return false;
+
+    if (player.gender === owner.gender) {
+        // Same sex - neither can be straight
+        return player.sexuality !== Sexuality.Straight && owner.sexuality !== Sexuality.Straight;
     }
-    return false;
+    // Opposite sex - neither can be gay
+    return player.sexuality !== Sexuality.Gay && owner.sexuality !== Sexuality.Gay;
 };
 
 const shuffleDeck = (deck) => {
@@ -351,11 +339,9 @@ const getCardForTargetInDeck = ({
     console.log(`${deckCopy.length} Action cards at dress level: ${target.dress}`);
 
     // Filter by target sex
-    // 0 = both
-    // 1 = male
-    // 2 = female
     deckCopy = deckCopy.filter((task) => {
-        if (task.target_sex === target.gender + 1 || task.target_sex === 0)
+        if (task.target_sex === TargetSex.Any) return task;
+        if (target.gender !== undefined && task.target_sex === genderToTargetSex(target.gender))
             return task;
         return null;
     });

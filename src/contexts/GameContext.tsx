@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useEffect, useReducer, ReactNode } from 'react';
 import { toast } from 'react-toastify';
-import { GameData, Player } from '../types/game';
+import { GameData, Player, DressLevel } from '../types/game';
 
 export const STORAGE_KEY = 'gameData';
 export const BOARD_SIZE = 16;
 export const PASS_GO_BONUS = 200;
 export const MAX_SPICE_LEVEL = 3;
-export const MAX_DRESS_LEVEL = 3; // 0 = fully clothed, 3 = naked
+export const MAX_DRESS_LEVEL = DressLevel.Naked;
 
 export const initialGameData: GameData = {
   players: [],
@@ -24,7 +24,7 @@ export function createDefaultPlayer(id: number): Player {
     optOuts: 3,
     pronouns: { he: 'he', him: 'him', his: 'his' },
     position: 0,
-    dress: 3,
+    dress: DressLevel.FullyClothed,
   };
 }
 
@@ -98,7 +98,7 @@ export function gameReducer(state: GameData, action: GameAction): GameData {
       }));
     case 'REMOVE_CLOTHING':
       return updatePlayerById(state, action.payload.playerId, p => ({
-        dress: Math.min((p.dress || 0) + 1, MAX_DRESS_LEVEL),
+        dress: Math.min((p.dress || 0) + 1, MAX_DRESS_LEVEL) as DressLevel,
       }));
     case 'INCREASE_SPICE':
       return {

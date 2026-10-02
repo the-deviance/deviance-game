@@ -10,6 +10,7 @@ import SpecialModal from "../../components/SpecialModal";
 import AddPlayers from "../../components/AddPlayers";
 import AddToys from "../../components/AddToys";
 import {colours} from "../../data/constants";
+import {DRESS_LABELS} from "../../types/game";
 import Chick from "../../components/Chick";
 import {toast} from 'react-toastify';
 
@@ -38,8 +39,6 @@ export default function Card({id}) {
     const [actionModal, setActionModal] = useState(false);
     const [specialModal, setSpecialModal] = useState(false);
 
-
-    const dress = ["Fully Clothed", "Topless","Underwear","Naked"];
 
     useEffect(() => {
         if (gameData.started) {
@@ -207,7 +206,7 @@ export default function Card({id}) {
                                     <span>{player.name}</span>
                                 </div>
                                 <span style={{width: "100px"}}>£{player.money}</span>
-                                <span style={{width: "150px"}}>{dress[player.dress]}</span>
+                                <span style={{width: "150px"}}>{DRESS_LABELS[player.dress]}</span>
                                 <div style={{width: "150px", display: "flex", gap: "2px"}}>
                                     {optOuts.map((_, i) => (
                                         <Chick key={i}/>
