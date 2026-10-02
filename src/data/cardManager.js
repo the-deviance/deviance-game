@@ -9,7 +9,7 @@ import {chamberExpansionBdsm} from "./expansion/chamberExpansionBdsm";
 import {stageExpansion} from "./expansion/stageExpansion";
 import {fateExpansion} from "./expansion/fateExpansion";
 import toys from "./toys.json";
-import {Gender, Sexuality, TargetSex, genderToTargetSex, PREF_KEYS} from "../types/game";
+import {targetSexMatchesBody, PREF_KEYS} from "../types/game";
 
 // Original decks + expansion batches (see docs/card-spec.md). New card
 // batches are a new file in expansion/ plus a spread here.
@@ -40,24 +40,26 @@ const markCardUsed = (card) => {
     localStorage.setItem('cardData', JSON.stringify(pile));
 };
 
-// House rule: a man reaching orgasm ends his night, so cards flagged as
-// making someone climax (`target_orgasms` / `player_orgasms`) only reach
-// male players once the game hits spice level 5. Women are unaffected.
-const MALE_ORGASM_SPICE = 5;
+// House rule, per player ("one orgasm ends my night", defaulted on for
+// penis-owners at setup): cards flagged as making someone climax
+// (`target_orgasms` / `player_orgasms`) only reach a player with the toggle
+// on once the game hits spice level 5. Everyone else draws them at the
+// card's printed level.
+const ORGASM_ENDS_NIGHT_SPICE = 5;
 
 // The spice level a card effectively requires for THIS target: flagged
-// orgasm cards count as level 5 when the target is male.
+// orgasm cards count as level 5 when the target's night would end.
 const effectiveSpiceLevel = (card, target) =>
-    card.target_orgasms && target?.gender === Gender.Male
-        ? Math.max(card.spice_level, MALE_ORGASM_SPICE)
+    card.target_orgasms && target?.orgasmEndsNight
+        ? Math.max(card.spice_level, ORGASM_ENDS_NIGHT_SPICE)
         : card.spice_level;
 
-// Can this player fill a non-target slot on this card? Blocks men from
-// slots the card makes climax until the game reaches spice level 5.
+// Can this player fill a non-target slot on this card? Blocks players whose
+// orgasm ends their night from climaxing slots until spice level 5.
 const orgasmRuleAllows = ({card, player, gameData}) =>
     !card.player_orgasms ||
-    player.gender !== Gender.Male ||
-    gameData.spiceLevel >= MALE_ORGASM_SPICE;
+    !player.orgasmEndsNight ||
+    gameData.spiceLevel >= ORGASM_ENDS_NIGHT_SPICE;
 
 // A card that stages more than two bodies (number_of_participants >= 3)
 // fills the extra slots here: someone not already in the scene, able to
@@ -272,7 +274,7 @@ const replacePlaceholders = ({task, players, target}) => {
     task.message = task.message.replaceAll(`%ts%`, target.pronouns.him);
     task.message = task.message.replaceAll(`%tp%`, target.pronouns.his);
 
-    if (target.gender === Gender.Female) {
+    if (target.body?.bra) {
         task.message = task.message.replaceAll("%and bra%", "and bra");
     } else {
         task.message = task.message.replaceAll("%and bra%", "");
@@ -306,17 +308,15 @@ const replacePlaceholders = ({task, players, target}) => {
     return task;
 };
 
+// Pairings are explicit, mutual consent: both players must have ticked each
+// other at setup. No orientation inference, and anything missing fails
+// closed (old saves get playsWith derived at load by migratePlayers).
 export const canPlayersInteract = ({owner, player}) => {
     if (!owner || !player) return false;
-    const genders = [Gender.Male, Gender.Female];
-    if (!genders.includes(player.gender) || !genders.includes(owner.gender)) return false;
-
-    if (player.gender === owner.gender) {
-        // Same sex - neither can be straight
-        return player.sexuality !== Sexuality.Straight && owner.sexuality !== Sexuality.Straight;
-    }
-    // Opposite sex - neither can be gay
-    return player.sexuality !== Sexuality.Gay && owner.sexuality !== Sexuality.Gay;
+    return Boolean(
+        owner.playsWith?.includes(player.id) &&
+        player.playsWith?.includes(owner.id)
+    );
 };
 
 const shuffleDeck = (deck) => {
@@ -388,17 +388,11 @@ const getCardForTargetInDeck = ({
 
     console.log(`${deckCopy.length} Action cards at dress level: ${target.dress}`);
 
-    // Filter by target sex
-    deckCopy = deckCopy.filter((task) => {
-        if (task.target_sex === TargetSex.Any) return task;
-        if (target.gender !== undefined && task.target_sex === genderToTargetSex(target.gender))
-            return task;
-        return null;
-    });
+    // Filter by target anatomy: target_sex 1 needs a penis, 2 needs a vulva,
+    // 0/unset fits everyone. Matched on the body facts ticked at setup.
+    deckCopy = deckCopy.filter((task) => targetSexMatchesBody(task.target_sex, target.body));
 
-    console.log(
-        `${deckCopy.length} Action cards for correct target gender: ${target.gender}`
-    );
+    console.log(`${deckCopy.length} Action cards fitting the target's body`);
 
     // Exclude used cards
     if (!includeUsed) {

@@ -8,6 +8,7 @@ import ShowRentModal from "../../components/ShowRentModal";
 import ActionModal from "../../components/ActionModal";
 import SpecialModal from "../../components/SpecialModal";
 import AddPlayers from "../../components/AddPlayers";
+import PartnerPicker from "../../components/PartnerPicker";
 import AddToys from "../../components/AddToys";
 import {colours} from "../../data/constants";
 import {DRESS_LABELS} from "../../types/game";
@@ -154,8 +155,15 @@ export default function Card({id}) {
                 }}
                 setSetupStep={setSetupStep}
             ></AddPlayers>
-            <AddToys
+            <PartnerPicker
                 modal={setupStep === 2}
+                toggle={() => {
+                    setSetupStep(0);
+                }}
+                setSetupStep={setSetupStep}
+            ></PartnerPicker>
+            <AddToys
+                modal={setupStep === 3}
                 toggle={() => {
                     setSetupStep(0);
                 }}

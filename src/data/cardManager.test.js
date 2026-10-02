@@ -11,90 +11,112 @@ import {
   Gender,
   Sexuality,
   TargetSex,
-  genderToTargetSex,
+  targetSexMatchesBody,
+  migratePlayers,
   PREF_KEYS,
   defaultPrefs,
 } from '../types/game';
 
-const player = (gender, sexuality) => ({ gender, sexuality });
+const BODY_PENIS = { penis: true, vulva: false, bra: false };
+const BODY_VULVA = { penis: false, vulva: true, bra: true };
+
+const player = (id, playsWith) => ({ id, playsWith });
 
 describe('canPlayersInteract', () => {
-  it('allows opposite-sex pairs when neither is gay', () => {
+  it('allows a pair only when BOTH players ticked each other', () => {
     expect(
-      canPlayersInteract({
-        owner: player(Gender.Male, Sexuality.Straight),
-        player: player(Gender.Female, Sexuality.Straight),
-      })
-    ).toBe(true);
-    expect(
-      canPlayersInteract({
-        owner: player(Gender.Female, Sexuality.Bi),
-        player: player(Gender.Male, Sexuality.BiCurious),
-      })
+      canPlayersInteract({ owner: player(0, [1]), player: player(1, [0]) })
     ).toBe(true);
   });
 
-  it('blocks opposite-sex pairs when either is gay', () => {
+  it('blocks a one-sided tick in either direction', () => {
     expect(
-      canPlayersInteract({
-        owner: player(Gender.Male, Sexuality.Gay),
-        player: player(Gender.Female, Sexuality.Straight),
-      })
+      canPlayersInteract({ owner: player(0, [1]), player: player(1, []) })
     ).toBe(false);
     expect(
-      canPlayersInteract({
-        owner: player(Gender.Female, Sexuality.Straight),
-        player: player(Gender.Male, Sexuality.Gay),
-      })
+      canPlayersInteract({ owner: player(0, []), player: player(1, [0]) })
     ).toBe(false);
   });
 
-  it('allows same-sex pairs when neither is straight', () => {
+  it('fails closed on missing players or missing tick lists', () => {
+    expect(canPlayersInteract({ owner: null, player: player(1, [0]) })).toBe(false);
+    expect(canPlayersInteract({ owner: player(0, [1]), player: undefined })).toBe(false);
     expect(
-      canPlayersInteract({
-        owner: player(Gender.Male, Sexuality.Gay),
-        player: player(Gender.Male, Sexuality.Bi),
-      })
-    ).toBe(true);
-    expect(
-      canPlayersInteract({
-        owner: player(Gender.Female, Sexuality.BiCurious),
-        player: player(Gender.Female, Sexuality.Bi),
-      })
-    ).toBe(true);
-  });
-
-  it('blocks same-sex pairs when either is straight', () => {
-    expect(
-      canPlayersInteract({
-        owner: player(Gender.Male, Sexuality.Straight),
-        player: player(Gender.Male, Sexuality.Gay),
-      })
-    ).toBe(false);
-    expect(
-      canPlayersInteract({
-        owner: player(Gender.Female, Sexuality.Bi),
-        player: player(Gender.Female, Sexuality.Straight),
-      })
-    ).toBe(false);
-  });
-
-  it('fails closed on missing players or unknown genders', () => {
-    expect(canPlayersInteract({ owner: null, player: player(Gender.Male, Sexuality.Bi) })).toBe(false);
-    expect(canPlayersInteract({ owner: player(Gender.Male, Sexuality.Bi), player: undefined })).toBe(false);
-    expect(
-      canPlayersInteract({
-        owner: player(undefined, Sexuality.Bi),
-        player: player(Gender.Female, Sexuality.Bi),
-      })
+      canPlayersInteract({ owner: player(0, undefined), player: player(1, [0]) })
     ).toBe(false);
   });
 });
 
-describe('genderToTargetSex', () => {
-  it('maps the gender scale onto the card target_sex scale', () => {
-    expect(genderToTargetSex(Gender.Male)).toBe(TargetSex.Male);
-    expect(genderToTargetSex(Gender.Female)).toBe(TargetSex.Female);
+describe('targetSexMatchesBody', () => {
+  it('matches anatomy-targeted cards on body facts, not labels', () => {
+    expect(targetSexMatchesBody(TargetSex.Male, BODY_PENIS)).toBe(true);
+    expect(targetSexMatchesBody(TargetSex.Male, BODY_VULVA)).toBe(false);
+    expect(targetSexMatchesBody(TargetSex.Female, BODY_VULVA)).toBe(true);
+    expect(targetSexMatchesBody(TargetSex.Female, BODY_PENIS)).toBe(false);
+  });
+
+  it('lets Any-targeted cards fit every body, including none ticked', () => {
+    expect(targetSexMatchesBody(TargetSex.Any, BODY_PENIS)).toBe(true);
+    expect(targetSexMatchesBody(undefined, { penis: false, vulva: false, bra: false })).toBe(true);
+  });
+
+  it('fails closed on a missing body for anatomy-targeted cards', () => {
+    expect(targetSexMatchesBody(TargetSex.Male, undefined)).toBe(false);
+    expect(targetSexMatchesBody(TargetSex.Female, undefined)).toBe(false);
+  });
+});
+
+describe('migratePlayers (gender/sexuality era saves)', () => {
+  const legacy = (id, gender, sexuality) => ({
+    id,
+    money: 2000,
+    optOuts: 3,
+    pronouns: { he: 'he', him: 'him', his: 'his' },
+    gender,
+    sexuality,
+  });
+
+  it('derives body facts and the orgasm rule from the old gender', () => {
+    const [man, woman] = migratePlayers([
+      legacy(0, Gender.Male, Sexuality.Straight),
+      legacy(1, Gender.Female, Sexuality.Straight),
+    ]);
+    expect(man.body).toEqual({ penis: true, vulva: false, bra: false });
+    expect(man.orgasmEndsNight).toBe(true);
+    expect(woman.body).toEqual({ penis: false, vulva: true, bra: true });
+    expect(woman.orgasmEndsNight).toBe(false);
+  });
+
+  it('reproduces the old orientation matrix as mutual ticks', () => {
+    const [m1, f1, f2, m2] = migratePlayers([
+      legacy(0, Gender.Male, Sexuality.Straight),
+      legacy(1, Gender.Female, Sexuality.Bi),
+      legacy(2, Gender.Female, Sexuality.Straight),
+      legacy(3, Gender.Male, Sexuality.Gay),
+    ]);
+    // Straight man: up for both women, not the other man.
+    expect(m1.playsWith.sort()).toEqual([1, 2]);
+    // Bi woman: up for everyone.
+    expect(f1.playsWith.sort()).toEqual([0, 2, 3]);
+    // Straight woman: the men only, and NOT m2 mutually (he's gay).
+    expect(f2.playsWith.sort()).toEqual([0, 3]);
+    expect(canPlayersInteract({ owner: f2, player: m2 })).toBe(false);
+    expect(canPlayersInteract({ owner: f2, player: m1 })).toBe(true);
+    // Same-sex straight pair never interacts.
+    expect(canPlayersInteract({ owner: f1, player: f2 })).toBe(false);
+  });
+
+  it('passes players that already carry the new fields through untouched', () => {
+    const modern = {
+      ...legacy(0, undefined, undefined),
+      body: BODY_VULVA,
+      playsWith: [2],
+      orgasmEndsNight: true,
+    };
+    const [out] = migratePlayers([modern]);
+    expect(out.body).toEqual(BODY_VULVA);
+    expect(out.playsWith).toEqual([2]);
+    expect(out.orgasmEndsNight).toBe(true);
   });
 });
 
@@ -128,21 +150,25 @@ describe('canDoAction pref gating', () => {
 describe('card drawing and the used pile', () => {
   const fullPrefs = Object.fromEntries(PREF_KEYS.map((key) => [key, true]));
 
-  const makePlayer = (id, name, gender) => ({
+  const makePlayer = (id, name, body, extra = {}) => ({
     id,
     name,
     money: 2000,
     optOuts: 3,
     position: 0,
     dress: 0,
-    gender,
-    sexuality: Sexuality.Bi,
+    body,
+    // Default: everyone at a 3-seat table is up for everyone else; tests
+    // narrow this where pairing rules are the thing under test.
+    playsWith: [0, 1, 2].filter((other) => other !== id),
+    orgasmEndsNight: Boolean(body.penis),
     pronouns: { he: 'he', him: 'him', his: 'his' },
     prefs: fullPrefs,
+    ...extra,
   });
 
-  const alice = makePlayer(0, 'Alice', Gender.Female);
-  const bob = makePlayer(1, 'Bob', Gender.Male);
+  const alice = makePlayer(0, 'Alice', BODY_VULVA);
+  const bob = makePlayer(1, 'Bob', BODY_PENIS);
   const gameData = {
     players: [alice, bob],
     toys: {},
@@ -190,7 +216,7 @@ describe('card drawing and the used pile', () => {
   });
 
   it('fills three-person cards with the third player when one exists', () => {
-    const carol = makePlayer(2, 'Carol', Gender.Female);
+    const carol = makePlayer(2, 'Carol', BODY_VULVA);
     const threeUp = { ...gameData, players: [alice, bob, carol] };
     let found = 0;
     for (let i = 0; i < 150; i++) {
@@ -206,7 +232,7 @@ describe('card drawing and the used pile', () => {
     expect(found).toBeGreaterThan(0);
   });
 
-  it('never deals a man an orgasm card below spice 5', () => {
+  it('never deals an orgasm card below spice 5 to a player whose night it would end', () => {
     const bareBob = { ...bob, dress: 3 };
     const bareAlice = { ...alice, dress: 3 };
     const spicy = { ...gameData, players: [bareAlice, bareBob], spiceLevel: 4 };
@@ -217,7 +243,7 @@ describe('card drawing and the used pile', () => {
     }
   });
 
-  it('never casts a man in the climaxing partner slot below spice 5', () => {
+  it('never casts a one-and-done player in the climaxing partner slot below spice 5', () => {
     const bareBob = { ...bob, dress: 3 };
     const bareAlice = { ...alice, dress: 3 };
     const spicy = { ...gameData, players: [bareAlice, bareBob], spiceLevel: 4 };
@@ -229,10 +255,25 @@ describe('card drawing and the used pile', () => {
     }
   });
 
-  it('still deals women orgasm cards at the printed level', () => {
+  it('deals orgasm cards at the printed level when the toggle is off', () => {
+    // The rule is per player, not per anatomy: a penis-owner who unticks
+    // "one orgasm ends my night" draws orgasm cards like anyone else.
+    const multiBob = { ...bob, dress: 3, orgasmEndsNight: false };
+    const bareAlice = { ...alice, dress: 3 };
+    const spicy = { ...gameData, players: [bareAlice, multiBob], spiceLevel: 4 };
+    let found = false;
+    for (let i = 0; i < 400; i++) {
+      const card = getActionCardforTarget({ target: multiBob, player: bareAlice, gameData: spicy });
+      if (!card) break;
+      if (card.target_orgasms) { found = true; break; }
+    }
+    expect(found).toBe(true);
+  });
+
+  it('still deals toggle-off players orgasm cards below spice 5', () => {
     // Orgasm cards mostly want an undressed target, so play these naked.
     const bareAlice = { ...alice, dress: 3 };
-    const carol = { ...makePlayer(2, 'Carol', Gender.Female), dress: 3 };
+    const carol = { ...makePlayer(2, 'Carol', BODY_VULVA), dress: 3 };
     const girls = { ...gameData, players: [bareAlice, carol], spiceLevel: 4 };
     let found = false;
     for (let i = 0; i < 400; i++) {
@@ -243,7 +284,7 @@ describe('card drawing and the used pile', () => {
     expect(found).toBe(true);
   });
 
-  it('deals men orgasm cards once the game reaches spice 5', () => {
+  it('deals toggle-on players orgasm cards once the game reaches spice 5', () => {
     const bareBob = { ...bob, dress: 3 };
     const bareAlice = { ...alice, dress: 3 };
     const naked = { ...gameData, players: [bareAlice, bareBob] };
@@ -256,18 +297,19 @@ describe('card drawing and the used pile', () => {
     expect(found).toBe(true);
   });
 
-  it('returns null (not a stack overflow) when no encounter partner is compatible', () => {
-    const straightAlice = { ...makePlayer(0, 'Alice', Gender.Female), sexuality: Sexuality.Straight };
-    const straightSue = { ...makePlayer(1, 'Sue', Gender.Female), sexuality: Sexuality.Straight };
-    const noMatch = { ...gameData, players: [straightAlice, straightSue] };
+  it('returns null (not a stack overflow) when no encounter partner is mutual', () => {
+    // Sue ticked Alice, but Alice didn't tick Sue back: no pairing, ever.
+    const soloAlice = { ...makePlayer(0, 'Alice', BODY_VULVA), playsWith: [] };
+    const sue = { ...makePlayer(1, 'Sue', BODY_VULVA), playsWith: [0] };
+    const noMatch = { ...gameData, players: [soloAlice, sue] };
     expect(() => {
-      const card = getEncounterCardForPlayer({ target: straightAlice, gameData: noMatch });
+      const card = getEncounterCardForPlayer({ target: soloAlice, gameData: noMatch });
       expect(card).toBeNull();
     }).not.toThrow();
   });
 
   it('enforces encounter consent gates on both the target and the partner', () => {
-    const prude = { ...makePlayer(1, 'Bob', Gender.Male), prefs: {} };
+    const prude = { ...makePlayer(1, 'Bob', BODY_PENIS), prefs: {} };
     const guarded = { ...gameData, players: [alice, prude] };
     for (let i = 0; i < 40; i++) {
       const card = getEncounterCardForPlayer({ target: prude, gameData: guarded });

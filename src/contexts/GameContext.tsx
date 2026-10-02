@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer, ReactNode } from 'react';
 import { toast } from 'react-toastify';
-import { GameData, Player, DressLevel } from '../types/game';
+import { GameData, Player, DressLevel, defaultBody, migratePlayers } from '../types/game';
 
 export const STORAGE_KEY = 'gameData';
 export const BOARD_SIZE = 16;
@@ -29,6 +29,9 @@ export function createDefaultPlayer(id: number): Player {
     pronouns: { he: 'he', him: 'him', his: 'his' },
     position: 0,
     dress: DressLevel.FullyClothed,
+    body: defaultBody(),
+    playsWith: [],
+    orgasmEndsNight: false,
   };
 }
 
@@ -133,6 +136,9 @@ export function loadGameData(): GameData {
         Math.max(saved.spiceLevel ?? MIN_SPICE_LEVEL, MIN_SPICE_LEVEL),
         MAX_SPICE_LEVEL
       );
+      // Saves from the gender/sexuality era: derive body facts, partner
+      // ticks and the per-player orgasm rule so the game plays on unchanged.
+      saved.players = migratePlayers(saved.players || []);
       return saved;
     }
   } catch (error) {

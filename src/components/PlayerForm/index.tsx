@@ -4,11 +4,10 @@ import {
   Player,
   DressLevel,
   DRESS_LABELS,
-  Gender,
-  Sexuality,
   PREF_PAIRS,
   PREF_SINGLES,
   defaultPrefs,
+  defaultBody,
 } from "../../types/game";
 
 interface PlayerFormProps {
@@ -21,16 +20,38 @@ const sliderToDress = (value: number): DressLevel => (3 - value) as DressLevel;
 
 export default function PlayerForm({ player }: PlayerFormProps) {
   const [dress, setDress] = useState(3);
+  const [body, setBody] = useState(defaultBody());
+  const [orgasmEndsNight, setOrgasmEndsNight] = useState(false);
+  // Ticking "has a penis" defaults the orgasm rule on, but a manual touch of
+  // that toggle wins from then on (not every penis-owner is one-and-done).
+  const [orgasmTouched, setOrgasmTouched] = useState(false);
 
   useEffect(() => {
     // Setup defaults
     player.position = 0;
-    player.gender = Gender.Male;
-    player.sexuality = Sexuality.Straight;
+    player.body = defaultBody();
+    player.playsWith = [];
+    player.orgasmEndsNight = false;
     player.dress = DressLevel.FullyClothed;
     player.prefs = defaultPrefs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const updateBody = (key: 'penis' | 'vulva' | 'bra', checked: boolean) => {
+    const next = { ...body, [key]: checked };
+    setBody(next);
+    player.body = next;
+    if (key === 'penis' && !orgasmTouched) {
+      setOrgasmEndsNight(checked);
+      player.orgasmEndsNight = checked;
+    }
+  };
+
+  const updateOrgasmRule = (checked: boolean) => {
+    setOrgasmTouched(true);
+    setOrgasmEndsNight(checked);
+    player.orgasmEndsNight = checked;
+  };
 
   const getDressLabel = (value: number): string =>
     DRESS_LABELS[sliderToDress(value)] || "";
@@ -45,10 +66,6 @@ export default function PlayerForm({ player }: PlayerFormProps) {
     if (!e.target) return;
 
     let value: any = e.target.value;
-      if (e.target.name === "gender" || e.target.name === "sexuality") {
-          value = parseInt(value, 10);
-          if (Number.isNaN(value)) return;
-      }
       if (e.target.name === "pronouns") {
       switch (e.target.value) {
         case "1":
@@ -83,32 +100,51 @@ export default function PlayerForm({ player }: PlayerFormProps) {
         />
       </FormGroup>
       <FormGroup>
-        <Label for="gender">Gender</Label>
-        <Input
-          type="select"
-          name="gender"
-          id="gender"
-          className="form-control"
-          onChange={updatePlayer}
-        >
-          <option value={Gender.Male}>Male</option>
-          <option value={Gender.Female}>Female</option>
-        </Input>
-      </FormGroup>
-      <FormGroup>
-        <Label for="sexuality">Sexuality</Label>
-        <Input
-          type="select"
-          name="sexuality"
-          id="sexuality"
-          className="form-control"
-          onChange={updatePlayer}
-        >
-          <option value={Sexuality.Straight}>Straight</option>
-          <option value={Sexuality.BiCurious}>Bi-Curious</option>
-          <option value={Sexuality.Bi}>Bi</option>
-          <option value={Sexuality.Gay}>Gay</option>
-        </Input>
+        <Label className="prefs-heading">Your body</Label>
+        <div className="small text-muted mb-2">
+          Cards are matched to what you tick here, not to a gender label.
+        </div>
+        <FormGroup check>
+          <Input
+            id={`body-penis-${player.id}`}
+            type="checkbox"
+            checked={body.penis}
+            onChange={(e) => updateBody('penis', e.target.checked)}
+          />
+          <Label for={`body-penis-${player.id}`} check>Has a penis</Label>
+        </FormGroup>
+        <FormGroup check>
+          <Input
+            id={`body-vulva-${player.id}`}
+            type="checkbox"
+            checked={body.vulva}
+            onChange={(e) => updateBody('vulva', e.target.checked)}
+          />
+          <Label for={`body-vulva-${player.id}`} check>Has a vulva</Label>
+        </FormGroup>
+        <FormGroup check>
+          <Input
+            id={`body-bra-${player.id}`}
+            type="checkbox"
+            checked={body.bra}
+            onChange={(e) => updateBody('bra', e.target.checked)}
+          />
+          <Label for={`body-bra-${player.id}`} check>Wears a bra</Label>
+        </FormGroup>
+        <FormGroup check className="mt-2">
+          <Input
+            id={`orgasm-ends-night-${player.id}`}
+            type="checkbox"
+            checked={orgasmEndsNight}
+            onChange={(e) => updateOrgasmRule(e.target.checked)}
+          />
+          <Label for={`orgasm-ends-night-${player.id}`} check>
+            One orgasm ends my night
+          </Label>
+          <div className="small text-muted">
+            Holds cards that make you come until the top spice level.
+          </div>
+        </FormGroup>
       </FormGroup>
       <FormGroup>
         <Label for="pronouns">Pronouns</Label>

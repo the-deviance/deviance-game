@@ -22,6 +22,8 @@ export const DRESS_LABELS: Record<DressLevel, string> = {
   [DressLevel.Naked]: 'Naked',
 };
 
+// LEGACY: pre-October-2026 saves stored a gender + sexuality per player.
+// Both survive only as inputs to migratePlayers(); nothing else reads them.
 export const Gender = {
   Male: 0,
   Female: 1,
@@ -36,8 +38,20 @@ export const Sexuality = {
 } as const;
 export type Sexuality = (typeof Sexuality)[keyof typeof Sexuality];
 
-// Who a card is aimed at. Offset by one from Gender (0 means "anyone"),
-// which is what the old `target.gender + 1` comparison encoded.
+// What's true of a player's body, ticked at setup. Cards match on these
+// facts (via target_sex and the %and bra% token), never on a gender label,
+// so trans and nonbinary players just tick what's true for them.
+export interface Body {
+  penis: boolean;
+  vulva: boolean;
+  bra: boolean;
+}
+
+export const defaultBody = (): Body => ({ penis: false, vulva: false, bra: false });
+
+// Who a card is aimed at. The card files still say Male/Female (1/2), but
+// the engine reads them as anatomy requirements: 1 = needs a penis,
+// 2 = needs a vulva, 0 = anyone.
 export const TargetSex = {
   Any: 0,
   Male: 1,
@@ -45,8 +59,11 @@ export const TargetSex = {
 } as const;
 export type TargetSex = (typeof TargetSex)[keyof typeof TargetSex];
 
-export function genderToTargetSex(gender: Gender): TargetSex {
-  return gender === Gender.Male ? TargetSex.Male : TargetSex.Female;
+export function targetSexMatchesBody(targetSex: TargetSex | undefined, body?: Body): boolean {
+  if (!targetSex) return true; // Any (or unset) fits every body
+  if (targetSex === TargetSex.Male) return Boolean(body?.penis);
+  if (targetSex === TargetSex.Female) return Boolean(body?.vulva);
+  return false;
 }
 
 // Every consent toggle a player can set during setup. Cards gate on these via
@@ -112,15 +129,62 @@ export interface Player {
   money: number;
   dress?: DressLevel;
   optOuts: number;
-  gender?: Gender;
   pronouns: {
     he: string;
     him: string;
     his: string;
   };
-  sexuality?: Sexuality;
+  body?: Body;
+  // Ids of the OTHER players this player is up for playing with. Pairings
+  // only happen when both sides tick each other (checked at draw time), so
+  // nothing is ever inferred from orientation labels.
+  playsWith?: number[];
+  // House rule, per player: hold any card that makes this player climax
+  // until spice level 5. Defaults on for penis-owners at setup.
+  orgasmEndsNight?: boolean;
   prefs?: PlayerPrefs;
   newPosition?: number;
+  /** @deprecated pre-migration saves only; read by migratePlayers() */
+  gender?: Gender;
+  /** @deprecated pre-migration saves only; read by migratePlayers() */
+  sexuality?: Sexuality;
+}
+
+// One side of the old orientation matrix: would this player have been up
+// for that one under the legacy gender/sexuality rules?
+function legacyUpFor(a: Player, b: Player): boolean {
+  if (a.gender === undefined || b.gender === undefined || a.sexuality === undefined)
+    return false;
+  return a.gender === b.gender
+    ? a.sexuality !== Sexuality.Straight
+    : a.sexuality !== Sexuality.Gay;
+}
+
+// Upgrade pre-October-2026 players in place: derive body facts, the
+// per-player orgasm rule, and explicit partner ticks from the old
+// gender/sexuality fields. Mutual-AND at draw time then reproduces the old
+// pairing behaviour exactly, so a mid-game save plays on unchanged.
+// Idempotent: players that already carry the new fields pass through as-is.
+export function migratePlayers(players: Player[]): Player[] {
+  return players.map(p => {
+    const migrated = { ...p };
+    if (!migrated.body) {
+      migrated.body = {
+        penis: p.gender === Gender.Male,
+        vulva: p.gender === Gender.Female,
+        bra: p.gender === Gender.Female,
+      };
+    }
+    if (migrated.orgasmEndsNight === undefined) {
+      migrated.orgasmEndsNight = Boolean(migrated.body.penis);
+    }
+    if (!migrated.playsWith) {
+      migrated.playsWith = players
+        .filter(other => other.id !== p.id && legacyUpFor(p, other))
+        .map(other => other.id);
+    }
+    return migrated;
+  });
 }
 
 export interface GameData {

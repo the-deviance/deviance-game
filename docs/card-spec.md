@@ -18,7 +18,7 @@ lives in decides where on the board it gets drawn.
 {
   name: "Unique Name",             // REQUIRED, unique across ALL decks (used-card pile keys on it)
   message: "...",                  // REQUIRED, the card text with placeholders
-  target_sex: 0,                   // 0 = anyone, 1 = male target only, 2 = female target only
+  target_sex: 0,                   // anatomy the card needs: 0 = anyone, 1 = target has a penis, 2 = target has a vulva
   spice_level: 1,                  // see "Spice levels" below; -1 = any level (pure utility cards)
   dress_level_from: 0,             // card only drawn while target's dress level is in [from, to]
   dress_level_to: 3,               // 0 fully clothed, 1 topless, 2 underwear, 3 naked
@@ -38,9 +38,10 @@ lives in decides where on the board it gets drawn.
 
   // Orgasm flags: set when the card REQUIRES someone to actually climax
   // (not edging/denial). target_orgasms = the target comes; player_orgasms =
-  // a non-target participant comes. The engine uses these for the house rule
-  // that men only get orgasm cards at spice level 5 (an orgasm ends his
-  // night); women draw them at the card's printed level. Always pair with
+  // a non-target participant comes. The engine uses these for the per-player
+  // "one orgasm ends my night" toggle (defaulted on for penis-owners at
+  // setup): toggle-on players only get these cards at spice level 5;
+  // everyone else draws them at the card's printed level. Always pair with
   // the matching will_orgasm consent gate below.
   target_orgasms: true,
   player_orgasms: false,
@@ -94,7 +95,8 @@ oral → oral gates; made to orgasm → target_will_orgasm; overpowering/rough �
 Plain kissing, massage, stripping and touching at the card's spice level need no pref gate.
 
 Don't hardcode anyone's anatomy or gender in the message unless `target_sex` is set;
-use pronoun placeholders. player1 can be any gender the engine deems compatible.
+use pronoun placeholders. player1 can be anyone the target mutually ticked at setup
+(pairing is explicit per-player consent, not orientation inference).
 
 ## Hard content rails
 
