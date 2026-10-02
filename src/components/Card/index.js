@@ -3,55 +3,34 @@ import { colours } from "../../data/constants";
 import useGameData from "../../utils/useGameData";
 import usePropertyData from "../../utils/usePropertyData";
 
-export default function Card({ id }) {
+export default function Card({ id, onSelect }) {
   const { gameData } = useGameData();
   const { propertyData } = usePropertyData();
 
   const property = propertyData?.[id];
   if (!property) return null;
 
+  const ownerColour =
+    property.owner !== undefined ? colours[property.owner] : undefined;
+
   return (
     <div
+      className="board-tile"
       style={{
-        backgroundColor: "#000",
-        height: "140px",
-        width: "140px",
-        margin: "5px",
-        color: "#ccc",
-        position: "relative",
+        gridArea: `t${id}`,
+        borderColor: ownerColour || "transparent",
       }}
+      onClick={() => onSelect && onSelect(id)}
     >
       <div
+        className="tile-stripe"
         style={{
-          width: "100%",
-          height: "20px",
           background: `repeating-linear-gradient(45deg, transparent, transparent 10px, ${property?.colour} 10px, ${property?.colour} 20px)`,
         }}
       ></div>
-      <div
-        style={{
-          marginTop: "15px",
-          padding: "1px",
-        }}
-      >
-        <div
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            fontWeight: "900",
-          }}
-        >
-          {property?.name}
-        </div>
-        <div
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            fontSize: "16px",
-          }}
-        >
+      <div className="tile-body">
+        <div className="tile-name">{property?.name}</div>
+        <div className="tile-detail">
           {property?.owner !== undefined ? (
             <>
               <div>{`Rent: £${property.rent}`}</div>
@@ -61,29 +40,25 @@ export default function Card({ id }) {
             <>{property.price && <div>{`Price: £${property?.price}`}</div>}</>
           )}
           {property.name === "Go" ? <div>Collect £200</div> : null}
-          {gameData.players && gameData.players.length > 0 && (
-            <div>
-              {gameData.players.map((player, index) => {
-                if (player.position === id)
-                  return (
-                    <div
-                      key={index}
-                      style={{
-                        backgroundColor: colours[index],
-                        height: "20px",
-                        width: "20px",
-                        borderRadius: "10px",
-                        position: "absolute",
-                        bottom: "5px",
-                        left: `${5 + index * 25}px`,
-                      }}
-                    ></div>
-                  );
-                return null;
-              })}
-            </div>
-          )}
         </div>
+        {gameData.players && gameData.players.length > 0 && (
+          <div>
+            {gameData.players.map((player, index) => {
+              if (player.position === id)
+                return (
+                  <div
+                    key={index}
+                    className="player-token"
+                    style={{
+                      backgroundColor: colours[index],
+                      left: `calc(4px + ${index} * var(--token-step))`,
+                    }}
+                  ></div>
+                );
+              return null;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

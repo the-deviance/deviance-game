@@ -23,21 +23,21 @@ export default function SplashScreen() {
         backgroundImage:
           "url('https://images.unsplash.com/photo-1605910470315-abac78c52d73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1857&q=80')",
         backgroundColor: "#282c34",
-        height: "100%",
+        minHeight: "100vh",
         width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
         backgroundSize: "cover",
       }}
     >
       <div
         style={{
           backgroundColor: "RGBA(40, 44, 52, 0.6)",
-          height: "100%",
+          minHeight: "100vh",
           width: "100%",
           display: "flex",
           alignItems: "center",
@@ -54,8 +54,10 @@ export default function SplashScreen() {
         >
           Deviance
         </h1>
-        <div>Welcome to Deviance, the Adult Only board game!</div>
-        <div className="mx-5 p-5">
+        <div style={{ textAlign: "center", padding: "0 16px" }}>
+          Welcome to Deviance, the Adult Only board game!
+        </div>
+        <div className="p-4" style={{ maxWidth: "640px" }}>
           <p>
             This website is for adults only. Whilst the game contains no
             pornographic images, it does contain material of an adult nature.
@@ -68,7 +70,13 @@ export default function SplashScreen() {
             over, and that you consent to see materials of a sexual nature.
           </p>
         </div>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           <Button
             className="m-3"
             onClick={() => {

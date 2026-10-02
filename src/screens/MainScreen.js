@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState} from "react";
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from "reactstrap";
 import Board from "../components/Board";
 import Flame from "../components/Flame";
@@ -6,10 +6,7 @@ import useGameData from "../utils/useGameData";
 import useNewGame from "../utils/useNewGame";
 import {hasGameInProgress} from "../types/game";
 
-const MIN_SCREEN_WIDTH = 1000;
-
 export default function MainScreen() {
-    const [isScreenLargeEnough, setIsScreenLargeEnough] = useState(true);
     const [confirmNewGame, setConfirmNewGame] = useState(false);
     const {gameData, increaseSpiceLevel} = useGameData();
     const newGame = useNewGame();
@@ -27,63 +24,12 @@ export default function MainScreen() {
         newGame();
     };
 
-    const checkScreenSize = useCallback(() => {
-        setIsScreenLargeEnough(window.innerWidth >= MIN_SCREEN_WIDTH);
-    }, []);
-
-    useEffect(() => {
-        checkScreenSize();
-        window.addEventListener("resize", checkScreenSize);
-        return () => window.removeEventListener("resize", checkScreenSize);
-    }, [checkScreenSize]);
-
     const spiceLevel = gameData?.spiceLevel ?? 0;
     const spiceArray = Array(spiceLevel + 1).fill(1);
 
-    if (!isScreenLargeEnough) {
-        return (
-            <div
-                style={{
-                    height: "100vh",
-                    width: "100vw",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundColor: "#282c34",
-                    color: "white",
-                }}
-            >
-                <div>So it seems...</div>
-                <h1>Size Does Matter!</h1>
-                <p>
-                    This site is only designed to work on tablets (in landscape) or larger screens.
-                </p>
-            </div>
-        );
-    }
-
     return (
-        <div
-            style={{
-                backgroundColor: "#282c34",
-                height: "100vh",
-                width: "100vw",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "20px",
-            }}
-        >
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "900px",
-                    marginBottom: "20px",
-                }}
-            >
+        <div className="game-screen">
+            <div className="main-header">
                 <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                         <span style={{color: "#aaa"}}>Current Spice Level:</span>
@@ -93,7 +39,7 @@ export default function MainScreen() {
                             backgroundColor: 'transparent',
                             border: 'none',
                             textAlign: 'left',
-                            marginLeft:'-5px'
+                            marginLeft: '-5px'
                         }} onClick={increaseSpiceLevel}>Increase Spice Level
                         </button>
                     </div>
@@ -104,9 +50,9 @@ export default function MainScreen() {
                     </div>
                 </div>
 
-                <h1 style={{color: "#aaa", margin: 0}}>Deviance</h1>
+                <h1 className="main-title">Deviance</h1>
 
-                <Button color="secondary" onClick={handleNewGameClick}>
+                <Button color="secondary" size="sm" onClick={handleNewGameClick}>
                     Start New Game
                 </Button>
             </div>

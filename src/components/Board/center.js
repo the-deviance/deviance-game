@@ -146,15 +146,7 @@ export default function Card({id}) {
     };
 
     return (
-        <div
-            className="m-1"
-            style={{
-                backgroundColor: "#000",
-                height: "290px",
-                width: "590px",
-                color: "#fff",
-            }}
-        >
+        <div className="center-panel">
             <AddPlayers
                 modal={setupStep === 1}
                 toggle={() => {
@@ -175,45 +167,34 @@ export default function Card({id}) {
             <ActionModal property={actionModal} next={endPlayerTurn}/>
             <SpecialModal property={specialModal} next={endPlayerTurn}/>
             {gameData.players.length ? (
-                <div style={{padding: "20px", position: "relative", height: "100%"}}>
-                    <div style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        marginBottom: "10px",
-                        fontSize: "14px",
-                        fontWeight: "bold"
-                    }}>
-                        <div style={{width: '150px'}}>Player:</div>
-                        <div style={{width: '100px'}}>Bank:</div>
-                        <div style={{width: '150px'}}>Clothes:</div>
-                        <div style={{width: '150px'}}>Opt Outs:</div>
+                <div className="center-inner">
+                    <div className="stat-row stat-head">
+                        <div className="stat-col-player">Player:</div>
+                        <div className="stat-col-bank">Bank:</div>
+                        <div className="stat-col-dress">Clothes:</div>
+                        <div className="stat-col-optouts">Opt Outs:</div>
                     </div>
 
                     {gameData.players.map((player, index) => {
                         const optOuts = Array(player.optOuts || 1).fill(1);
                         return (
-                            <div key={index} style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                marginBottom: "8px",
-                                // position: "relative"
-                            }}>
-                                <div style={{display: "flex", alignItems: "center", width: "150px"}}>
+                            <div key={index} className="stat-row">
+                                <div className="stat-col-player">
                                     <div
                                         style={{
                                             backgroundColor: colours[index],
                                             height: "16px",
                                             width: "16px",
+                                            minWidth: "16px",
                                             borderRadius: "8px",
                                             marginRight: "8px",
                                         }}
                                     ></div>
-                                    <span>{player.name}</span>
+                                    <span style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>{player.name}</span>
                                 </div>
-                                <span style={{width: "100px"}}>£{player.money}</span>
-                                <span style={{width: "150px"}}>{DRESS_LABELS[player.dress]}</span>
-                                <div style={{width: "150px", display: "flex", gap: "2px"}}>
+                                <span className="stat-col-bank">£{player.money}</span>
+                                <span className="stat-col-dress">{DRESS_LABELS[player.dress]}</span>
+                                <div className="stat-col-optouts">
                                     {optOuts.map((_, i) => (
                                         <Chick key={i}/>
                                     ))}
@@ -223,27 +204,14 @@ export default function Card({id}) {
                     })}
 
                     {gameData.players[gameData.currentPlayer] && (
-                        <div
-                            style={{
-                                position: "absolute",
-                                left: "20px",
-                                bottom: "20px",
-                            }}
-                        >
+                        <div className="turn-banner">
                             <h2 style={{margin: 0, fontSize: "18px"}}>
                                 {gameData.players[gameData.currentPlayer].name}'s Turn
                             </h2>
                         </div>
                     )}
 
-                    <div
-                        style={{
-                            position: "absolute",
-                            right: "20px",
-                            bottom: "20px",
-                            textAlign: "center",
-                        }}
-                    >
+                    <div className="dice-dock">
 
                         <CuteDice
                             onChange={handleOnChange}
@@ -257,7 +225,7 @@ export default function Card({id}) {
                             }}
                         />
                         <p style={{margin: "10px 0 0 0", fontSize: "12px"}}>
-                            Click the Die to roll it.
+                            Tap the die to roll it.
                         </p>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootswatch/dist/darkly/bootstrap.min.css";
 import "./index.css";
+import "./board.css";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

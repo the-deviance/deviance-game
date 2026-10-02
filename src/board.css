@@ -1,0 +1,223 @@
+/* Responsive board layout.
+   Desktop: centre panel lives inside the ring of tiles.
+   Mobile (<768px): centre panel drops below the ring, tiles shrink,
+   per-tile detail text hides (tap a tile to see it). */
+
+.game-screen {
+  background-color: #282c34;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  max-width: 920px;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  color: #aaa;
+  margin: 0;
+}
+
+.board-grid {
+  --token-size: 20px;
+  --token-step: 25px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "t0  t1  t2  t3  t4 t5"
+    "t15 c   c   c   c  t6"
+    "t14 c   c   c   c  t7"
+    "t13 t12 t11 t10 t9 t8";
+  gap: 8px;
+  width: 100%;
+  max-width: 920px;
+}
+
+.board-tile {
+  background-color: #000;
+  color: #ccc;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.tile-stripe {
+  width: 100%;
+  height: 14%;
+}
+
+.tile-body {
+  margin-top: 8%;
+  padding: 1px;
+  text-align: center;
+}
+
+.tile-name {
+  font-weight: 900;
+  font-size: clamp(10px, 1.5vw, 15px);
+  line-height: 1.15;
+  padding: 0 2px;
+  overflow-wrap: break-word;
+}
+
+.tile-detail {
+  font-size: clamp(9px, 1.3vw, 14px);
+}
+
+.player-token {
+  height: var(--token-size);
+  width: var(--token-size);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.center-panel {
+  grid-area: c;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+  min-width: 0;
+}
+
+.center-inner {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 16px 16px 110px 16px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.stat-head {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stat-col-player {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  min-width: 0;
+}
+
+.stat-col-bank {
+  width: 16%;
+}
+
+.stat-col-dress {
+  width: 32%;
+}
+
+.stat-col-optouts {
+  width: 22%;
+  display: flex;
+  gap: 2px;
+}
+
+.turn-banner {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+}
+
+.dice-dock {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .game-screen {
+    padding: 10px;
+  }
+
+  .main-header {
+    margin-bottom: 10px;
+  }
+
+  .main-title {
+    order: -1;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .board-grid {
+    --token-size: 12px;
+    --token-step: 14px;
+    gap: 3px;
+    grid-template-areas:
+      "t0  t1  t2  t3  t4 t5"
+      "t15 .   .   .   .  t6"
+      "t14 .   .   .   .  t7"
+      "t13 t12 t11 t10 t9 t8"
+      "c   c   c   c   c  c";
+  }
+
+  .tile-name {
+    font-size: 8px;
+    letter-spacing: -0.2px;
+    padding: 0 1px;
+  }
+
+  .tile-detail {
+    display: none;
+  }
+
+  .player-token {
+    bottom: 2px;
+  }
+
+  .center-panel {
+    margin-top: 8px;
+    min-height: 220px;
+  }
+
+  .center-inner {
+    padding: 12px 12px 100px 12px;
+  }
+
+  .stat-row {
+    font-size: 12px;
+  }
+
+  .turn-banner {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .turn-banner h2 {
+    font-size: 15px !important;
+  }
+
+  .dice-dock {
+    right: 12px;
+    bottom: 12px;
+  }
+}
