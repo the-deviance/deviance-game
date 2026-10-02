@@ -39,6 +39,25 @@ const markCardUsed = (card) => {
     localStorage.setItem('cardData', JSON.stringify(pile));
 };
 
+// A card that stages more than two bodies (number_of_participants >= 3)
+// fills the extra slots here: someone not already in the scene, able to
+// interact with the target, and passing the card's participant gates.
+// Returns null when the table can't field enough people, so the caller
+// skips to the next card instead of leaving a literal %player2% on screen.
+const pickExtraParticipants = ({card, gameData, target, exclude}) => {
+    const needed = Math.max((card.number_of_participants || 2) - 2, 0);
+    if (!needed) return [];
+    const excludeIds = exclude.map((p) => p.id);
+    const candidates = gameData.players.filter(
+        (p) =>
+            !excludeIds.includes(p.id) &&
+            canPlayersInteract({owner: target, player: p}) &&
+            canDoAction({player: p, card, isTarget: false})
+    );
+    if (candidates.length < needed) return null;
+    return shuffle(candidates).slice(0, needed);
+};
+
 export const getActionCardforTarget = ({
                                            target,
                                            player,
@@ -60,7 +79,17 @@ export const getActionCardforTarget = ({
         console.log("player cannot do action");
         return getActionCardforTarget({target, player, gameData, skip: skip + 1});
     }
-    return replacePlaceholders({task, players: [player], target});
+    const extras = pickExtraParticipants({
+        card: task,
+        gameData,
+        target,
+        exclude: [player, target],
+    });
+    if (!extras) {
+        console.log("not enough participants for card");
+        return getActionCardforTarget({target, player, gameData, skip: skip + 1});
+    }
+    return replacePlaceholders({task, players: [player, ...extras], target});
 };
 
 export const getEncounterCardForPlayer = ({target, gameData, skip = 0}) => {
@@ -71,20 +100,35 @@ export const getEncounterCardForPlayer = ({target, gameData, skip = 0}) => {
         gameData,
         skip,
     });
+    // Deck exhausted: stop here rather than recursing forever.
+    if (!card) return null;
 
+    const retry = () => getEncounterCardForPlayer({target, gameData, skip: skip + 1});
+
+    // The target must pass the card's target gates...
+    if (!canDoAction({player: target, card, isTarget: true})) return retry();
+
+    // ...and the partner must be someone else, compatible with the target,
+    // who passes the card's participant gates.
     const availablePlayers = gameData.players.filter((player) => {
+        if (player.id === target.id) return false;
         if (!canPlayersInteract({owner: target, player})) return false;
-        if (!canDoAction({player: target, card, isTarget: false})) return false;
+        if (!canDoAction({player, card, isTarget: false})) return false;
         return true;
     });
 
-    if (!availablePlayers.length) {
-        return getEncounterCardForPlayer({target, gameData, skip: skip + 1});
-    }
+    if (!availablePlayers.length) return retry();
 
     // Shuffle players and choose random one to interact with
     const player = shuffle(availablePlayers)[0];
-    return replacePlaceholders({task: card, players: [player], target});
+    const extras = pickExtraParticipants({
+        card,
+        gameData,
+        target,
+        exclude: [target, player],
+    });
+    if (!extras) return retry();
+    return replacePlaceholders({task: card, players: [player, ...extras], target});
 };
 
 export const getChamberCardForPlayer = ({player, gameData}) => {
@@ -124,10 +168,11 @@ const getCardForPlayerInDeck = ({player, deck, skip = 0, gameData}) => {
 
     // Get list of players we can interact with
 
-    const availablePlayers = gameData.players.filter((target) => {
-        console.log("target: ", target);
-        if (!canPlayersInteract({owner: target, player})) return false;
-        if (!canDoAction({player: target, card, isTarget: false})) return false;
+    const availablePlayers = gameData.players.filter((other) => {
+        // Never cast someone opposite themselves ("Alice, demonstrate on Alice").
+        if (other.id === player.id) return false;
+        if (!canPlayersInteract({owner: other, player})) return false;
+        if (!canDoAction({player: other, card, isTarget: false})) return false;
         return true;
     });
 

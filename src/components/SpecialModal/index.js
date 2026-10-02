@@ -98,6 +98,7 @@ export default function SpecialModal({ property, next }) {
             className="ml-3"
             style={{ left: "0px", position: "absolute" }}
             color="secondary"
+            disabled={(gameData.players[gameData.currentPlayer]?.optOuts ?? 0) <= 0}
             onClick={() => {
               adjustOptOutFromPlayer(
                 gameData.players[gameData.currentPlayer],

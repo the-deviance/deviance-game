@@ -121,6 +121,17 @@ describe('gameReducer', () => {
       expect(state.players[1].optOuts).toBe(2);
       expect(state.players[0].optOuts).toBe(3);
     });
+
+    it('ADJUST_OPT_OUTS never goes below zero', () => {
+      let state = stateWithPlayers(1);
+      for (let i = 0; i < 5; i++) {
+        state = gameReducer(state, {
+          type: 'ADJUST_OPT_OUTS',
+          payload: { playerId: 0, delta: -1 },
+        });
+      }
+      expect(state.players[0].optOuts).toBe(0);
+    });
   });
 
   describe('clothing and spice', () => {

@@ -56,6 +56,7 @@ export default function ActionModal({ property, next }) {
           className="ml-3"
           style={{ left: "0px", position: "absolute" }}
           color="secondary"
+          disabled={(player?.optOuts ?? 0) <= 0}
           onClick={() => {
             adjustOptOutFromPlayer(player, -1);
             next(true);

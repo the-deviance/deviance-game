@@ -176,7 +176,9 @@ export default function Card({id}) {
                     </div>
 
                     {gameData.players.map((player, index) => {
-                        const optOuts = Array(player.optOuts || 1).fill(1);
+                        // Clamp: a save written before the opt-out floor fix
+                        // can hold a negative count, and Array(-1) throws.
+                        const optOuts = Array(Math.max(player.optOuts ?? 1, 0)).fill(1);
                         return (
                             <div key={index} className="stat-row">
                                 <div className="stat-col-player">

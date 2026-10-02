@@ -2,6 +2,7 @@ import {
   canDoAction,
   canPlayersInteract,
   getActionCardforTarget,
+  getEncounterCardForPlayer,
   getUsedCardPile,
   resetUsedCards,
 } from './cardManager';
@@ -178,5 +179,52 @@ describe('card drawing and the used pile', () => {
     const first = getActionCardforTarget({ target: alice, player: bob, gameData });
     const second = getActionCardforTarget({ target: alice, player: bob, gameData });
     expect(second.name).not.toBe(first.name);
+  });
+
+  it('never leaves a literal %player2% with only two players at the table', () => {
+    for (let i = 0; i < 40; i++) {
+      const card = getActionCardforTarget({ target: alice, player: bob, gameData });
+      if (!card) break;
+      expect(card.message).not.toMatch(/%player\d%/);
+    }
+  });
+
+  it('fills three-person cards with the third player when one exists', () => {
+    const carol = makePlayer(2, 'Carol', Gender.Female);
+    const threeUp = { ...gameData, players: [alice, bob, carol] };
+    let found = 0;
+    for (let i = 0; i < 150; i++) {
+      const card = getActionCardforTarget({ target: alice, player: bob, gameData: threeUp });
+      if (!card) break;
+      expect(card.message).not.toMatch(/%player\d%/);
+      if ((card.number_of_participants || 2) >= 3) {
+        // Extras exclude the player and target, so the third slot must be Carol.
+        expect(card.message).toContain('Carol');
+        found++;
+      }
+    }
+    expect(found).toBeGreaterThan(0);
+  });
+
+  it('returns null (not a stack overflow) when no encounter partner is compatible', () => {
+    const straightAlice = { ...makePlayer(0, 'Alice', Gender.Female), sexuality: Sexuality.Straight };
+    const straightSue = { ...makePlayer(1, 'Sue', Gender.Female), sexuality: Sexuality.Straight };
+    const noMatch = { ...gameData, players: [straightAlice, straightSue] };
+    expect(() => {
+      const card = getEncounterCardForPlayer({ target: straightAlice, gameData: noMatch });
+      expect(card).toBeNull();
+    }).not.toThrow();
+  });
+
+  it('enforces encounter consent gates on both the target and the partner', () => {
+    const prude = { ...makePlayer(1, 'Bob', Gender.Male), prefs: {} };
+    const guarded = { ...gameData, players: [alice, prude] };
+    for (let i = 0; i < 40; i++) {
+      const card = getEncounterCardForPlayer({ target: prude, gameData: guarded });
+      if (!card) break;
+      PREF_KEYS.forEach((key) => {
+        expect(card[`target_${key}`]).toBeFalsy();
+      });
+    }
   });
 });

@@ -93,8 +93,10 @@ export function gameReducer(state: GameData, action: GameAction): GameData {
         money: p.money + action.payload.delta,
       }));
     case 'ADJUST_OPT_OUTS':
+      // Floor at 0: a persisted negative count crashes the board render
+      // (Array(-1)) on every reload until the save is wiped.
       return updatePlayerById(state, action.payload.playerId, p => ({
-        optOuts: p.optOuts + action.payload.delta,
+        optOuts: Math.max((p.optOuts ?? 0) + action.payload.delta, 0),
       }));
     case 'REMOVE_CLOTHING':
       return updatePlayerById(state, action.payload.playerId, p => ({
