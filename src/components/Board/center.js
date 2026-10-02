@@ -12,7 +12,6 @@ import AddToys from "../../components/AddToys";
 import {colours} from "../../data/constants";
 import {DRESS_LABELS} from "../../types/game";
 import Chick from "../../components/Chick";
-import {toast} from 'react-toastify';
 import {track} from "../../utils/analytics";
 
 export default function Card({id}) {
@@ -51,6 +50,7 @@ export default function Card({id}) {
                 setSetupStep(1);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameData.started]);
 
     const handleOnChange = (value, rolling) => {

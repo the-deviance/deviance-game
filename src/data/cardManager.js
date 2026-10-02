@@ -8,6 +8,7 @@ import {chamberExpansion} from "./expansion/chamberExpansion";
 import {stageExpansion} from "./expansion/stageExpansion";
 import {fateExpansion} from "./expansion/fateExpansion";
 import toys from "./toys.json";
+import {Gender, Sexuality, TargetSex, genderToTargetSex, PREF_KEYS} from "../types/game";
 
 // Original decks + expansion batches (see docs/card-spec.md). New card
 // batches are a new file in expansion/ plus a spread here.
@@ -15,7 +16,6 @@ const actionCards = [...baseActionCards, ...actionExpansionLow, ...actionExpansi
 const chamberCards = [...baseChamberCards, ...chamberExpansion];
 const stageCards = [...baseStageCards, ...stageExpansion];
 const fateCards = [...baseFateCards, ...fateExpansion];
-import {Gender, Sexuality, TargetSex, genderToTargetSex, PREF_KEYS} from "../types/game";
 
 // The used-card pile lives in localStorage so it survives reloads, but it is
 // always read at draw time (never cached at module load) so a new game can

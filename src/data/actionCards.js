@@ -2132,19 +2132,13 @@ export const actionCards = [
     dress_level_to: 2,
     number_of_participants: 2,
 
-    Scissors: true,
-    Rope: true,
+    scissors: true,
+    rope: true,
     lose_dress_level: true,
     player_restraining: true,
     player_pain_giving: true,
     target_pain_receiving: true,
     target_restrained: true,
-    target_pain_receiving: true,
-    player_pain_giving: true,
-    scissors: true,
-    rope: true,
-
-    lose_dress_level: true,
 
     appropriate_for_bi_curious: true,
   },

@@ -6,7 +6,6 @@ import {
   DRESS_LABELS,
   Gender,
   Sexuality,
-  PrefKey,
   PREF_PAIRS,
   PREF_SINGLES,
   defaultPrefs,
