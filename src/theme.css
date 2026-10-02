@@ -329,6 +329,29 @@ body {
   color: var(--dv-text);
 }
 
+.dv-timer.paused .dv-timer-ring {
+  opacity: 0.35;
+  filter: none;
+}
+
+.dv-timer.paused .dv-timer-value {
+  opacity: 0.55;
+}
+
+.dv-timer-paused {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 17%;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dv-text);
+  opacity: 0.6;
+}
+
 .dv-timer-value.final {
   color: var(--dv-flame);
   animation: dv-timer-pulse 1s ease-in-out infinite;
