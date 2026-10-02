@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import useGameData from "../../utils/useGameData";
 import usePropertyData from "../../utils/usePropertyData";
-import CuteDice from "react-cute-dice";
+import Dice from "../../components/Dice";
 import PurchaseProperty from "../../components/PurchaseProperty";
 import NoFundsModal from "../../components/NoFundsModal";
 import ShowRentModal from "../../components/ShowRentModal";
@@ -218,20 +218,16 @@ export default function Card({id}) {
                     )}
 
                     <div className="dice-dock">
-
-                        <CuteDice
+                        <Dice
                             onChange={handleOnChange}
-                            colors={{
-                                1: "#fff",
-                                2: "#fff",
-                                3: "#fff",
-                                4: "#fff",
-                                5: "#fff",
-                                6: "#fff",
-                            }}
+                            accent={colours[gameData.currentPlayer] || "#c70039"}
+                            disabled={Boolean(
+                                purchaseModal || noFundsModal || showRentModal ||
+                                actionModal || specialModal
+                            )}
                         />
                         <p className="dice-hint">
-                            Tap the die to roll it.
+                            {rolling ? "Rolling..." : "Tap the die to roll it."}
                         </p>
                     </div>
                 </div>
