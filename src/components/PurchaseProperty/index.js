@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useMemo } from "react";
 import usePropertyData from "../../utils/usePropertyData";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
+import { pickFlavour } from "../../data/flavourText";
 
 export default function PurchaseProperty({ property, next }) {
   const { buyProperty } = usePropertyData();
+  const line = useMemo(
+    () => pickFlavour("purchase", { name: property?.name }),
+    [property]
+  );
   return (
     <Modal isOpen={property}>
       <ModalHeader>{`${property.name} is for sale`}</ModalHeader>
       <ModalBody>
         <div>{`Sale price: £${property?.price}`}</div>
-        <div>Would you like to purchase this property?</div>
+        <div>{line}</div>
       </ModalBody>
       <ModalFooter>
         <Button

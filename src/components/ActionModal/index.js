@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import useGameData from "../../utils/useGameData";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
 import { getActionCardforTarget } from "../../data/cardManager";
+import { pickFlavour } from "../../data/flavourText";
 import CountdownTimer from "../CountdownTimer";
 
 export default function ActionModal({ property, next }) {
@@ -16,6 +17,7 @@ export default function ActionModal({ property, next }) {
 
   const player = gameData.players[gameData.currentPlayer];
   const target = gameData.players[property?.owner];
+  const emptyLine = useMemo(() => pickFlavour("no_cards"), [property]);
 
   useEffect(() => {
     const task = getActionCardforTarget({ target, player, gameData });
@@ -44,9 +46,9 @@ export default function ActionModal({ property, next }) {
 
   return (
     <Modal isOpen={property}>
-      <ModalHeader>{task && task.name}</ModalHeader>
+      <ModalHeader>{task ? task.name : "The Deck Ran Dry"}</ModalHeader>
       <ModalBody>
-        {task ? <div>{task.message}</div> : <div>No Tasks Found...</div>}
+        {task ? <div>{task.message}</div> : <div>{emptyLine}</div>}
         {run ? <CountdownTimer total={task?.timer} remaining={run - 1} /> : null}
       </ModalBody>
       <ModalFooter>

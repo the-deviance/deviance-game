@@ -8,6 +8,7 @@ import {
   getChamberCardForPlayer,
   getEncounterCardForPlayer,
 } from "../../data/cardManager";
+import { pickFlavour } from "../../data/flavourText";
 import CountdownTimer from "../CountdownTimer";
 
 export default function SpecialModal({ property, next }) {
@@ -19,6 +20,7 @@ export default function SpecialModal({ property, next }) {
   } = useGameData();
   const [task, setTask] = useState();
   const [run, setRun] = useState();
+  const [emptyLine, setEmptyLine] = useState("");
 
   const player = gameData.players[gameData.currentPlayer];
 
@@ -47,6 +49,7 @@ export default function SpecialModal({ property, next }) {
     }
     console.log("Got Task: ", task);
     setTask(task);
+    setEmptyLine(pickFlavour("no_cards"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [property]);
 
@@ -84,9 +87,9 @@ export default function SpecialModal({ property, next }) {
 
   return (
     <Modal isOpen={property}>
-      <ModalHeader>{task ? task.name : "No Tasks Found"}</ModalHeader>
+      <ModalHeader>{task ? task.name : "The Deck Ran Dry"}</ModalHeader>
       <ModalBody>
-        {task ? <div>{task.message}</div> : "Sorry, we've run out of ideas!"}
+        {task ? <div>{task.message}</div> : emptyLine}
         {run ? <CountdownTimer total={task?.timer} remaining={run - 1} /> : null}
       </ModalBody>
       <ModalFooter>

@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
+import { pickFlavour } from "../../data/flavourText";
 
 export default function NoFundsModal({ property, next }) {
+  const flavour = useMemo(
+    () => ({
+      header: pickFlavour("broke_header"),
+      line: pickFlavour("broke", { price: property?.price }),
+    }),
+    [property]
+  );
+
   return (
     <Modal isOpen={property}>
-      <ModalHeader>Can't Afford Property</ModalHeader>
+      <ModalHeader>{flavour.header}</ModalHeader>
       <ModalBody>
-        <div>Sorry, you can't afford this property at this time</div>
+        <div>{flavour.line}</div>
       </ModalBody>
       <ModalFooter>
         <Button

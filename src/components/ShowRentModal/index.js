@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useMemo } from "react";
 import useGameData from "../../utils/useGameData";
 import { canPlayersInteract } from "../../data/cardManager";
 import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
+import { pickFlavour } from "../../data/flavourText";
 
 export default function ShowRentModal({ property, next }) {
   const { gameData, deductMoney, depositMoney } = useGameData();
   const owner = gameData.players[property?.owner];
   const player = gameData.players[gameData.currentPlayer];
+  const line = useMemo(
+    () => pickFlavour("rent", { owner: owner?.name, rent: property?.rent }),
+    [property, owner]
+  );
 
   return (
     <Modal isOpen={property}>
       <ModalHeader>Pay Rent</ModalHeader>
-      <ModalBody>
-        {owner && (
-          <div>{`This property is owned by ${owner?.name}. The rent is £${property?.rent}`}</div>
-        )}
-      </ModalBody>
+      <ModalBody>{owner && <div>{line}</div>}</ModalBody>
       <ModalFooter>
         <Button
           disabled={!canPlayersInteract({ owner, player}) }
