@@ -19,7 +19,7 @@ lives in decides where on the board it gets drawn.
   name: "Unique Name",             // REQUIRED, unique across ALL decks (used-card pile keys on it)
   message: "...",                  // REQUIRED, the card text with placeholders
   target_sex: 0,                   // 0 = anyone, 1 = male target only, 2 = female target only
-  spice_level: 0,                  // -1 any, 0 kissing/flirty, 1 touch/lick, 2 intercourse/oral, 3 anal/heavy kink
+  spice_level: 1,                  // see "Spice levels" below; -1 = any level (pure utility cards)
   dress_level_from: 0,             // card only drawn while target's dress level is in [from, to]
   dress_level_to: 3,               // 0 fully clothed, 1 topless, 2 underwear, 3 naked
   number_of_participants: 2,       // TOTAL people involved INCLUDING the target
@@ -54,6 +54,27 @@ lives in decides where on the board it gets drawn.
 - `%player1%`..`%player5%`; pronouns `%1h%`/`%1s%`/`%1p%` etc.
 - Timers (set `task.timer` and show countdown): `%d10% %d20% %d30% %d45% %d60% %d90%` seconds, `%m1% %m2%` minutes
 - `%and bra%` renders "and bra" for female targets, empty otherwise
+
+## Spice levels
+
+Scale is 1-5, hardcoded (recategorised Oct 2026 from the old 0-3 scale). Grade
+by the MOST explicit act the card instructs, not what it alludes to:
+
+1. **Kissing & touching** - kissing, cuddling, non-intimate massage, flirty or
+   verbal dares, teasing entirely over clothes. No breast/genital contact.
+2. **Breasts & genitals (touching)** - breast/nipple play, groping over or
+   briefly under clothes, stripping/nudity, grinding, spanking, ice/wax,
+   light bondage without genital stimulation.
+3. **Fingering & teasing oral** - manual genital stimulation, brief or teasing
+   oral contact, edging by hand, external toys on genitals.
+4. **Full oral & sex** - sustained oral sex, penetrative sex, penetrative
+   (vaginal) toys, orgasm instructions, 69.
+5. **Anal, threesomes & hardcore** - ANY anal play, sexual acts with 3+ active
+   participants, DP, heavy impact/pain play, cum play.
+
+`-1` = any level: pure utility cards (money/opt-out/move effects, no physical
+act). A 3-person card where the third only watches/instructs/judges grades by
+the act, not automatically 5. Between two levels, pick the higher.
 
 ## Gating rules of thumb
 

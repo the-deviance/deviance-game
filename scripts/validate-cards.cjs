@@ -81,7 +81,7 @@ for (const [deckName, deck] of Object.entries(decks)) {
     }
 
     if (![0, 1, 2].includes(card.target_sex ?? 0)) errors.push(`${where}: bad target_sex ${card.target_sex}`);
-    if (![-1, 0, 1, 2, 3].includes(card.spice_level)) errors.push(`${where}: bad spice_level ${card.spice_level}`);
+    if (![-1, 1, 2, 3, 4, 5].includes(card.spice_level)) errors.push(`${where}: bad spice_level ${card.spice_level}`);
     const from = card.dress_level_from, to = card.dress_level_to;
     if (!(from >= 0 && from <= 3 && to >= 0 && to <= 3 && from <= to))
       errors.push(`${where}: bad dress range ${from}-${to}`);

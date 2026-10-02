@@ -10,7 +10,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you are tonight’s weather system. For the next %d30% seconds, deliver nothing but warm breath to %target%’s neck, ears, and shoulders. No lips, no hands, just air.\n\n%target%, the forecast calls for goosebumps with a strong chance of squirming.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -21,7 +21,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, give %target% one long, unhurried kiss. Then step back and deliver your tasting notes to the group: the nose, the body, the finish, the vintage.\n\nIf the group judges your review sufficiently pretentious, take a second sip to confirm your findings.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -32,7 +32,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, it’s the last song at the school disco and the chaperones have given up. Slow dance together for %m1%, bodies close, hands roaming anywhere over clothing.\n\nNo actual music required. Humming is encouraged.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -43,7 +43,7 @@ export const actionExpansionLow = [
     message:
       "%target%, you must now ask %player1%, in your neediest voice, for three separate compliments about your body. After each one you must flutter your lashes and say “Oh stop it, go on.”\n\n%player1%, make the compliments specific, sincere, and slightly too detailed for comfort.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -56,7 +56,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, take %target%’s hand and study the palm like a professional. Trace every line slowly with a fingertip while predicting %tp% very near future in scandalous detail.\n\nSeal each prediction with a kiss: one to the palm, one to the wrist, one wherever the lifeline leads you.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -67,7 +67,7 @@ export const actionExpansionLow = [
     message:
       "%target%, strike the most ridiculous “seductive statue” pose you can manage and hold it for %d45% seconds while %player1% slowly kisses your neck and shoulders.\n\nIf you wobble, laugh, or break pose, the timer starts again. Art demands sacrifice.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -79,7 +79,7 @@ export const actionExpansionLow = [
     message:
       "%target%, for the next %m1% you may not speak, gasp audibly, or make a single sound. %player1%, your job is to make that impossible: kiss %tp% neck, whisper filth in %tp% ear, breathe on every sensitive inch you can find.\n\n%target%, every sound you make earns you ten more seconds of silence.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -92,7 +92,7 @@ export const actionExpansionLow = [
     message:
       "%target%, you are royalty and %player1% is your loyal subject. %player1%, kneel, kiss the royal hand, and await instruction.\n\n%target%, issue one decree: a kiss, delivered exactly where and exactly how you command. Your subject will obey to the letter, then thank you for the honour.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -105,7 +105,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, it’s the end of a very good first date and you’ve reached the front door. Play it out: the lingering pause, the “I had a really nice time,” the look, and finally the goodnight kiss that goes on far longer than either of you planned.\n\nCommit to the awkward bit before the kiss. That’s where the magic lives.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -118,7 +118,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you’ve just spotted %target% across a crowded bar and you only have one shot. Deliver your opening line, buy %ts% an imaginary drink, and work your charm.\n\n%target%, you’re a tough crowd, but if the third line lands, let %ts% kiss you like the bar is closing.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -131,7 +131,7 @@ export const actionExpansionLow = [
     message:
       "%player2%, you are the director. %player1%, you are the leading romantic talent. %target%, you are the co-star.\n\n%player2%, direct %player1% through one perfect screen kiss with %target%: the approach, the hand placement, the tilt, the hold. Demand at least two retakes for artistic reasons.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -142,7 +142,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, lace your fingers through %target%’s, press %tp% hands gently back against the sofa or wall, and kiss %ts% slowly.\n\n%target%, your hands stay exactly where they’ve been put until the kiss is over. However long that takes. %player1% decides.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -155,7 +155,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, remove %target%’s shirt %and bra% as slowly as you can bear, and the entire time, neither of you may break eye contact.\n\nFirst one to look away, laugh, or blink dramatically owes the other a kiss on the spot of the winner’s choosing.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 0,
     number_of_participants: 2,
@@ -167,7 +167,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, %target%’s top is coming off, but there are rules. For every button, clasp, or inch of hem you undo, you must first place one slow kiss on the skin nearest to it.\n\nNo kiss, no progress. Take your time. The shirt %and bra% comes off at the end, and %target% keeps score.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 0,
     number_of_participants: 2,
@@ -179,7 +179,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you have exactly %m1% to remove %target%’s bottoms, and you must use every last second of it. If you finish early, that’s a failure of imagination.\n\nFill the spare time with kisses to each new inch of skin as it appears. The timer is your metronome. Glacial is the goal.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 1,
     number_of_participants: 2,
@@ -191,7 +191,7 @@ export const actionExpansionLow = [
     message:
       "%target%, put your feet up, you’ve earned it. %player1%, begin at %tp% ankle with soft kisses, and work your way slowly up the calf to the back of the knee. Then switch legs and do it all again.\n\nNo rushing. Ankles are criminally underrated and tonight we fix that.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -203,7 +203,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, hold an ice cube in your mouth until your lips are properly chilled. Spit it out, then give %target% the coldest, slowest kiss of %tp% life.\n\n%target%, your job is to warm those lips back up. Don’t stop until you have.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -215,7 +215,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, lean in close and whisper three increasingly filthy compliments into %target%’s ear, one at a time.\n\n%target%, you must repeat each one back, out loud, to the whole group, in your most matter-of-fact voice. Then collect your kiss. You’ve earned it.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -226,7 +226,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, sit close, foreheads nearly touching, and hold eye contact for %d60% seconds. No talking. No laughing. Breathing at each other is permitted and encouraged.\n\nWhoever breaks first kisses the winner anywhere the winner chooses. If you somehow both survive, kiss each other at the exact same moment.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -237,7 +237,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, %target% has a contract to sign and you’re the pen. Plant a dotted line of small, precise kisses from just below %tp% ear, along the jaw, down the throat, and across the collarbone.\n\nFinish with one firm kiss at the end of the line. That’s the signature. Congratulations, the deal is binding.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -248,7 +248,7 @@ export const actionExpansionLow = [
     message:
       "%target%, on goes the blindfold. %player1% and %player2%, in an order of your own choosing, each deliver one kiss to %target%’s neck or cheek. Mix up your styles if you’re feeling devious.\n\n%target%, name who kissed you first. Guess right and you may demand a second kiss from either of them. Guess wrong and they each get to demand one from you.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -261,7 +261,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on. %player1% will now kiss you in three different places of %1p% choosing, pausing between each.\n\nAfter each kiss, name the exact spot out loud. Three correct answers wins you a kiss on the lips. Anything less and %player1% gets to repeat the whole round, slower.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -274,7 +274,7 @@ export const actionExpansionLow = [
     message:
       "%target%, you set the tempo. Kiss %player1%, and every time you snap your fingers, the kiss must change speed: slow and syrupy, quick and hungry, agonisingly gentle.\n\n%player1%, follow the beat precisely. A metronome that improvises is just chaos.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -285,7 +285,7 @@ export const actionExpansionLow = [
     message:
       "%target%, compose a two-line rhyming poem in earnest praise of your own backside, then recite it to the group with full theatrical gravity and a formal bow.\n\n%player1%, if the poem moves you, applaud and reward the poet with a kiss. If it doesn’t move you, demand an encore performance.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -297,7 +297,7 @@ export const actionExpansionLow = [
     message:
       "%target%, you are the control tower. %player1% is a kiss on final approach with nowhere to land.\n\nTalk %ts% in: “cleared for the left shoulder,” “hold pattern at the ear,” “divert to the collarbone.” Three landings minimum. %player1%, deviate from instructions and you will be circling for a very long time.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -310,7 +310,7 @@ export const actionExpansionLow = [
     message:
       "%target%, balance a cushion, book, or whatever’s to hand on your head and hold perfect posture for %d45% seconds while %player1% does %1p% level best to ruin it with kisses to your neck and whispered distractions.\n\nDrop it and the lesson repeats. Deportment matters, darling.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -321,7 +321,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, %target%’s visible skin is uncharted territory and you are the royal cartographer. Survey it with one slow fingertip, and every time you discover a freckle, mole, or scar, mark it on the map with a kiss and give it a grand explorer’s name.\n\nMinimum five landmarks. The crown expects thoroughness.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -332,7 +332,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, you haven’t seen each other in six long months and one of you has just walked through the arrivals gate. Run the scene: the spotting, the undignified half-jog, the lift-and-spin if your backs allow, and the kiss that makes strangers uncomfortable.\n\nHold the final kiss for a full %d30% seconds. The taxi can wait.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -343,7 +343,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, stand pressed together, full contact from knees to chest, hands clasped behind your own backs. Now kiss for %d45% seconds without using your hands at all.\n\nBalance is your problem. Gravity is on nobody’s side. Falling over counts as cheating, but stylishly.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -354,7 +354,7 @@ export const actionExpansionLow = [
     message:
       "%player2%, whisper an instruction to %player1%: one kiss, one location on %target%, one style. Keep it secret.\n\n%player1%, carry it out. %target%, you must then guess what the original instruction was, word for word as best you can. Close enough and %player2% must confess the next one out loud before it happens. Way off and round two stays a surprise.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -365,7 +365,7 @@ export const actionExpansionLow = [
     message:
       "%target%, confess to the group, in generous detail, the single most embarrassing thing you have ever done to impress someone you fancied. Names may be changed. Shame may not.\n\n%player1%, when the confession ends, kiss %ts% once, softly, and tell %ts% it absolutely would have worked on you.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -377,7 +377,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, deliver %target% a textbook compliment sandwich: one glowing compliment, one affectionate roast, one devastating compliment to finish. The roast must be loving. The compliments must sting more than the roast.\n\n%target%, respond to the whole sandwich with a single kiss, graded for enthusiasm.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -390,7 +390,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, it’s a photo finish. Simultaneously kiss, nuzzle, and breathe on each other’s necks for %d45% seconds. The first one to giggle, squirm, or make an involuntary noise loses.\n\nThe winner claims one additional kiss anywhere above the shoulders. The loser claims a rematch, someday.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -401,7 +401,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you are a deeply professional masseuse. %target% is your client, seated for a perfectly ordinary shoulder rub.\n\nFor %m1%, keep the massage strictly above board while your professionalism visibly crumbles: a lingering thumb here, a slightly-too-close exhale there, an apology that convinces no one. %target%, stay in character as a client who definitely hasn’t noticed. Definitely.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -414,7 +414,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, for the remainder of this card you are staff at a very exclusive establishment and %target% is the only guest who matters. Kneel, present an imaginary menu, then fetch %ts% a real drink or snack of %tp% choosing and serve it beautifully.\n\n%target%, tip your server with exactly one kiss. Service like this deserves it.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -427,7 +427,7 @@ export const actionExpansionLow = [
     message:
       "%target%, sit back and surrender your head. %player1%, spend %d90% seconds playing with %tp% hair: slow scalp massage, gentle tugs at the roots, fingernails tracing from nape to crown.\n\nFinish with a kiss to the top of %tp% head like you mean it. Bald or buzzed targets receive a luxurious scalp rub and are owed one extra kiss for their trouble.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -438,7 +438,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, gather both of %target%’s wrists behind %tp% back and hold them there in one hand, gently but firmly, like a pair of cufflinks you’re not done with yet.\n\nWith your free hand tilt %tp% chin and kiss %ts%, slow and unhurried. %target%, the hands stay put until %player1% releases them. Wriggling is permitted. Escaping is not.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -451,7 +451,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, lean in and give %target% a tour of the softest kisses known to science: butterfly kisses with your lashes on %tp% cheek, a feather-light brush across each closed eyelid, the faintest graze of lips on the tip of %tp% nose.\n\nCatalogue at least six specimens before pinning the final butterfly directly on %tp% lips.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -462,7 +462,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, kiss in exaggerated, sports-replay slow motion for %d30% seconds: the lean-in, the eye flutter, the contact, all at quarter speed. The group provides commentary in hushed broadcaster voices.\n\nIf either of you breaks slow motion or corpses laughing, the referee demands a replay of the replay.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -473,7 +473,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on, standing in the middle of the room. %player1%, position yourself somewhere within arm’s-flail distance and stay put.\n\n%target% calls “Marco,” %player1% answers “Pucker,” and %target% must home in by sound alone. When found, %player1% is kissed immediately, wherever the searching lips happen to land first. House rules say nobody gets to complain about the landing site.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -486,7 +486,7 @@ export const actionExpansionLow = [
     message:
       "%target%, time for your bottoms to exit the stage. Do one slow, dignified turn for the room, then stand centre stage while %player1% removes them with maximum theatrical flourish, finishing with a deep bow to the audience.\n\nThe audience is contractually obliged to applaud. Encores at %target%’s discretion.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 1,
     number_of_participants: 2,
@@ -498,7 +498,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, conduct a formal audit. Ask %target% to rank three kiss locations in order of preference: neck, ear, collarbone.\n\nThen deliver all three, slowly, in reverse order, saving %tp% favourite for last. Auditors are nothing if not thorough, so linger on the final item until %target% signs off.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -509,7 +509,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you are the doorperson at the most exclusive club in town, arms folded, unimpressed. %target%, you are absolutely not on the list.\n\n%target%, flirt your way in. %player1%, hold the line through at least two attempts before accepting the standard entry fee: one slow kiss, paid in full, right there at the rope.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -522,7 +522,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, your lips are the car. %player2%, you’re in the back seat with opinions. For %d60% seconds, %player2% calls out exactly where %player1% kisses %target% next: “left ear... no, collarbone... back to the ear, you missed a bit.”\n\n%player1%, obey every call. %target%, you’re just along for the ride.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -533,7 +533,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you may not speak, smile, or make a sound for this entire card. %target%, direct %ts% using pointing only: point to a spot on yourself, receive a kiss there. Three kisses minimum.\n\n%player1%, if you break silence or crack a grin, %target% gains a bonus kiss and the smugness that goes with it.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -546,7 +546,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, you have %d45% seconds to raise visible goosebumps on %target% using only warm breath and the lightest possible fingertip trail along %tp% neck, arms, and hairline.\n\nThe group inspects the results. Verified goosebumps earn you a kiss from %target%. A smooth, unbothered target means you owe one instead.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -557,7 +557,7 @@ export const actionExpansionLow = [
     message:
       "%target%, before anyone may kiss you tonight, the paperwork must be read. Improvise your personal Terms and Conditions of Kissing aloud, in your best legal voice: clauses, subclauses, at least one absurd prohibition.\n\n%player1%, when the reading ends, state clearly “I have read and agree to the terms” and execute the contract. With your mouth.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -568,7 +568,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, the central bank has spoken: one kiss from %target% costs exactly three compliments, paid up front, no refunds.\n\nMake two purchases. Six compliments, two kisses. %target%, you set the quality threshold, and you are encouraged to reject counterfeit flattery at the till.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -579,7 +579,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, spend %d30% seconds kissing your way slowly across %target%’s shoulders, from the point of one to the point of the other, including the often-neglected nape stop along the route.\n\nOver or around clothing as the terrain allows. Scenic detours to the neck are permitted but must be declared.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -590,7 +590,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, knock-knock: you are the hotel’s most attentive member of staff, here for turndown service. %target%, you are the guest in suite nine.\n\nPlay it out: the towel over the arm, the plumping of an actual cushion, the “is everything to sir or madam’s satisfaction?” and finally the distinctly off-menu goodnight kiss that gets you an outstanding review and probably fired.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -603,7 +603,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, face each other. %target% leads with slow, flirty gestures: a hair tuck, a lip bite, a lingering look. %player1% must mirror every move in real time, like a reflection with intentions.\n\nFirst one to laugh gives the other a kiss on the neck. If you make it %d60% seconds without breaking, kiss simultaneously and call it a draw.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -614,7 +614,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, %target% is the prize exhibit and you’ve ignored every “do not touch” sign in the building. For %d60% seconds, stroke, pet, and admire %ts% from shoulders to knees, strictly over clothing.\n\nProvide hushed zookeeper commentary on temperament and coat condition as you go. %target%, you may preen.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -625,7 +625,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, take the long way. Begin with a kiss to %target%’s fingertips, then travel: knuckles, the inside of the wrist, up the arm, over the shoulder, arriving at last at the neck.\n\nSpeed limits are strictly enforced on this road. Anything above a crawl and %target% is entitled to send you back to the start.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -636,7 +636,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, in your deepest movie-trailer voice, narrate the opening of a film starring %target%: “In a world... where one person was unreasonably attractive...” Build for at least three sentences.\n\nAt the title card, dip %ts% dramatically (sofa-assisted dips are allowed) and deliver the opening-scene kiss. Rated PG-13, barely.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -647,7 +647,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, kneel before %target% like a knight at an investiture. Kiss the back of %tp% hand, then pledge aloud one specific favour, redeemable at any point tonight, no questions asked.\n\n%target%, accept the pledge by resting your hand on %1p% head. The debt is now sacred. The group are witnesses.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -660,7 +660,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, place one small dab of honey on %target%’s lips, then kiss it away as slowly as physics allows.\n\nWhen you’re done, deliver your verdict to the group: which was sweeter, the honey or the target. There is a correct answer and your next kiss depends on choosing it.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -672,7 +672,7 @@ export const actionExpansionLow = [
     message:
       "%target%, sit comfortably. %player1% and %player2%, take a cheek each and, on a count of three, kiss simultaneously and keep going for %d20% seconds: cheeks, jaw, temples, ears.\n\n%target%, your only job is to keep a completely straight face. Crack a smile and the count of three happens all over again.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -683,7 +683,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, you are two professional actors rehearsing a stage kiss. Begin clinically: discuss the blocking, the angle, where the hands go. Perform take one with exaggerated theatrical fakeness.\n\nThen take two. The one where the director can’t tell if you’re acting any more. Hold it three beats longer than the script requires.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -694,7 +694,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, for the next %d90% seconds you may do everything except kiss: hover a breath apart, trace lips past lips without contact, murmur what you’re going to do when the timer runs out.\n\nActual lip contact before the buzzer resets the clock. When it finally sounds, you know what to do, and you’d better do it properly.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -705,7 +705,7 @@ export const actionExpansionLow = [
     message:
       "%target%, you have %d60% seconds to make %player1% visibly blush using words alone. No touching, no props, just devastating charm at close range.\n\nIf you succeed, %player1% kisses you as the forfeit. If %th% holds firm, you kiss %1p% hand and publicly acknowledge the superior poker face.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -718,7 +718,7 @@ export const actionExpansionLow = [
     message:
       "%target%, lie back. %player1%, take an ice cube and trace slow lines across %tp% chest and stomach for %d60% seconds, following each icy trail immediately with your warm mouth.\n\nCold, then heat, then cold again. %target%, you may shiver. In fact, it’s encouraged.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -730,7 +730,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, hold an ice cube between your lips and use it to draw one slow, continuous line from the top of %target%’s spine down to the small of %tp% back.\n\nWhen the line is finished, retrace it with warm kisses, erasing your own work. %target%, arching is allowed. Escaping is not.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -742,7 +742,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, pudding is served. Apply a modest line of cream along %target%’s collarbone and down toward her cleavage, then remove every trace of it with your tongue, slowly enough to be accused of savouring.\n\n%target%, feedback on technique is welcome. Seconds are at the chef’s discretion.",
     target_sex: 2,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -754,7 +754,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, lay a single stripe of cream from the hollow of %target%’s throat straight down the breastbone. Now clean it up, top to bottom, using lips and tongue only.\n\nHouse standards are exacting: any cream left behind means the stripe gets reapplied and you start again.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -766,7 +766,7 @@ export const actionExpansionLow = [
     message:
       "%target%, choose three places on your bare skin, anywhere above the waist. %player1%, dress one with honey, one with cream, and leave the third bare.\n\nNow visit all three with your mouth, in an order of your choosing, giving the bare one exactly as much attention as the sweetened two. It didn’t do anything wrong.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -791,7 +791,7 @@ export const actionExpansionLow = [
     message:
       "%target%, membership of this very exclusive club is granted via your thighs. %player1%, oil your hands and massage from %tp% knees slowly upward for %d90% seconds, kneading as you go, stopping tastefully short of anywhere the card doesn’t cover.\n\nThe tease is the membership fee. Collect it in full.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -815,7 +815,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, alternate on %target%’s neck and chest for %d60% seconds: ten seconds of ice held against the skin, then ten seconds of open-mouthed heat and warm breath on the same spot. Repeat until the timer runs out.\n\n%target%, your nervous system is about to file a formal complaint. Overrule it.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -839,7 +839,7 @@ export const actionExpansionLow = [
     message:
       "%target%, lie back, c’est la vie. %player1%, oil your hands and spend %d90% seconds on a slow chest and stomach massage: broad palms across the pectorals, fingertips circling lower, thumbs along the ribs.\n\nFinish with both palms resting flat and one kiss placed dead centre. Très bien.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -851,7 +851,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, hold an ice cube against one of %target%’s nipples until %th% gasps, then replace the cold with your warm mouth and the gentlest of nips. Repeat on the other side, because symmetry matters.\n\n%target%, you may grab a cushion. You may not grab the ice.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -877,7 +877,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, chill one hand on an ice cube until it’s properly cold. %player2%, rub your palms together until yours are properly warm. Now, simultaneously, run one cold hand and one warm hand over %target%’s back and shoulders for %d60% seconds.\n\n%target%, your only task is to report, honestly, which hand is winning.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -901,7 +901,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, glaze %target% like the patisserie intended: a touch of honey on her lips, a thin trail down her throat, one last drop at the top of her cleavage.\n\nYou have %d45% seconds to remove all of it with your mouth, working top to bottom. Leave the best until last. You know which one that is.",
     target_sex: 2,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -926,7 +926,7 @@ export const actionExpansionLow = [
     message:
       "%target%, you have been deemed sponge-worthy. Congratulations. %player1%, with a warm, well-wrung sponge, bathe %tp% chest, shoulders, and arms in slow, deliberate strokes for %d90% seconds.\n\nThen pat %ts% dry with a towel, replacing every pat with a kiss as you go. Spa protocol is strict on this.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -938,7 +938,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, take an ice cube and trace it slowly along the line of %target%’s waistband, hip to hip, dipping no lower than one teasing centimetre.\n\nFollow the melted trail with your fingertips, then your lips. %target%, the waistband stays exactly where it is. That’s what makes it interesting.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -983,7 +983,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, every seam on %target%’s clothing is a road and your fingernails are taking the grand tour. Trace them all, slowly: side seams, shoulder seams, the waistband, the inseam if you’re brave.\n\nStay on the roads. No off-piste shortcuts. %target%, by the end you will have strong opinions about tailoring.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 1,
     number_of_participants: 2,
@@ -1038,7 +1038,7 @@ export const actionExpansionLow = [
     message:
       "%target%, take a seat in %player1%’s lap and get comfortable, you’ll be there for %m1%. %player1%, your hands have free roam over %tp% clothed body for the duration: stroking, squeezing, wandering.\n\n%target%, here’s the luxury clause: you may not guide, redirect, or assist. Sit there and be appreciated.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -1060,7 +1060,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, quality control has arrived. Run one slow fingertip up the inseam of %target%’s trousers, ankle to upper thigh, stopping just short of anywhere conclusive. Pause. Inspect your findings. Do two more passes, slower each time.\n\n%target%, the inspector never arrives where you expect. That’s what keeps the standards high.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 0,
     number_of_participants: 2,
@@ -1126,7 +1126,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, locate every drawstring, lace, and waistband on %target%’s remaining clothing. Toy with them: slow tugs, idle twirls, and exactly one finger slipped beneath the waistband, one knuckle deep, for one slow lap from hip to hip.\n\nNothing comes off and nothing goes further. This card is all strings, no delivery.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -1148,7 +1148,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, slide one hand under %target%’s clothing and rest it flat over %tp% heart. Feel the beat. Now, using only kisses to the neck and words in the ear, see how fast you can get it going in %d60% seconds.\n\nReport the before and after to the group. %target%, your heart is a terrible liar and everyone is about to know it.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 1,
     number_of_participants: 2,
@@ -1159,7 +1159,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, step up to the plate. Deliver a series of small, sharp pinches up %target%’s arm and along %tp% side, one every few seconds for %d30% seconds. %target%, count each one out loud, and keep your voice level if you can.\n\n%player1%, finish by kissing the three spots that got the least level counting.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1185,7 +1185,7 @@ export const actionExpansionLow = [
     message:
       "%target%, across %player1%’s lap you go. %player1%, deliver ten light, unhurried spanks over clothing, and %target% counts each one aloud with a polite “thank you” attached.\n\nLose count and the set restarts from one. %player1%, finish with a gentle rub and help %ts% up like the gentleperson you occasionally are.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -1198,7 +1198,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, fetch the paddle. %target%, choose your stance: bent over the sofa arm or hands on knees. Five light taps, evenly spaced, each one answered by %target% with a score out of ten for form and follow-through.\n\n%player1%, anything scored below six must be apologised for with a kiss to the affected area.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -1212,7 +1212,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, place one clothespin gently on %target%’s earlobe, the world’s most budget-conscious jewellery. It stays on for %d20% seconds while you kiss everything nearby: the neck below it, the jaw beside it, the ear around it.\n\nWhen the timer ends, remove it slowly and kiss the lobe better. Removal is famously the interesting part.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1226,7 +1226,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, alternate on %target%: one light spank, then one soft kiss, landed on the very same spot. Six of each, taking your time between rounds so %th% never quite knows which is coming.\n\n%target%, your job is to say “spank you very much” after every kiss and nothing at all after every spank. Mixing them up earns a bonus round.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1239,7 +1239,7 @@ export const actionExpansionLow = [
     message:
       "%target% and %player1%, hold eye contact for %d60% seconds. %player1%, every single time %target% looks away, blinks long, or laughs, deliver one swift, cheeky pinch to %tp% behind.\n\n%target%, the maths is simple: discipline or consequences. Historically, nobody has chosen discipline.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1252,7 +1252,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, %target%’s spine is the board. Starting at the small of %tp% back, climb it with small pinches, one vertebra at a time: those are the snakes. Any time %th% flinches, slide back down two with soothing fingertip strokes: those are the adders being nice about it.\n\nReach the nape and claim your prize: one long kiss to the back of the neck.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1265,7 +1265,7 @@ export const actionExpansionLow = [
     message:
       "%target%, offer %player1% your shoulder like an hors d’oeuvre. %player1%, bite gently and hold for %d10% seconds, steady pressure, no chewing, you animal. Then release and soothe the whole area slowly with your tongue.\n\nRepeat on the other shoulder. Tasting menus come in pairs.",
     target_sex: 1,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1278,7 +1278,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, warm %target% up like a proper chef: a steady rhythm of light pats and slaps across %tp% thighs and backside for %d30% seconds, building a gentle glow, never a sting that lingers.\n\nThen switch instantly to slow, flat-palmed rubbing over everywhere you just worked. The contrast is the recipe.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1291,7 +1291,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, drag your nails slowly down %target%’s bare back, firm enough to leave faint pink trails, three passes from shoulders to waist.\n\nThe trails are your scratch card. If any two lines cross, you’ve won: collect one kiss from %target%, anywhere you like. No crossings? %target% wins and collects instead. Check carefully. Disputes go to the group.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1317,7 +1317,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on. %player1%, touch %tp% skin with five different parts of yourself, one at a time: perhaps a cheek, the back of a hand, your lips, your nose, your hair.\n\n%target%, identify each one aloud. Four out of five earns you a kiss on the mouth. Fewer, and %player1% runs the whole keyboard again, slower.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1330,7 +1330,7 @@ export const actionExpansionLow = [
     message:
       "%player1%, blindfold on, you’re navigating by instruments now. Your mission: find and kiss %target%’s left shoulder, guided only by %tp% calls of “warmer” and “colder.”\n\n%target%, you may be cruel with your navigation, but every wrong landmark %player1% kisses along the way still counts as a kiss. Choose your route accordingly.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1343,7 +1343,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on. %player1% and %player2%, take turns drawing objects from around the room, a cushion’s corner, a sleeve, your own hair, and trailing them across %tp% arms, neck, and back.\n\n%target%, after each one, name the texture AND whose hand wielded it. Every correct double earns you a kiss from the guilty party.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -1356,7 +1356,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on, seated, hands in your lap. %player1%, for %d60% seconds, move around %ts% in total silence and deliver kisses and fingertip touches at unpredictable intervals and locations.\n\nThe gaps between touches should be long enough that %target% starts straining to hear you. That straining is the whole card.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1369,7 +1369,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on, this is the game show where the points are kisses and the rules are made up. %player1% and %player2%, in secret order, each place one hand on %target% and trace a slow path along %tp% back or arms.\n\n%target%, after each pass, name the owner of the hand. Correct guesses win a kiss from that player. Wrong guesses and the hands confer, swap tactics, and go again.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -1382,7 +1382,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on. Now explore %player1%’s face, shoulders, and arms with just your fingertips, and describe what you find like a critic at a gallery opening: materials, composition, emotional impact.\n\n%player1%, hold still and endure your review. If it’s glowing, kiss the critic. If it’s harsh, kiss the critic anyway. Critics need it more.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1395,7 +1395,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on, and for the next %d90% seconds you may not speak. %player1%, you have free roam over %tp% clothed body and exposed skin: strokes, kisses, breath, in any order, at any pace.\n\n%target%, every sound that escapes you adds ten silent seconds. %player1%, consider that a scoring system.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1410,7 +1410,7 @@ export const actionExpansionLow = [
     message:
       "%target%, blindfold on. %player1%, visit six spots on %tp% exposed skin: on some, a long warm breath; on others, one slow lick. Your choice of mix.\n\n%target%, call each one as it happens: “breath” or “tongue.” Full marks wins you %player1%’s mouth wherever you want it for one kiss. Anything less and the sensors get recalibrated the hard way.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,

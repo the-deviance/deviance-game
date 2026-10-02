@@ -5,13 +5,17 @@ import { GameData, Player, DressLevel } from '../types/game';
 export const STORAGE_KEY = 'gameData';
 export const BOARD_SIZE = 16;
 export const PASS_GO_BONUS = 200;
-export const MAX_SPICE_LEVEL = 3;
+/* Spice scale is 1-5: 1 kissing/touching, 2 breasts/genitals, 3 fingering/
+   teasing oral, 4 full oral/sex, 5 anal/threesomes/hardcore. Cards may also
+   carry -1 = any level. */
+export const MIN_SPICE_LEVEL = 1;
+export const MAX_SPICE_LEVEL = 5;
 export const MAX_DRESS_LEVEL = DressLevel.Naked;
 
 export const initialGameData: GameData = {
   players: [],
   toys: {},
-  spiceLevel: 0,
+  spiceLevel: MIN_SPICE_LEVEL,
   currentPlayer: 0,
   started: false,
   totalMoves: 0,
@@ -122,7 +126,15 @@ export function gameReducer(state: GameData, action: GameAction): GameData {
 export function loadGameData(): GameData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return { ...initialGameData, ...JSON.parse(raw) };
+    if (raw) {
+      const saved = { ...initialGameData, ...JSON.parse(raw) };
+      // Saves from the old 0-3 scale: clamp into the 1-5 range.
+      saved.spiceLevel = Math.min(
+        Math.max(saved.spiceLevel ?? MIN_SPICE_LEVEL, MIN_SPICE_LEVEL),
+        MAX_SPICE_LEVEL
+      );
+      return saved;
+    }
   } catch (error) {
     console.error('Failed to load game data:', error);
   }

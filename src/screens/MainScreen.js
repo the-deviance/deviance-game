@@ -24,8 +24,9 @@ export default function MainScreen() {
         newGame();
     };
 
-    const spiceLevel = gameData?.spiceLevel ?? 0;
-    const spiceArray = Array(spiceLevel + 1).fill(1);
+    // Spice scale is 1-5; one flame per level.
+    const spiceLevel = gameData?.spiceLevel ?? 1;
+    const spiceArray = Array(Math.max(spiceLevel, 1)).fill(1);
 
     return (
         <div className="game-screen">

@@ -9,7 +9,7 @@ export const chamberExpansion = [
     message:
       "%target%, hold out your wrists like you mean it. %player1% is going to tie them together in front of you, snug but kind, with the safety scissors sitting right there on the table where you can both see them.\n\nOnce you're tied, %player1% gets %m1% minute to trail fingertips anywhere above the waist while you keep those wrists raised like an offering. Lower them and the minute starts again.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -24,7 +24,7 @@ export const chamberExpansion = [
     message:
       "Furniture doesn't fidget, %target%. Get on your hands and knees in front of the sofa. %player1% is going to rest %1p% feet on your back, sit back, and relax for %m2% minutes.\n\nStay perfectly still and silent. Every wobble, word, or giggle earns you one firm swat from %player1% before the clock resumes. Good furniture gets thanked. Bad furniture gets reupholstered.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -41,7 +41,7 @@ export const chamberExpansion = [
     message:
       "Over %player1%'s knee you go, %target%. Ten swats are coming, and you're going to count every single one out loud, nice and clear: 'One. Two. Three.'\n\nLose count, mumble, or get ahead of yourself, and the count resets to zero. %player1%, vary your timing. Make %ts% wait for some of them.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -65,7 +65,7 @@ export const chamberExpansion = [
     message:
       "%target%, the rules are insultingly simple: for the next %m1% minute, you make no sound at all. No moans, no gasps, no swearing at %player1%, who will meanwhile be touching, kissing and teasing you with the sole aim of making you break.\n\nEvery sound you make earns one swat on the backside, delivered the moment the timer ends. Silence is golden. Failure is pink.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -78,7 +78,7 @@ export const chamberExpansion = [
     message:
       "Collar on, %target%. Leash clipped. %player1% holds the other end now, and you walk at %1p% heel on your hands and knees, matching %1p% pace exactly.\n\nOne slow lap of the room. If you surge ahead or lag behind, %player1% stops, tells you precisely what you did wrong, and starts the lap again. Good heel work earns a scratch behind the ear.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -95,7 +95,7 @@ export const chamberExpansion = [
     message:
       "%target%, %player1% is going to decorate you: five clothespins, placed anywhere on your clothing or your skin, %1p% choice entirely.\n\nOnce you're dressed for the occasion, walk one full lap of the room with your chin up like you're on a runway. Any pin that falls gets replaced somewhere less convenient.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -109,7 +109,7 @@ export const chamberExpansion = [
     message:
       "Lie face down, %target%, and surrender your back. %player1% is going to draw one slow line down your spine with an ice cube, neck to waistband, then chase the cold away with fingernails dragged along the same path.\n\nThree rounds: ice, then nails, then ice again. %target%, your only job is to shiver attractively and stay put.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -134,7 +134,7 @@ export const chamberExpansion = [
     message:
       "%target%, your vocabulary has been revoked. For your next three turns of the game, you may only say three things: 'Yes', 'No', and 'Please'. Everything else stays locked behind your teeth.\n\n%player1% is the enforcer. Every slip costs you one firm swat, payable immediately, wherever you happen to be sitting. The other players are encouraged to ask you open-ended questions.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -164,7 +164,7 @@ export const chamberExpansion = [
     message:
       "Take a seat, %target%. The comfy chair. %player1% is going to tie each of your ankles to a chair leg, scissors on standby, and then conduct a thorough performance review.\n\nFor %m1% minute, %player1% may stroke, tickle and kiss everything the chair leaves exposed. You may squirm. You may not escape. The minutes of this meeting will not be circulated.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -179,7 +179,7 @@ export const chamberExpansion = [
     message:
       "%target%, the court finds you talkative. %player1% will fit you with a gag, then ask you five personal, probing, deeply unfair questions.\n\nYou must attempt to answer every one, through the gag, in full sentences. %player1% will interpret your testimony out loud for the room, as inaccurately and unflatteringly as %1h% likes. The court's ruling is final.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -193,7 +193,7 @@ export const chamberExpansion = [
     message:
       "Blindfold on, %target%. The world is now %player1%'s voice and nothing else.\n\nFor %m2% minutes, %player1% gives you simple commands: three steps forward, kneel, hold out your left hand, tilt your head. Between commands, %1h% may touch you anywhere above the waist, without warning, and you will hold position. Trust is a lovely thing. So is watching you flinch.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -232,7 +232,7 @@ export const chamberExpansion = [
     message:
       "Collar on, %target%. You're a puppy now, and %player1% is a very demanding owner.\n\nSit when told. Shake hands. Roll over. Beg, with your hands curled up under your chin and your best pleading eyes. %player1% runs you through the full routine twice, praising lavishly or scolding theatrically as deserved. Speaking is barking. Good dogs get petted.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -250,7 +250,7 @@ export const chamberExpansion = [
     message:
       "%target%, bend over the arm of the sofa. %player1% is going to play a rhythm on your backside, open-handed, in strict time: slow, slow, quick-quick, slow.\n\nYour job is to call the beat back out loud without losing the pattern. Sixteen bars. If you drop the rhythm, %player1% starts the piece again from the top, a touch firmer. Musicians call this rehearsal.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -288,7 +288,7 @@ export const chamberExpansion = [
     message:
       "On your hands and knees, %target%. %player1% is going to balance a cup of water in the small of your back.\n\nThen, for %d60% seconds, %player1% will do %1p% level best to make you move: feather-light touches, breath on your neck, scandalous whispers, the occasional gentle swat. Spill, and you finish the timer with a wet back and a smug audience.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -301,7 +301,7 @@ export const chamberExpansion = [
     message:
       "%target%, you've been informed you're about to be kissed, and you've decided to object. Loudly. Unconvincingly.\n\n%player1% will back you up against the wall, pin your wrists beside your head, and kiss you while you put up the least sincere struggle of your life. %d45% seconds. If you stop resisting, %player1% stops kissing, so keep up the protest if you want to keep the prize.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -353,7 +353,7 @@ export const chamberExpansion = [
     message:
       "The oldest ritual in the book, %target%, and you're going to perform it beautifully. Bend over %player1%'s knee.\n\nAfter each swat you will say, clearly and politely: 'Thank you. May I have another?' %player1% only continues if you ask nicely, and stops the moment you don't. Ten swats if your manners hold. Posh accents earn bonus points from the audience.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -368,7 +368,7 @@ export const chamberExpansion = [
     message:
       "Lie on your front, %target%, and give %player1% your bare back as a canvas.\n\n%player1% will drag %1p% nails across it in long, slow strokes, light at first, then ask: 'harder or softer?' You must answer honestly after every stroke. Ten strokes total, building a map of exactly what makes you arch. %player1%, remember the coordinates. They'll be useful later.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -396,7 +396,7 @@ export const chamberExpansion = [
     message:
       "Bad news, %target%: you've been kidnapped. Good news: your captor is %player1%, and the ransom is flattery.\n\n%player1% will tie your wrists in front of you, scissors within reach, and sit you down. To buy each limb free, you must deliver one sincere, specific compliment about %1s%, and %1h% must believe it. Generic praise extends your captivity. Negotiate well.",
     target_sex: 0,
-    spice_level: 1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -508,7 +508,7 @@ export const chamberExpansion = [
     message:
       "%target%, everything you want for the next %m2% minutes must be begged for. Kneel in front of %player1% and start asking.\n\nEach touch, each kiss, each scrap of attention has a price: you describe exactly what you want, why you want it, and how grateful you'll be. %player1% grants perhaps one request in three, and critiques the quality of your begging out loud. Flattery helps. Desperation helps more.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -570,7 +570,7 @@ export const chamberExpansion = [
     message:
       "%target%, %player1% is going to teach you some new personal mottos. Kneel, look up at %1s%, and repeat every sentence %1h% feeds you, word for word, with conviction.\n\nThe script is %player1%'s to write: how needy you are, what you're for, whose attention you depend on. Five sentences, each repeated until your delivery satisfies. Stumble, blush or giggle, and that sentence goes back to the top of the list.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -612,7 +612,7 @@ export const chamberExpansion = [
     message:
       "%player1%, sit back and put your feet up. Literally. %target% is going to worship them.\n\n%target%, remove %player1%'s shoes and socks like you're unwrapping something precious. Then %m2% minutes of devoted attention: firm thumbs on the arches, kisses to the ankle, lips along the instep. Keep eye contact when you can. %player1%, give direction freely. Good service should never have to guess.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -643,7 +643,7 @@ export const chamberExpansion = [
     message:
       "Five orders, %target%. That's what %player1% gets to give you, and you will execute each one promptly, perfectly and without a single word of protest.\n\nThe rules for %player1%: each order must be completable in this room, within this game's spice level, in under a minute. The rules for you: 'Yes, %player1%' is your entire vocabulary. Hesitate on any order and it's replaced with something worse. Begin.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -656,7 +656,7 @@ export const chamberExpansion = [
     message:
       "Inspection position, %target%: standing, feet shoulder-width, hands clasped behind your neck, eyes forward. Hold it.\n\n%player1% conducts a full and leisurely review: circling, trailing fingers, testing whether a slow stroke here or a breath there can break your posture. %m1% minute. Every time you move or make a sound, %player1% notes the fault out loud and adds ten seconds. Perfection has never been so inconvenient.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -746,7 +746,7 @@ export const chamberExpansion = [
     message:
       "Congratulations, %target%, you're this season's display model. %player1% is the window dresser with strong opinions.\n\n%player1% poses you: an arm here, chin there, weight on one hip. Then %1h% steps back, considers, and 'adjusts the merchandise': a stroke along the arm, a hand repositioning your thigh, lips testing the angle of your neck. Three full poses. Models do not move, speak or laugh, no matter where the adjustments land.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -759,7 +759,7 @@ export const chamberExpansion = [
     message:
       "%player1%, take an ice cube into your mouth and keep it there. %target%, lie back. Science is about to happen.\n\n%player1% puts that freezing mouth to work between %target%'s legs, alternating icy lips and warming tongue until the cube is entirely gone. %target%, your hands stay gripping the cushion above your head. The experiment ends when the ice does, however unfinished you feel.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 4,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -773,7 +773,7 @@ export const chamberExpansion = [
     message:
       "Kneel, %target%. %player1% is going to tie your wrists behind your back, scissors in reach, and then settle in comfortably.\n\nYour task: pleasure %player1% with your mouth alone, no hands, no shortcuts, while %1h% guides you with words and the occasional grip of your hair. %player1% decides when you've demonstrated sufficient devotion. Balance is harder than it looks. That's rather the charm.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 4,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -792,7 +792,7 @@ export const chamberExpansion = [
     message:
       "%target%, the red carpet has been rolled out for you. It's the floor, and you'll be crawling it.\n\nCross the room on hands and knees while %player1% walks beside you like an unimpressed publicist, announcing your flaws to the press: 'Note the terrible posture. The neediness. The blush.' At the far wall, kneel up and thank %player1% for the honest coverage. If your thank-you isn't gracious enough, it's back down the carpet for a second lap.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -983,7 +983,7 @@ export const chamberExpansion = [
     message:
       "%target%, hold still. %player1% is a sommelier tonight, and you are an impertinent little vintage in need of assessment.\n\n%player1% will sample five locations on you, a slow open-mouthed kiss or an unhurried lick each, and deliver pretentious tasting notes after every one: 'Notes of bad decisions. A long, needy finish.' %target%, you may not laugh. Laughing corks the bottle and the tasting starts again from location one.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1019,7 +1019,7 @@ export const chamberExpansion = [
     message:
       "An ice cube, %target%, is about to take up residence in your underwear. %player1% does the honours and picks the exact spot.\n\nHouse rules: you remain standing, hands behind your back, making pleasant small talk with the other players until it has fully melted. %player1% may ask you follow-up questions if your conversation gets suspiciously brief. Posture, darling. Posture.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 3,
     dress_level_from: 2,
     dress_level_to: 2,
     number_of_participants: 2,
@@ -1031,7 +1031,7 @@ export const chamberExpansion = [
     message:
       "%target%, you have %d60% seconds to kiss %player1%'s neck and shoulders as well as you've ever kissed anything. Pour your heart into it.\n\n%player1%'s role: remain utterly unmoved, then deliver a cold, itemised performance review. 'Adequate pressure. Poor pacing. The left side felt phoned in.' You will thank %1s% for the feedback, sincerely, and offer to redo the weakest section. %1h% will accept.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1063,7 +1063,7 @@ export const chamberExpansion = [
     message:
       "%target%, touch yourself for us. %player1% will be doing the steering.\n\nEvery stroke happens on %player1%'s instructions: where, how fast, when to slow down, when to stop entirely and put your hands flat on your thighs. %m2% minutes of driving by committee, and the committee is a sadist. You do not finish. You arrive at the destination flushed, obedient, and nowhere near done.",
     target_sex: 0,
-    spice_level: 2,
+    spice_level: 3,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1172,7 +1172,7 @@ export const chamberExpansion = [
     message:
       "Here's the arrangement, %target%: %player1% is going to stimulate you by hand until you are desperate, and your orgasm now requires written... no, verbal approval.\n\nWhen you're close, you ask: 'Please may I come?' %player1% will answer 'no' at least twice, each refusal paired with a slower, crueller rhythm. When %1h% finally says 'yes', you have ten seconds to use the permission or lose it. Govern yourself accordingly.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 4,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1186,7 +1186,7 @@ export const chamberExpansion = [
     message:
       "%target%, your orgasm has been nationalised. It now belongs to %player1%, and it arrives on %1p% schedule.\n\n%player1% will bring you close by hand, hold you hovering there, and then begin a slow countdown from five. You come on 'zero', not before, not after. If you go off early, %player1% gets to tell everyone exactly how early, with numbers. If you're late, well. There's always a second countdown, and %1h% counts slower every time.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 4,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1200,7 +1200,7 @@ export const chamberExpansion = [
     message:
       "%target%, you're getting an orgasm tonight. We never said it would be a good one.\n\n%player1% will work you up by hand with every skill %1h% owns, and at the exact moment you tip over the edge, %1h% lets go completely. Hands off, sitting back, watching politely while it happens to you all alone and deeply unsatisfyingly. Afterwards you will say 'thank you', and the worst part is you'll mean it.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 4,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1227,7 +1227,7 @@ export const chamberExpansion = [
     message:
       "Thirty with the paddle, %target%. A proper, old-testament thirty, delivered in three sets of ten with your position checked between sets.\n\nYou count every stroke, and on each multiple of ten you add, loudly: 'and I'm grateful.' %player1%, pace yourself like someone savouring a meal: brisk ones, slow heavy ones, feather taps that make the next real one worse. Lose count and the current set restarts. Nobody has ever counted to thirty so carefully.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 5,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1243,7 +1243,7 @@ export const chamberExpansion = [
     message:
       "Medieval justice, %target%, living-room edition. Bend over the back of a sturdy chair. %player1% ties each of your wrists down to a chair leg, scissors on the seat where you can see them, and there you are: on display and extremely available.\n\nFor %m2% minutes, %player1% alternates freely between slow teasing strokes and crisp swats, in whatever ratio your reactions suggest. The other players may heckle as per tradition. Rotten fruit remains banned.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 2,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1279,7 +1279,7 @@ export const chamberExpansion = [
     message:
       "%target%, you've just been caught going through %player1%'s things, and you're going to brazen it out. Deny everything. Try to leave the room.\n\n%player1% catches you, hauls you back (firmly, safely, and over your loud and theatrical objections), pins you over %1p% knee, and administers fifteen of the best while you protest your innocence the entire time. At stroke fifteen, you confess to the crime, and to one more we didn't even know about.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 2,
     dress_level_from: 1,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1296,7 +1296,7 @@ export const chamberExpansion = [
     message:
       "All rise. %target%, you stand accused of being entirely too smug this evening, and the court of %player1% and %player2% has convened.\n\nKneel before the bench while the judges confer theatrically. Each judge then passes one sentence: a punishment of their choosing, executable in this room at this spice level, delivered one after the other while the convicted thanks the court for its wisdom. Appeals are heard never. Court is adjourned when both sentences are served and your smugness is demonstrably gone.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 3,
@@ -1313,7 +1313,7 @@ export const chamberExpansion = [
     message:
       "%target%, %player1% is going to build you a zipper: five clothespins in a row along your flank or thigh, each one clipped onto a shared length of string.\n\nYou get %d30% seconds to sit with them, breathe, and contemplate your life choices. Then %player1% takes the string's end, meets your eyes, asks 'ready?'... and pulls the whole line off in one smooth motion. The sound you make belongs to the room now.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 2,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1327,7 +1327,7 @@ export const chamberExpansion = [
     message:
       "%target%, %player1% is going to bring you off by hand, start to finish, and your half of the bargain is total silence. Not a moan, not a gasp, not one ragged breath above library volume.\n\nThe room will be listening with the lights of their attention fully on you. Succeed and you may collapse with dignity. Make a sound and %player1% stops instantly, lets you cool for %d30% seconds, and begins again from the start. Yes, even if you were nearly there. ESPECIALLY if you were nearly there.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 4,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1352,7 +1352,7 @@ export const chamberExpansion = [
     message:
       "Delicate negotiations tonight, %target%. Hands and knees, deep breath, diplomatic smile.\n\n%player1%, ambassador of lube and patience, will warm %target% up with slow, generous fingers before introducing the dildo with all the ceremony of a state visit: gradual, attentive, entirely guided by %tp% breathing. %target%, narrate the summit for the room: what's agreeable, what needs renegotiating, when to proceed. Successful diplomacy ends with both parties announcing the talks went deeper than expected.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 5,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1367,7 +1367,7 @@ export const chamberExpansion = [
     message:
       "%target%, a logistics challenge. With %player1% supervising and the lube applied generously, you will seat a dildo snugly where the sun declines to shine, and keep it there.\n\nThus equipped, you will complete three ordinary household tasks of %player1%'s choosing: fetch a drink, plump a cushion, tidy the cards. Gracefully. Without waddling. The other players will absolutely be watching your gait, and %player1% will absolutely choose tasks involving bending.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 5,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1383,7 +1383,7 @@ export const chamberExpansion = [
     message:
       "%target%, %player1% has you on the rack tonight: steady, deliberate teasing by hand, no finish line in sight, and only one currency accepted here. Begging.\n\nYou must beg for mercy, and your begging is scored out of ten on sincerity, creativity and sheer shamelessness. Anything under eight, %player1% says 'not convinced' and continues. Score an eight or better and you've earned your mercy, which, %player1% will decide in the moment, means either sweet release or a full stop. Mercy was never defined. Read your contracts.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 4,
     dress_level_from: 3,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -1398,7 +1398,7 @@ export const chamberExpansion = [
     message:
       "Tonight's entertainment: %target%, performed by %target%, directed by committee. Lie back and go limp.\n\n%player1% kneels behind you and operates your arms like a marionette's, guiding your own hands over your own body: your chest, your thighs, everywhere the director fancies, at whatever speed %1h% chooses. %player2% provides your voice, narrating your supposed inner monologue to the room in the neediest tones imaginable. You surrender all creative control. Reviews at eleven.",
     target_sex: 0,
-    spice_level: 3,
+    spice_level: 2,
     dress_level_from: 2,
     dress_level_to: 3,
     number_of_participants: 3,

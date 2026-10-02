@@ -4,6 +4,7 @@ import {
   createDefaultPlayer,
   BOARD_SIZE,
   PASS_GO_BONUS,
+  MIN_SPICE_LEVEL,
   MAX_SPICE_LEVEL,
   MAX_DRESS_LEVEL,
 } from './GameContext';
@@ -24,10 +25,10 @@ function stateWithPlayers(count: number, overrides: Partial<GameData> = {}): Gam
 describe('gameReducer', () => {
   describe('NEW_GAME / START_GAME', () => {
     it('resets to a single default player, not yet started', () => {
-      const state = gameReducer(stateWithPlayers(3, { spiceLevel: 2 }), { type: 'NEW_GAME' });
+      const state = gameReducer(stateWithPlayers(3, { spiceLevel: 4 }), { type: 'NEW_GAME' });
       expect(state.players).toHaveLength(1);
       expect(state.players[0].money).toBe(2000);
-      expect(state.spiceLevel).toBe(0);
+      expect(state.spiceLevel).toBe(MIN_SPICE_LEVEL);
       expect(state.started).toBe(false);
     });
 

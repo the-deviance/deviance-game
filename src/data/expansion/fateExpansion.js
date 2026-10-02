@@ -469,7 +469,7 @@ export const fateExpansion = [
     message:
       "You have %d20% to deliver your smoothest chat-up line to %player1%, %target%. The group judges. Tonight, groans count as applause.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -480,7 +480,7 @@ export const fateExpansion = [
     message:
       "Lock eyes with %player1% for %d30%, %target%. No talking, no giggling, no looking away. Whoever cracks first owes the other a compliment.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -491,7 +491,7 @@ export const fateExpansion = [
     message:
       "You have %d30% to compliment %player1% on three things that have nothing to do with %1p% looks, %target%. Make %1s% believe every word.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -502,7 +502,7 @@ export const fateExpansion = [
     message:
       "The runway is wherever you're standing, %target%. Give the group your most devastating catwalk strut, there and back, in %d20%. Fierce. Commit.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -513,7 +513,7 @@ export const fateExpansion = [
     message:
       "Sell yourself, %target%! You have %d30% to auction off one kiss from you, full auctioneer patter and all. Whoever bids highest in applause collects the goods.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -524,7 +524,7 @@ export const fateExpansion = [
     message:
       "Blow %player1% a slow-motion kiss, %target%. Full theatrical production: the wind-up, the release, the follow-through. %1h% must catch it and apply it somewhere. You have %d10%.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -535,7 +535,7 @@ export const fateExpansion = [
     message:
       "Say 'good evening' to each player in turn, %target%, in the most indecent voice you can produce. One per person, %d30% total, eye contact mandatory.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -546,7 +546,7 @@ export const fateExpansion = [
     message:
       "You have %d30%, %target%, to flirt with %player1% as hard as you possibly can. %1h% must stay completely stone-faced. If %1h% cracks a smile, you win eternal bragging rights.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -557,7 +557,7 @@ export const fateExpansion = [
     message:
       "Wink at every player in turn, %target%, each wink filthier than the last. You have %d20%. The group then votes on whether your finale was cinema or a crime.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -568,7 +568,7 @@ export const fateExpansion = [
     message:
       "Lean in and whisper something in %player1%'s ear that makes %1s% blush, %target%. You have %d20%. If %1h% doesn't blush, the group may demand you say it out loud.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -579,7 +579,7 @@ export const fateExpansion = [
     message:
       "You're in a lift with %player1%, %target%, and you have %d30% to convince %1s% to come up to your room for coffee. There is no coffee. There was never any coffee. Go.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -590,7 +590,7 @@ export const fateExpansion = [
     message:
       "Sing %d20% of any song you like to %player1%, %target%, but make it sultry. Yes, even if it's a nursery rhyme. Especially if it's a nursery rhyme.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,
@@ -601,7 +601,7 @@ export const fateExpansion = [
     message:
       "Take a victory lap around the room, %target%, blowing kisses to your adoring fans. You have %d20%. You haven't won anything. That is not the point.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -638,7 +638,7 @@ export const fateExpansion = [
     message:
       "The fashion gods have spoken, %target%, and what they said was 'less'. Lose a layer. Make it look like an accident if that helps.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -650,7 +650,7 @@ export const fateExpansion = [
     message:
       "The house dress code has just been reviewed, %target%, and you are officially overdressed for the occasion. Remove one layer and resubmit yourself for inspection.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -662,7 +662,7 @@ export const fateExpansion = [
     message:
       "Carnival rules, %target%: the group just hit the bullseye on the dunk tank, and you were the one sitting over the water. Those clothes are soaked. Best take a layer off to dry.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -674,7 +674,7 @@ export const fateExpansion = [
     message:
       "Terrible news, %target%: one layer of what you're wearing was due back at the launderette an hour ago, and they've sent someone to collect. Hand it over.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -686,7 +686,7 @@ export const fateExpansion = [
     message:
       "Border control has flagged one layer of your outfit as undeclared goods, %target%. It is being confiscated for a thorough inspection. You will not be getting it back tonight.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -698,7 +698,7 @@ export const fateExpansion = [
     message:
       "A freak heatwave has swept the room, %target%. Health and safety insists you remove a layer immediately. It's for your own good. The group's enjoyment is purely a side effect.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -710,7 +710,7 @@ export const fateExpansion = [
     message:
       "You left the wardrobe open, %target%, and it turns out the moths have expensive taste. One layer of what you're wearing is now legally theirs. Take it off before they finish the job themselves.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -722,7 +722,7 @@ export const fateExpansion = [
     message:
       "The carnival wheel clatters to a stop on the one segment painted red, %target%. The crowd reads it aloud together: ONE LAYER. The wheel is never wrong.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -734,7 +734,7 @@ export const fateExpansion = [
     message:
       "Urgent notice, %target%: one layer of your outfit has been recalled by the manufacturer for being dangerously distracting. Remove it immediately and await further instructions.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -746,7 +746,7 @@ export const fateExpansion = [
     message:
       "Good news, %target%: the airline has found your luggage! To release it, however, they require one layer of what you're currently wearing as a deposit. Their policies are strange, but firm.",
     target_sex: 0,
-    spice_level: -1,
+    spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 2,
     number_of_participants: 1,
@@ -876,7 +876,7 @@ export const fateExpansion = [
     message:
       "Lady Luck offers a deal, %target%: deliver your most seductive line to the whole group within %d20%, and 150 is yours. The group has already decided you're doing it. The money is practically spent.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -888,7 +888,7 @@ export const fateExpansion = [
     message:
       "Step right up! The carnival needs a barker, %target%, and you're hired. Spend %d20% hyping the player of your choice to the group like they're the main attraction of the century. The carnival pays 150 for your trouble.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -938,7 +938,7 @@ export const fateExpansion = [
     message:
       "The piper played, you danced, and now the invoice has arrived, %target%. Pay 300, then give the group %d10% of that dance so they can see exactly what all the money went on.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -950,7 +950,7 @@ export const fateExpansion = [
     message:
       "There's a troll under the bridge, %target%, and the crossing fee is steep: pay 150, plus one slow, lingering compliment to the player of your choice before your next move. The troll is a romantic. The troll insists.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -962,7 +962,7 @@ export const fateExpansion = [
     message:
       "Nothing comes free at this table, %target%. Hold eye contact with the player of your choice for %d20% without laughing, and this 100 is yours. If you crack, keep the money anyway, along with the shame.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 1,
@@ -987,7 +987,7 @@ export const fateExpansion = [
     message:
       "Dinner isn't free in this establishment, %target%. Sing %d20% of a love song directly to %player1%, and the house will pay you 100 for the entertainment. Dreadful singing earns a bonus round of applause.",
     target_sex: 0,
-    spice_level: 0,
+    spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
     number_of_participants: 2,

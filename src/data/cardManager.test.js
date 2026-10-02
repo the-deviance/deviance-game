@@ -146,7 +146,7 @@ describe('card drawing and the used pile', () => {
   const gameData = {
     players: [alice, bob],
     toys: {},
-    spiceLevel: 0,
+    spiceLevel: 5,
     currentPlayer: 0,
     started: true,
     totalMoves: 1,
