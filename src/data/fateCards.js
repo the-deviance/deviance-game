@@ -358,6 +358,7 @@ export const fateCards = [
   },
   {
     name: "Good news, bad news",
+    target_orgasms: true,
     message:
       "The bad news, %target%, is that you just had a brief hospital stay that cost you $100... insurance co-pay, you know. The good news is that your head nurse was %player1%, and %1h% was very... um, eager to make your stay pleasant.\n\nSo eager, in fact, that %1h% did exactly what head nurses the world over are famous for, and gave you some. Head, that is. %player1%, if you will please do the honors. Continue to orgasm.",
     target_sex: 0,

@@ -391,6 +391,8 @@ export const stageCards = [
   },
   {
     name: "Back and Forth",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, you are going to take %player1% and %player2% simultaneously. While they lie on their backs side-by-side, you will alternate between them.\n\nPenetrate each one for a few strokes, then withdraw and move to the other. Keep alternating until the first person reaches orgasm, then stop.",
     target_sex: 1,
@@ -402,6 +404,7 @@ export const stageCards = [
   },
   {
     name: "Pillow fun",
+    target_orgasms: true,
     message:
       "Here’s a new twist on pillow talk. %target%, place a pillow between your legs and rub against it until you climax, while we watch.",
     target_sex: 2,
@@ -435,6 +438,8 @@ export const stageCards = [
   },
   {
     name: "A race to pleasure",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, take %player1% by the hand and lead them to the center of the room. Remain standing, and kiss one another passionately while stroking and fondling one another. Let your hands roam between one another’s legs.\n\nEach of you should try to bring the other person off. Kiss, fondle, caress, stroke, do whatever is necessary. You may not have intercourse, though! As soon as the first peron reaches orgasm, both of you will stop.",
     target_sex: 0,
@@ -545,6 +550,7 @@ export const stageCards = [
   },
   {
     name: "Group Fun",
+    player_orgasms: true,
     message:
       "%target%, here’s your moment to shine. You’re going to lie on your back while %player1% and %player2% kneel on hands and knees beside you. Both of them will kiss you while you reach between their legs and stimulate them manually.\n\nKeep this up until you have satisfied both of your partners. If they want you to make them come, then make them come!",
     target_sex: 0,
@@ -601,6 +607,7 @@ export const stageCards = [
   },
   {
     name: "Making a mess",
+    target_orgasms: true,
     message:
       "%player2%, you are going to kneel in front of %target% while %player1% stands behind him. %player1%, you will reach around and jerk %target% off, all over %player2%.\n\nAim for whatever part of %player2% you want. If you’re doing this properly, %player2% should be quite a mess when you’re finished. ",
     target_sex: 1,
@@ -623,6 +630,7 @@ export const stageCards = [
   },
   {
     name: "Vivid Imagery",
+    target_orgasms: true,
     message:
       "%target%, please lie down and cover yourself with a blanket. %player1% will crawl entirely under the blanket, out of sight, and stimulate you with fingers and tongue until you scream and come.\n\nWhile this is going on, please describe out loud exactly what %player1% is doing to you, in detail, and how it feels.",
     target_sex: 2,
@@ -779,6 +787,7 @@ export const stageCards = [
   },
   {
     name: "Random directions",
+    player_orgasms: true,
     message:
       "%target%, you’re the center of attention! You are to be blindfolded and placed in a chair in the middle of the room. After you’re blindfolded, all the appropriate players should draw straws to choose a partner randomly for you.\n\nYou are going to perform oral sex on the chosen player, without the use of your hands and without being told who that player is, until you make that person come. Have fun!",
     target_sex: 0,
@@ -790,6 +799,7 @@ export const stageCards = [
   },
   {
     name: "Messy adult fun",
+    target_orgasms: true,
     message:
       "%target%, please lie on your back while all the other appropriate players gather around you. They’re all going to watch as you jerk yourself off until you explode all over yourself.\n\nOnce you’re finished, the other players should all lick you clean, simultaneously.",
     target_sex: 1,
@@ -868,6 +878,7 @@ export const stageCards = [
   },
   {
     name: "Center of attention",
+    target_orgasms: true,
     message:
       "%target%, today is your lucky day! You get to enjoy the sustained attention of %player1% and %player2%. In fact, you have no choice...they’re going to bind you spread eagle and blindfold you\n\n%player1%, %player2%, once you get %ts% tied, you’re going to alternate. One of you will kiss %ts% while the other goes down on %ts% for a few seconds, then you’ll trade places. Keep it up until %target% orgasms",
     target_sex: 0,
@@ -901,6 +912,7 @@ export const stageCards = [
   },
   {
     name: "Racy fun",
+    player_orgasms: true,
     message:
       "%target%, you’re going to have some fun with %player1% and %player2%. First, go down on %player1% until you bring %1s% to orgasm. After you’re done, please give %player2% a long, slow, deep French kiss, for at least a minute.",
     target_sex: 0,
@@ -923,6 +935,7 @@ export const stageCards = [
   },
   {
     name: "Shell game",
+    target_orgasms: true,
     message:
       "%target%, you’ve been nominated the center of %player1% and %player2%’s attention. %player1%, kindly go down on him, and bring him to orgasm. When you’re finished, give him a long, deep kiss. Transfer the entire mouthful to him.\n\n%target%, you’re then going to take %player2% in your arms and give %2s% a deep kiss. Transfer the whole mouthful to %2s%.",
     target_sex: 1,
@@ -1000,6 +1013,7 @@ export const stageCards = [
   },
   {
     name: "Pleasure & pain",
+    target_orgasms: true,
     message:
       "%target%, the good news is that while you stand passively %player1% is going to stroke you to the heights of pleasure. Take %1s% in your arms and kiss %1s% while %1p% hand goes between your legs.\n\nThe bad news is that while this is going on, %player2% is going to stand behind you and smack your bare ass repeatedly until you climax.",
     target_sex: 0,
@@ -1011,6 +1025,8 @@ export const stageCards = [
   },
   {
     name: "Pleasure & Pain Redux",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "Well, %target%, first the good news. %player1% is going to get on %1p% hands and knees and allow you to take %1s% from behind--until you both come, if you like. The fly in the ointment is that while you are doing this, %player2% will be standing behind you.\n\nAnd why is that bad news? Because while you and %player1% are occupied, %player2% will be administering a spanking to your vulernable ass. One smack for each stroke, in fact.",
     target_sex: 0,
@@ -1033,6 +1049,7 @@ export const stageCards = [
   },
   {
     name: "Two on one",
+    target_orgasms: true,
     message:
       "%target%, it’s your turn to be in the spotlight. %player1% and %player2% are going to take you at the same time. %player1% gets first choice as to how %1h% wants you, %player2% may take you in any way that’s left.\n\nThey should continue servicing you until you orgasm, however, neither of them may reach climax.",
     target_sex: 2,
@@ -1055,6 +1072,8 @@ export const stageCards = [
   },
   {
     name: "For the ladies",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, please give %player2% a good view while you and %player1% take each other in any way you choose. As %player2% watches, you and %player1% will fuck until %1h% climaxes.\n\nWhen %player1% has reached orgasm, it’s your turn. Dismiss %1s%, push %player2% down on %2p% back, and straddle %2p% face. Stay there until %2h% licks you to orgasm.",
     target_sex: 2,
@@ -1066,6 +1085,7 @@ export const stageCards = [
   },
   {
     name: "Feeling dirty",
+    target_orgasms: true,
     message:
       "Okay, %target%, let’s hear your darkest secret. While you sit in front of us and masturbate, you’re going to tell us about a sexual experience you’ve had that left you feeling dirty and used.\n\nDescribe, while masturbating, what you did, and how you felt. Tell us why it made you feel dirty. Continue until you orgasm.",
     target_sex: 0,
@@ -1110,6 +1130,7 @@ export const stageCards = [
   },
   {
     name: "Group assistance",
+    player_orgasms: true,
     message:
       "%target%, you’re everyone’s little helper! All the other appropriate players will lie in a circle around you and masturbate. As each player gets close to orgasm, that player will tell you, and you’ll finish the job orally.\n\nDon’t neglect your duties! You should finish each appropriate player off with your mouth as quickly as possible. You don’t want to keep anyone waiting!",
     target_sex: 0,
@@ -1132,6 +1153,7 @@ export const stageCards = [
   },
   {
     name: "Back & Forth",
+    player_orgasms: true,
     message:
       "%target%, get on your hands and knees in the center of the room. %player1% is going to kneel in front of you, %player2% will kneel behind you. You are going to go down on %player1% while %player2% does the same for you.\n\nOnce %player1% has reached climax, %1h% will trade places with %player2%. Then you’ll continue until %player2% is satisfied as well. You may orgasm, if you like.",
     target_sex: 0,
@@ -1154,6 +1176,7 @@ export const stageCards = [
   },
   {
     name: "Dangerous roleplaying",
+    player_orgasms: true,
     message:
       "%target%, we’d like to hear about your deepest, darkest secrets. Describe a rape fantasy for us--a fantasy in which you have no control, and another person takes you by force.\n\nAfter you’ve described this fantasy, %player1% is going to act it out with you. %player1% will force %1s%self upon you and take you until %1h%, but not you, reaches orgasm.",
     target_sex: 0,
@@ -1165,6 +1188,7 @@ export const stageCards = [
   },
   {
     name: "Group fun",
+    target_orgasms: true,
     message:
       "%target%, you’re the center of attention! All the other appropriate players will grab all the toys they can and gather around you. They’re going to put those toys wherever they can-in your mouth, in your ass, wherever they will fit.\n\nWhile they’re doing this to you, they’ll be giving you plenty of other attention as well--groping and fondling you, pinching you, biting you, whatever they want. No intercourse, though! They’ll keep it up until you get off.",
     target_sex: 0,
@@ -1310,6 +1334,7 @@ export const stageCards = [
   },
   {
     name: "Fun for Her",
+    target_orgasms: true,
     message:
       "%target%, you're on stage! %player1% and %player2% are going to help make sure you enjoy your time here.\n\nFind a nice, comfortable place to sit. %player1%, you are going to hold %target% down to make sure she can't get away. %player2%, find a vibrator or dildo and use it on her. Keep using it until you get her off.\n\nBut don't stop then! After you've made her come, continue with the toy until she's screaming.",
     target_sex: 2,

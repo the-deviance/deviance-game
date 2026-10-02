@@ -861,6 +861,7 @@ export const stageExpansion = [
   },
   {
     name: "The Grand Finale",
+    target_orgasms: true,
     message:
       "%target%, every show builds to this. Centre stage, lights up, and bring yourself all the way to the finish while the room watches. Take whatever time and position you need. The audience's only job is to be very, very appreciative.",
     target_sex: 0,
@@ -926,6 +927,7 @@ export const stageExpansion = [
   },
   {
     name: "Freeze Frame",
+    target_orgasms: true,
     message:
       "%player1%, your hands are going to take %target% right to the edge in front of everyone. %player2%, you're the director: shout 'CUT' whenever you like, and they must freeze completely until you call 'ACTION'. After three cuts, the scene runs uninterrupted to its natural, noisy conclusion.",
     target_sex: 0,
@@ -938,6 +940,7 @@ export const stageExpansion = [
   },
   {
     name: "The Money Shot",
+    target_orgasms: true,
     message:
       "%target%, cinema's most famous closing image, performed live. %player1%'s hands do all the work while you face the audience, and the room counts you down from twenty when %player1% judges you close. Try to land the finish on zero. Timing is everything in showbusiness.",
     target_sex: 0,
@@ -1084,6 +1087,7 @@ export const stageExpansion = [
   },
   {
     name: "Climax by Committee",
+    target_orgasms: true,
     message:
       "The audience must now agree, by open vote, the exact technique that will get %target% off: hands or mouth, position, pace, everything specified. %player1% and %player2% then execute the committee's winning proposal together until it, and %target%, come to fruition. Democracy in action.",
     target_sex: 0,
@@ -1096,6 +1100,7 @@ export const stageExpansion = [
   },
   {
     name: "The Stunt Double",
+    target_orgasms: true,
     message:
       "%target%, begin touching yourself for the room and make your technique obvious: this scene is about to be recast. When the audience shouts 'STUNT DOUBLE', %player1% takes over mid-scene and must replicate your exact technique through to the finish. Accuracy will be very apparent in the results.",
     target_sex: 0,
@@ -1158,6 +1163,7 @@ export const stageExpansion = [
   },
   {
     name: "The Opening Act",
+    target_orgasms: true,
     message:
       "%target%, you're your own opening act: touch yourself for the room and take yourself right to the edge, then stop, compose yourself, and formally introduce the headliner: %player1%, whose hands will deliver the finale you no longer get to control. Show business is cruel.",
     target_sex: 0,
@@ -1353,6 +1359,7 @@ export const stageExpansion = [
   },
   {
     name: "On Thin Ice",
+    target_orgasms: true,
     message:
       "%target%, touch yourself for the room and head for the finish line. The complication: %player1% is beside you with an ice cube, tracing your inner thighs, nipples and every sensitive border crossing %th% can reach, the entire time. The audience judges whether fire or ice wins. Fire usually does. Eventually.",
     target_sex: 0,
@@ -1394,6 +1401,7 @@ export const stageExpansion = [
   },
   {
     name: "The Big Finish",
+    target_orgasms: true,
     message:
       "%target%, centre stage for the number they'll talk about for years. %player1%'s hands work you from the front while %player2%, generously lubed, attends to you from behind with careful fingers. The two of them must coordinate the crescendo so your finale lands in front of everyone. Bravo, maestro.",
     target_sex: 0,
@@ -1483,6 +1491,7 @@ export const stageExpansion = [
   },
   {
     name: "The Sound Check",
+    target_orgasms: true,
     message:
       "%target%, in goes the gag. %player1%, your job is to take %ts% all the way to the finish, hands only, while the audience listens critically to the muffled soundtrack and holds up scores for volume, range and emotional sincerity. %target%, the gag is not an excuse to phone in the vocals.",
     target_sex: 0,
@@ -1497,6 +1506,7 @@ export const stageExpansion = [
   },
   {
     name: "The After-Party",
+    target_orgasms: true,
     message:
       "%target%, the reviews are in and you've earned the wrap party. Choose two co-stars. For %m2% the three of you perform the party the tabloids would kill to describe: hands, mouths, anything within everyone's boundaries, staged for the audience, and it ends with your finale, centre stage. Tomorrow you deny everything.",
     target_sex: 0,

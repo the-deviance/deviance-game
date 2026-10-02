@@ -36,6 +36,7 @@ const KNOWN_FIELDS = new Set([
   "name", "message", "target_sex", "spice_level", "dress_level_from",
   "dress_level_to", "number_of_participants", "appropriate_for_bi_curious",
   "lose_dress_level", "delta_money", "delta_optOut", "can_opt_out", "timer",
+  "target_orgasms", "player_orgasms",
   ...TOYS,
   ...TOYS.map((t) => t.toLowerCase()),
   ...PREF_KEYS.flatMap((k) => [`target_${k}`, `player_${k}`]),
@@ -51,6 +52,7 @@ const decks = {
   chamber: [
     ...loadDeck("chamberCards.js", "chamberCards"),
     ...loadDeck("expansion/chamberExpansion.js", "chamberExpansion"),
+    ...loadDeck("expansion/chamberExpansionBdsm.js", "chamberExpansionBdsm"),
   ],
   stage: [
     ...loadDeck("stageCards.js", "stageCards"),

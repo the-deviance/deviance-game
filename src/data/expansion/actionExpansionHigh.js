@@ -64,6 +64,7 @@ export const actionExpansionHigh = [
   },
   {
     name: "Breakfast in Bed",
+    target_orgasms: true,
     message:
       "%target%, lie back on the softest surface available and do absolutely nothing. That's an order. %player1% is going to serve you breakfast in bed, and you're the breakfast.\n\n%player1%, take your time. Use your mouth, use your hands, and don't stop until %target% has finished. All of it.",
     target_sex: 0,
@@ -273,6 +274,8 @@ export const actionExpansionHigh = [
   },
   {
     name: "Mirror Exercise",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target% and %player1%, sit facing each other, close enough to feel body heat, far enough that you can see everything. Now touch yourselves, not each other.\n\nMirror one another's pace exactly. Maintain eye contact. The first one to reach over and touch the other person loses, and the loser finishes the winner off by hand while the winner relaxes.",
     target_sex: 0,
@@ -309,6 +312,7 @@ export const actionExpansionHigh = [
   },
   {
     name: "Launch Sequence",
+    target_orgasms: true,
     message:
       "%target%, lie back. %player1% is mission control, and %tp% orgasm is the launch. %player1%, work %ts% with your hands, and when you judge %th% is close, begin a loud countdown from ten.\n\nIf %target% launches before you hit zero, recalibrate and try again. Stick with it until you call a countdown that lands exactly on time. Houston demands precision.",
     target_sex: 0,
@@ -564,6 +568,7 @@ export const actionExpansionHigh = [
   },
   {
     name: "The Ten-Second Rule",
+    target_orgasms: true,
     message:
       "%player1%, pleasure %target% by hand, and do it well. %target%, you have one job: the moment you feel yourself getting close, say 'ten'. %player1% then counts down from ten to zero, slowing with every number, and lifts %1p% hand away at zero for a ten-second cooldown.\n\nRepeat the cycle three times. On the fourth build-up, no countdown. Let it land.",
     target_sex: 0,
@@ -941,6 +946,7 @@ export const actionExpansionHigh = [
   },
   {
     name: "Backup Singers",
+    target_orgasms: true,
     message:
       "%target%, you're the headline act: touch yourself for the audience, your way, centre stage. %player1% and %player2%, you're the backup singers: positioned either side, kissing %tp% neck and shoulders, running hands over everything that isn't centre stage, and harmonising with enthusiastic filth whispered in each ear.\n\nBackup never upstages the lead. Support the performance until the big finish.",
     target_sex: 0,
@@ -1075,6 +1081,8 @@ export const actionExpansionHigh = [
   },
   {
     name: "The Nightcap",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target% and %player1%, pour yourselves onto the sofa in a comfortable tangle, one of each other's hands claimed, and slowly, lazily, get each other off by hand like it's the end of a very good evening. Which it is.\n\nNo urgency, no performance, just kissing and unhurried hands. Whoever finishes first keeps going until the other catches up. House rules.",
     target_sex: 0,
@@ -1090,6 +1098,7 @@ export const actionExpansionHigh = [
   },
   {
     name: "Second Helpings",
+    target_orgasms: true,
     message:
       "%player1%, your task comes in two courses. Course one: bring %target% to a full, proper orgasm with your mouth. Take your time; presentation matters.\n\nCourse two begins thirty seconds later, while everything is still outrageously sensitive: one more gentle, careful %m1% minute of attention. %target%, you may make sounds previously unknown to science. The table will take notes.",
     target_sex: 0,
@@ -1106,6 +1115,7 @@ export const actionExpansionHigh = [
   },
   {
     name: "Friction Economy",
+    target_orgasms: true,
     message:
       "%target%, here's your constraint: %player1% is going to sit back and offer you one thigh, firm and conveniently positioned. You're going to straddle it and grind your way to wherever that takes you, using nothing else.\n\n%player1%, you may flex, encourage and admire, but your hands stay off. %target%, this is a self-service economy, and the exchange rate is friction.",
     target_sex: 0,

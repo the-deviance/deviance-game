@@ -197,6 +197,7 @@ export const chamberCards = [
   },
   {
     name: "Joy of Cooking & Sex",
+    target_orgasms: true,
     message:
       "%target%, please lie quietly on your back with your eyes closed. %player1%, you should locate a suitable food item--a carrot, for example--and penetrate %target% with it. Fuck her steadily with it until you bring her to pleasure.\n\nOnce she’s reached the heights of pleasure, feed your chosen food item to her.",
     target_sex: 2,
@@ -210,6 +211,7 @@ export const chamberCards = [
   },
   {
     name: "Awkwardness",
+    target_orgasms: true,
     message:
       "%player1%, as Torturer of the Day, you’re going to turn your attentions to %target%. Tie %tp% dominant hand (that is, the hand %th% uses to write with) behind %tp% back, and make %ts% masturbate with %tp% other hand.\n\nKeep it up for %d45% seconds or until %target% awkwardly brings %ts%self to orgasm, whichever comes first.",
     target_sex: 0,
@@ -237,6 +239,7 @@ export const chamberCards = [
   },
   {
     name: "One’s pleasure, another’s pain",
+    player_orgasms: true,
     message:
       "%target%, %player1% has been assigned to you as your master. Your job is to give %player1% an orgasm, without using your hands in any way and without going to ecstasy yourself.\n\nYou should be timed to see how long it takes. After you’ve accomplished your mission, you will be given one spanking for each minute it took.",
     target_sex: 0,
@@ -266,6 +269,7 @@ export const chamberCards = [
   },
   {
     name: "Hurts so good",
+    target_orgasms: true,
     message:
       "%player1%, you’re going to administer this bit of torture to %target%. The first part is easy: Tie him down securely on his back, grasp his cock firmly, and bring him off by hand.\n\nAfter he climaxes, continue to stimulate him with long, firm strokes. Keep it up until he is so sensitive he either screams or begs you to stop. When you have him screaming, give him three more strokes before releasing him.",
     target_sex: 1,
@@ -293,6 +297,7 @@ export const chamberCards = [
   },
   {
     name: "The mystery",
+    target_orgasms: true,
     message:
       "%player1%, you are %target%’s torturer du jour. Please blindfold her and arrange her so that she’s lying on her back. Then, find something with which you can pleasure her.\n\nBe creative! Try to think of an improvised toy--a bottle, say, or a candle. Something she won’t expect, that can bring her to great pleasure. %target%, while %player1% is using this mystery object on you, describe out loud how it feels.",
     target_sex: 2,
@@ -446,6 +451,7 @@ export const chamberCards = [
   },
   {
     name: "Hello, Ma?",
+    target_orgasms: true,
     message:
       "%target%, get a phone handy. You’re going to call one of your parents while %player1% is performing oral sex on you. The phone call should last until you orgasm.",
     target_sex: 0,

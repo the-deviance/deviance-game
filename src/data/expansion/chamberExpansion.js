@@ -1169,6 +1169,7 @@ export const chamberExpansion = [
   },
   {
     name: "Permission Pending",
+    target_orgasms: true,
     message:
       "Here's the arrangement, %target%: %player1% is going to stimulate you by hand until you are desperate, and your orgasm now requires written... no, verbal approval.\n\nWhen you're close, you ask: 'Please may I come?' %player1% will answer 'no' at least twice, each refusal paired with a slower, crueller rhythm. When %1h% finally says 'yes', you have ten seconds to use the permission or lose it. Govern yourself accordingly.",
     target_sex: 0,
@@ -1183,6 +1184,7 @@ export const chamberExpansion = [
   },
   {
     name: "On My Mark",
+    target_orgasms: true,
     message:
       "%target%, your orgasm has been nationalised. It now belongs to %player1%, and it arrives on %1p% schedule.\n\n%player1% will bring you close by hand, hold you hovering there, and then begin a slow countdown from five. You come on 'zero', not before, not after. If you go off early, %player1% gets to tell everyone exactly how early, with numbers. If you're late, well. There's always a second countdown, and %1h% counts slower every time.",
     target_sex: 0,
@@ -1197,6 +1199,7 @@ export const chamberExpansion = [
   },
   {
     name: "Ruined Reputation",
+    target_orgasms: true,
     message:
       "%target%, you're getting an orgasm tonight. We never said it would be a good one.\n\n%player1% will work you up by hand with every skill %1h% owns, and at the exact moment you tip over the edge, %1h% lets go completely. Hands off, sitting back, watching politely while it happens to you all alone and deeply unsatisfyingly. Afterwards you will say 'thank you', and the worst part is you'll mean it.",
     target_sex: 0,
@@ -1324,6 +1327,7 @@ export const chamberExpansion = [
   },
   {
     name: "The Silent Climax",
+    target_orgasms: true,
     message:
       "%target%, %player1% is going to bring you off by hand, start to finish, and your half of the bargain is total silence. Not a moan, not a gasp, not one ragged breath above library volume.\n\nThe room will be listening with the lights of their attention fully on you. Succeed and you may collapse with dignity. Make a sound and %player1% stops instantly, lets you cool for %d30% seconds, and begins again from the start. Yes, even if you were nearly there. ESPECIALLY if you were nearly there.",
     target_sex: 0,

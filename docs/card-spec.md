@@ -36,6 +36,15 @@ lives in decides where on the board it gets drawn.
   // Clothespin, Leash, Sponge, "Massage Oil", Honey, Carrot, Gag
   Blindfold: true,
 
+  // Orgasm flags: set when the card REQUIRES someone to actually climax
+  // (not edging/denial). target_orgasms = the target comes; player_orgasms =
+  // a non-target participant comes. The engine uses these for the house rule
+  // that men only get orgasm cards at spice level 5 (an orgasm ends his
+  // night); women draw them at the card's printed level. Always pair with
+  // the matching will_orgasm consent gate below.
+  target_orgasms: true,
+  player_orgasms: false,
+
   // Preference gates: card only drawn if that person ticked the pref in setup.
   // Prefix target_ (the person whose card it is) or player_ (the other participant).
   // Keys: dominant, submissive, humiliation_giving, humiliation_receiving,

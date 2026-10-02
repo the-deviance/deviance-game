@@ -5,6 +5,7 @@ import {stageCards as baseStageCards} from "./stageCards";
 import {actionExpansionLow} from "./expansion/actionExpansionLow";
 import {actionExpansionHigh} from "./expansion/actionExpansionHigh";
 import {chamberExpansion} from "./expansion/chamberExpansion";
+import {chamberExpansionBdsm} from "./expansion/chamberExpansionBdsm";
 import {stageExpansion} from "./expansion/stageExpansion";
 import {fateExpansion} from "./expansion/fateExpansion";
 import toys from "./toys.json";
@@ -13,7 +14,7 @@ import {Gender, Sexuality, TargetSex, genderToTargetSex, PREF_KEYS} from "../typ
 // Original decks + expansion batches (see docs/card-spec.md). New card
 // batches are a new file in expansion/ plus a spread here.
 const actionCards = [...baseActionCards, ...actionExpansionLow, ...actionExpansionHigh];
-const chamberCards = [...baseChamberCards, ...chamberExpansion];
+const chamberCards = [...baseChamberCards, ...chamberExpansion, ...chamberExpansionBdsm];
 const stageCards = [...baseStageCards, ...stageExpansion];
 const fateCards = [...baseFateCards, ...fateExpansion];
 
@@ -39,6 +40,25 @@ const markCardUsed = (card) => {
     localStorage.setItem('cardData', JSON.stringify(pile));
 };
 
+// House rule: a man reaching orgasm ends his night, so cards flagged as
+// making someone climax (`target_orgasms` / `player_orgasms`) only reach
+// male players once the game hits spice level 5. Women are unaffected.
+const MALE_ORGASM_SPICE = 5;
+
+// The spice level a card effectively requires for THIS target: flagged
+// orgasm cards count as level 5 when the target is male.
+const effectiveSpiceLevel = (card, target) =>
+    card.target_orgasms && target?.gender === Gender.Male
+        ? Math.max(card.spice_level, MALE_ORGASM_SPICE)
+        : card.spice_level;
+
+// Can this player fill a non-target slot on this card? Blocks men from
+// slots the card makes climax until the game reaches spice level 5.
+const orgasmRuleAllows = ({card, player, gameData}) =>
+    !card.player_orgasms ||
+    player.gender !== Gender.Male ||
+    gameData.spiceLevel >= MALE_ORGASM_SPICE;
+
 // A card that stages more than two bodies (number_of_participants >= 3)
 // fills the extra slots here: someone not already in the scene, able to
 // interact with the target, and passing the card's participant gates.
@@ -52,7 +72,8 @@ const pickExtraParticipants = ({card, gameData, target, exclude}) => {
         (p) =>
             !excludeIds.includes(p.id) &&
             canPlayersInteract({owner: target, player: p}) &&
-            canDoAction({player: p, card, isTarget: false})
+            canDoAction({player: p, card, isTarget: false}) &&
+            orgasmRuleAllows({card, player: p, gameData})
     );
     if (candidates.length < needed) return null;
     return shuffle(candidates).slice(0, needed);
@@ -77,6 +98,10 @@ export const getActionCardforTarget = ({
     }
     if (!canDoAction({player, card: task, isTarget: false})) {
         console.log("player cannot do action");
+        return getActionCardforTarget({target, player, gameData, skip: skip + 1});
+    }
+    if (!orgasmRuleAllows({card: task, player, gameData})) {
+        console.log("male orgasm rule blocks this card below spice 5");
         return getActionCardforTarget({target, player, gameData, skip: skip + 1});
     }
     const extras = pickExtraParticipants({
@@ -114,6 +139,7 @@ export const getEncounterCardForPlayer = ({target, gameData, skip = 0}) => {
         if (player.id === target.id) return false;
         if (!canPlayersInteract({owner: target, player})) return false;
         if (!canDoAction({player, card, isTarget: false})) return false;
+        if (!orgasmRuleAllows({card, player, gameData})) return false;
         return true;
     });
 
@@ -173,6 +199,7 @@ const getCardForPlayerInDeck = ({player, deck, skip = 0, gameData}) => {
         if (other.id === player.id) return false;
         if (!canPlayersInteract({owner: other, player})) return false;
         if (!canDoAction({player: other, card, isTarget: false})) return false;
+        if (!orgasmRuleAllows({card, player: other, gameData})) return false;
         return true;
     });
 
@@ -318,7 +345,8 @@ const getCardForTargetInDeck = ({
     if (!allSpice) {
         deckCopy = deckCopy.filter(
             (task) =>
-                task.spice_level === gameData.spiceLevel || task.spice_level === -1
+                effectiveSpiceLevel(task, target) === gameData.spiceLevel ||
+                task.spice_level === -1
         );
 
         console.log(
@@ -327,7 +355,8 @@ const getCardForTargetInDeck = ({
     } else {
         deckCopy = deckCopy.filter(
             (task) =>
-                task.spice_level <= gameData.spiceLevel || task.spice_level === -1
+                effectiveSpiceLevel(task, target) <= gameData.spiceLevel ||
+                task.spice_level === -1
         );
         console.log(`${deckCopy.length} Action cards at all spice levels`);
     }

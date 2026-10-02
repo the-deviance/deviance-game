@@ -583,6 +583,7 @@ export const actionCards = [
   },
   {
     name: "Messy situation, part I",
+    target_orgasms: true,
     message:
       "Have you ever heard the expression “Sex is dirty only if it’s done right?” %player1%, please kneel in front of %target%, grasp his cock firmly, and stroke him until he explodes all over you.\n\nAfter he has done so, give him a nice, close hug to show him how much you appreciate him. If you’ve done this properly, you should both end up quite a mess. (Hey, sex is supposed to be messy! That’s one of its charms!)",
     target_sex: 1,
@@ -837,6 +838,8 @@ export const actionCards = [
   },
   {
     name: "Be creative",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%player1%, your job is to give %target% an orgasm. But here’s the catch--you may not use your fingers, hands, tongue, or genitals to do it. Anything else is fair game, but those parts of your body are off-limits.\n\nYou also may not use any kind of toy or other device. You’ll have to be creative. When you’re done, have %ts% return the favor, and give you an orgasm--also without using fingers, hands, tongue, or genitals. Have fun!",
     target_sex: 0,
@@ -852,6 +855,7 @@ export const actionCards = [
   },
   {
     name: "Explorations",
+    target_orgasms: true,
     message:
       "%player1%, you’re going to try to bring %target% to orgasm, using only your toes. She will sit in front of you and allow you to stroke and penetrate her with your big toe until she is writhing in ecstasy. You have %m3% minutes, starting from when you click Do It, to bring her off.\n\n%target%, if you don't get off in that amount of time, too bad. Hope you’re up to it!",
     target_sex: 2,
@@ -866,6 +870,7 @@ export const actionCards = [
   },
   {
     name: "Roleplaying",
+    target_orgasms: true,
     message:
       "%target%, you’re a ruthless pirate, ransacking a village, and %player1% is a helpless villager who didn’t make it out in time. Swoop on %1s% and take %1s% sexually however you like. Have your way with %1s% until you are satisfied.",
     target_sex: 1,
@@ -900,6 +905,8 @@ export const actionCards = [
   },
   {
     name: "Pearl necklace",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, while %player1% kneels in front of you, you will tittyfuck %1s%. Stroke your stiff rod against %1p% chest until you explode all over %1s% body.\n\n%player1%, while this is happening, you will masturbate to orgasm yourself.",
     target_sex: 1,
@@ -915,6 +922,8 @@ export const actionCards = [
   },
   {
     name: "Stand for it",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%player1%, how coordinated are you? Stand in front of %target%, wrap your arms around %ts%, and fuck %ts% passionately, standing up. ",
     target_sex: 0,
@@ -944,6 +953,7 @@ export const actionCards = [
   },
   {
     name: "Passive fun",
+    target_orgasms: true,
     message:
       "%target%, this one is simple. You’re going to bend over a table and let %player1% take you from behind, doggie-style.\n\n%player1%, you may use whatever items, objects, toys, or body parts you want to bring %target% to the heights of pleasure. You may not get off yourself, though. Sorry!",
     target_sex: 2,
@@ -958,6 +968,7 @@ export const actionCards = [
   },
   {
     name: "Passive fun",
+    target_orgasms: true,
     message:
       "%target%, while you sit quietly, %player1% is going to sit in your lap. As %1h% straddles you, %1h% will impale %1s%self on you and take you to the heights of ecstasy.",
     target_sex: 1,
@@ -1084,6 +1095,8 @@ export const actionCards = [
   },
   {
     name: "Bark like a dog",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, you’re going to make %player1% bark like a dog! Get %1s% on %1p% hands and knees and take %1s% from behind, doggy-style. Put your hands on %1p% shoulders and keep thrusting. %player1%, you should bark enthusiastically until you both reach orgasm.",
     target_sex: 1,
@@ -1155,6 +1168,7 @@ export const actionCards = [
   },
   {
     name: "Snowball",
+    target_orgasms: true,
     message:
       "Remember eating snowcones at the carnival? This is nothing like that. What you’re going to do, %player1%, is kneel in front of %target%, take his cock deep in your mouth, and suck him until he comes in your mouth.\n\nSince sharing is a virtue (and turnabout is fair play), once you have brought him off you will give %target% a long, deep kiss. Give him the full mouthful! (This technique is called a 'snowball', in case you’re curious.)",
     target_sex: 1,
@@ -1233,6 +1247,7 @@ export const actionCards = [
   },
   {
     name: "You know what you want",
+    target_orgasms: true,
     message:
       "%target%, you want someting buried deep inside you. Right now. Name any object (dildo, fingers, vibrator, whatever you want except a cock), and have %player1% penetrate you with it. Tell %1s% precisely what to do with it to get you off.",
     target_sex: 2,
@@ -1247,6 +1262,7 @@ export const actionCards = [
   },
   {
     name: "I know what you want",
+    target_orgasms: true,
     message:
       "%target%, you are so horny you want something buried deep inside your pussy, and %player1% knows just the thing. Take whatever %1h% offers you...dildo, fingers, cock, anything %1h% wants.\n\n%player1%, bring %target% to orgasm using whatever you like...but do not orgasm yourself!",
     target_sex: 2,
@@ -1273,6 +1289,7 @@ export const actionCards = [
   },
   {
     name: "Audience participation",
+    target_orgasms: true,
     message:
       "%target%, have %player1% sit in front of you and watch as you masturbate with your fingers until you come. When you are finished, extend your fingers and allow %1s% to lick them clean.",
     target_sex: 2,
@@ -1312,6 +1329,7 @@ export const actionCards = [
   },
   {
     name: "Target practice",
+    target_orgasms: true,
     message:
       "%target%, instruct %player1% to kneel in front of you with %1p% mouth open. You will masturbate and aim for %1p% mouth, but you may not get closer than six inches to %1s%. When you come, %player1% should try to catch and swallow as much as possible.\n\n%player1%, while this is happening, feel free to masturbate in any manner you like--but you may not orgasm, and don’t forget to catch %target%’s come!",
     target_sex: 1,
@@ -1352,6 +1370,7 @@ export const actionCards = [
   },
   {
     name: "First date hijinks",
+    target_orgasms: true,
     message:
       "%target%, imagine that you and %player1% are on your first real date and are becoming intimate for the first time. You want %1s% to pleasure you with a dildo or vibrator (or other toy of your choice), but %1h% is new to that sort of thing and is reluctant.\n\nWhile %player1% plays coy, persuade %1s% to use the toy on you. Tell %1s% exactly how to use it on you, and how good it feels. Describe how much you like it. %player1% should make it difficult, but ultimately, of course, you do persuade %1s%. While %1h% uses it on you, tell %1s% exactly what to do with it until you come.",
     target_sex: 2,
@@ -1379,6 +1398,8 @@ export const actionCards = [
   },
   {
     name: "Numbers, please!",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, lie on your back in the middle of the floor. %player1% will get on %1p% hands and knees, facing in the opposite direction, over you and French-kiss you passionately.\n\nWhen you’re both excited, %1h% should crawl slowly down your body, licking and nibbling you as %1h% goes, until %1h% reaches your thighs. The two of you will then take each other in a 69 until you are both quite satisfied.",
     target_sex: 0,
@@ -1394,6 +1415,7 @@ export const actionCards = [
   },
   {
     name: "How does it feel?",
+    target_orgasms: true,
     message:
       "%target%, please allow %player1% to blindfold you and spread you out on your back. When you are ready, %1h% will penetrate you with an object (a toy, or %1p% fingers, or whatever) of %1p% choice...although %1h% may not have intercourse with you!\n\nWhile %1h% stimulates you, you should describe, out loud, exactly what %1h% is doing with it, and how it feels. Keep describing it until you come.",
     target_sex: 2,
@@ -1408,6 +1430,7 @@ export const actionCards = [
   },
   {
     name: "Institute of Higher Learning",
+    target_orgasms: true,
     message:
       "%target%, you’re the instructor at the School of Oral Pleasures, and %player1% is your student. Describe to %1s% exactly how you like to receive oral sex, using a dildo or similar object, if %1h% doesn’t understand, please demonstrate.\n\nWhen you have made your lesson perfectly clear, give %player1% %1p% final exam by allowing %1s% to suck you off.",
     target_sex: 1,
@@ -1520,6 +1543,7 @@ export const actionCards = [
   },
   {
     name: "More pleasure",
+    target_orgasms: true,
     message:
       "%player1%, please find a vibrator, dildo, or similar object. You are to kneel between %target%’s thighs, penetrate her with it, and lick her clitoris while you work the toy.\n\nAs %1h% does this, %target%, you should caress his head and describe, out loud, how it feels. Continue until orgasm.",
     target_sex: 2,
@@ -1535,6 +1559,7 @@ export const actionCards = [
   },
   {
     name: "Around the World",
+    target_orgasms: true,
     message:
       "This is a game called “Around the World.” %target%, choose a toy (vibrator, dildo, etc) and give it to %player1%. %player1%, you will penetrate her with the toy and use it to bring her off.\n\nOnce she has reached climax, penetrate her orally with it, and fuck her mouth for as long as it took her to climax. Finally, for your last stop on the world tour, penetrate her anally with the toy and fuck her ass for the same amount of time.",
     target_sex: 2,
@@ -1625,6 +1650,7 @@ export const actionCards = [
   },
   {
     name: "Adventure card",
+    target_orgasms: true,
     message:
       "%player1%, you’re going to give %target% the pleasure of knowing you personally and intimately. Carefully lubricate his cock, then bend over and ask him to take you up the ass until he comes. You are not allowed to orgasm, though.",
     target_sex: 1,
@@ -1643,6 +1669,8 @@ export const actionCards = [
   },
   {
     name: "Learning to count",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "Question: What’s '71?'\nAnswer: 69 with two fingers up the ass!\n\n%player1%, lie down while %target% gets over you. The two of you will 69 one another while fingering each other anally. Continue until you both reach climax.",
     target_sex: 0,
@@ -1664,6 +1692,7 @@ export const actionCards = [
   },
   {
     name: "Seven Knots",
+    target_orgasms: true,
     message:
       "This is a technique called the '7 Knots to Heaven.' %player1%, find a cord or string, about 12' long, and tie seven large knots in it. When this is done, gently insert the cord in %target%’s anus.\n\nWhen you have done so, you will stimulate %target% manually or orally (your choice) until %th% nears orgasm. At the moment of climax, tug the cord out, one knot at a time. If you get the timing right, the result should be quite dramatic.",
     target_sex: 0,
@@ -1681,6 +1710,7 @@ export const actionCards = [
   },
   {
     name: "Bound for Pleasure",
+    target_orgasms: true,
     message:
       "This is very simple. %player1%, %target% is going to tie your hands behind your back hand and bind your ankles together.\n\nThen %th% will force you to your knees in front of %ts%. At that point, %th% will place your head between %tp% legs and hold you there while you use your mouth and tongue to bring %ts% off. Easy enough, yes?",
     target_sex: 0,
@@ -1699,6 +1729,7 @@ export const actionCards = [
   },
   {
     name: "A classic fuck",
+    target_orgasms: true,
     message:
       "Here’s another simple one. %player1%, %target% is going to bend you over the table and take you up the ass until he comes. Feel free to come yourself, if you like. Anal sex is fun!",
     target_sex: 1,
@@ -1719,6 +1750,7 @@ export const actionCards = [
     name: "Adventure card",
     message:
       "Lie back and relax, %target%. %player1%, your job will be to pleasure her with your hand. Begin by massaging her clitoris with your fingers, then gradually penetrate her more and more deeply until you have inserted as much of your hand as you can.\n\nKeep working your hand bit by bit, using small motions, until you make her orgasm. ",
+    target_orgasms: true,
     target_sex: 2,
     spice_level: 5,
     dress_level_from: 3,
@@ -1776,6 +1808,7 @@ export const actionCards = [
   },
   {
     name: "Adventure time",
+    target_orgasms: true,
     message:
       "%target%, please lie on your back. %player1%, lubricate your fingers thoroughly, then slide your index finger into %target%’s ass and take his shaft in your mouth. Suck and finger him until you bring him to orgasm.",
     target_sex: 1,
@@ -1845,6 +1878,7 @@ export const actionCards = [
   },
   {
     name: "Risqué fun",
+    target_orgasms: true,
     message:
       "%target%, please take a dildo (or some other object of your choice) and slowly penetrate yourself with it, masturbating with it in front of %player1% until you're ready to come.\n\nWhen she is close to orgasm, %player1%, you’re going to take the other end in your mouth. Now, without using your hands, stroke it firmly in and out of %target% until you bring her to orgasm.",
     target_sex: 2,
@@ -1891,6 +1925,7 @@ export const actionCards = [
   },
   {
     name: "Turnabout",
+    target_orgasms: true,
     message:
       "%target%, it’s time for a little turnabout. You’re going to bend %player1% over a table and stand behind %1s%. Then, reach between your legs and masturbate. With the same hand, penetrate %player1% anally with your thumb.\n\nYou may continue until you climax, if you wish. You should not, however, allow %player1% that pleasure.",
     target_sex: 2,
@@ -1950,6 +1985,7 @@ export const actionCards = [
   },
   {
     name: "Risqué fun for her",
+    target_orgasms: true,
     message:
       "%player1%, here’s your task. First, tie %target% spreadeagle on her back. Then, climb atop her and do anything necessary to get her juices flowing. Grind against her, penetrate her, finger her...whatever it takes.\n\nYou may not--repeat, may NOT--bring yourself to orgasm. When she’s ready,  bury your face between her legs and make her come with your tongue.",
     target_sex: 2,
@@ -1993,6 +2029,7 @@ export const actionCards = [
   },
   {
     name: "Squeal for it!",
+    target_orgasms: true,
     message:
       "%target%, how would you like to explore the classics? Get %player1% down on %1p% hands and knees, kneel behind %1s%, and tell %1s% that you’re going to make %1s% squeal like a pig.\n\nEnter %1s% anally, from behind, and thrust into %1s% while %1h% makes squealing noises until you come. No orgasm for %1s%, though!",
     target_sex: 1,
@@ -2012,6 +2049,7 @@ export const actionCards = [
   },
   {
     name: "What’s good for the goose",
+    target_orgasms: true,
     message:
       "%target%, %player1% is going to be your audience. Sit in front of %1s% with your legs spread and make %1s% watch as you penetrate yourself and masturbate with a dildo or other toy of your choice.\n\nOnce you have brought yourself off, pin %player1% down on %1p% back. Get on top of %1s% and penetrate %1s% orally with the toy you used. Fuck %1p% mouth with it for as long as it took you to orgasm with it.",
     target_sex: 2,
@@ -2146,6 +2184,7 @@ export const actionCards = [
     name: "Adult fun",
     message:
       "%target%, get down on your hands and knees. %player1%, get behind her and mount her doggy-style in any way you see fit. Grab a handful of her hair, pull her head back, and call her every sexually explicit name you can think of.\n\n%player1%, continue until she climaxes. You may not reach orgasm. If necessary, stop what you’re doing and finish her off with your fingers, but you don’t get to come. Sorry.",
+    target_orgasms: true,
     target_sex: 2,
     spice_level: 4,
     dress_level_from: 3,
@@ -2159,6 +2198,7 @@ export const actionCards = [
   },
   {
     name: "My Bitch",
+    target_orgasms: true,
     message:
       "%player1%, this is a game called “Are you my bitch?” You are to get behind %target% as she kneels, and take her from behind. While you’re taking her, wrap her hair in your hand, pull her hair, and ask her “Are you my bitch?”\n\nContinue until you bring her to to a screaming climax. %target%, when you reach orgasm, you should be screaming that you ARE %player1%’s bitch.",
     target_sex: 2,
@@ -2174,6 +2214,7 @@ export const actionCards = [
   },
   {
     name: "My Bitch Turnabout",
+    target_orgasms: true,
     message:
       "Guess what, %target%? %player1% is going to make you %1p% bitch. Get down on your hands and knees while %player1% gets behind you and penetrates you anally with a dildo or other toy.\n\n%player1%, while you work the dildo, you should jerk %target% off while asking him if he’s your bitch. Keep it up until he screams that he’s your bitch. Don’t allow him to orgasm until AFTER he’s screaming it!",
     target_sex: 1,
@@ -2194,6 +2235,7 @@ export const actionCards = [
   },
   {
     name: "Very bad doggie",
+    target_orgasms: true,
     message:
       "%target%, you’re going to play %player1%’s dog...and you’re a very bad doggie. %player1%, put a collar and leash on %target%, make him get on all fours, and lead him to a bowl on the floor.\n\nWhen you have him there, you will reach between his legs and bring him to ecstasy over the bowl. Keep stroking him until you make him come into the bowl. Then, %target%, you’re going to lap it up out of the bowl while we watch.",
     target_sex: 1,
@@ -2229,6 +2271,7 @@ export const actionCards = [
   },
   {
     name: "Fit it all!",
+    target_orgasms: true,
     message:
       "%target%, relax and lie on your back with your knees up. %player1%, you’re to begin servicing %target% by lubricating her and teasing her clit with your finger until she starts to moan.\n\nThen, when she’s thoroughly lubricated, penetrate her with your fingers. Keep sliding your hand in, slowly, until she has taken your entire hand, or as much as she can. Stimulate her with your whole hand until orgasm.",
     target_sex: 2,
@@ -2684,6 +2727,7 @@ export const actionCards = [
   },
   {
     name: "Legs up!",
+    target_orgasms: true,
     message:
       "This is your lucky day, %target%! Hop up on the table (or couch, or bed, or whatever’s convenient), prop your ankles up on %player1%’s shoulders, and let %1s% take you however you want to be taken.\n\nThis is all about your pleasure, not %1p%! You call the shots. Tell %1s% what to do, but %1h% doesn't get to come...only you do.",
     target_sex: 2,
@@ -2696,6 +2740,7 @@ export const actionCards = [
   },
   {
     name: "Hanky-panky",
+    target_orgasms: true,
     message:
       "Time for some old-fashioned hanky-panky. %target%, lie on your back and let %player1% massage your neck, shoulders, and torso, using massage oil. %player1%, work your way down to %target%’s thighs.\n\nWhen you get there, %player1%, you will treat %target% to a good old-fashioned hand job. Keep stroking him until orgasm.",
     target_sex: 1,
@@ -2789,6 +2834,8 @@ export const actionCards = [
   },
   {
     name: "Heads & Tails",
+    target_orgasms: true,
+    player_orgasms: true,
     message:
       "%target%, you are to take %player1% in a grand old traditional missionary position.  The two of you should keep at it until you’re both near the brink of ecstasy.When you’re both suitably excited, flip around and finish one another off in that other grand old traditional style",
     target_sex: 0,
@@ -2855,6 +2902,7 @@ export const actionCards = [
   },
   {
     name: "For the Ladies",
+    target_orgasms: true,
     message:
       "%target%, time to take the upper hand. Push %player1% down on %1p% knees, and stand over %1s%.  Straddle %1p% face and make %1s% lick you while you fondle your own breasts. Keep it up until you climax.",
     target_sex: 2,
@@ -2867,6 +2915,7 @@ export const actionCards = [
   },
   {
     name: "A tasteful demonstration",
+    target_orgasms: true,
     message:
       "%player1%, please lie on your back with a dildo on your chest. %target% is going to straddle you and allow you to stroke him off, when you bring him to orgasm, make sure he comes all over the dildo.\n\nOnce you’ve satisfied him, demonstrate to him your best oral sex technique, using the dildo. See if you can make him erect again just by giving that dildo a blowjob.",
     target_sex: 1,
@@ -2896,6 +2945,7 @@ export const actionCards = [
   },
   {
     name: "For her pleasure",
+    target_orgasms: true,
     message:
       "%player1%, %target% is going to use you for her pleasure. Kneel and put your hands behind your back. %target% will bind them there, tie your ankles together, and bind your wrists to your ankles so you can’t get up.\n\n%target% is then going to stand over you in all your glory and allow you to lick her to orgasm. You will not be freed until you have pleasured her.",
     target_sex: 2,
@@ -2932,6 +2982,7 @@ export const actionCards = [
   },
   {
     name: "Getting fierce",
+    target_orgasms: true,
     message:
       "%target%, you’re going to show %player1% that it’s not just men who can be violently aggressive. You’re going to act out a rape fantasy on %1s%. Grab %1s%, tackle %1s%, and force yourself on %1s%.\n\nYou may take %1s% any way you please. Keep it up until you orgasm, but you don’t need to worry about whether %1h% gets off or not. %player1%, don’t make it easy. Put up a fight--but in the end, she will take you.",
     target_sex: 2,
@@ -3080,6 +3131,7 @@ export const actionCards = [
   },
   {
     name: "Oral Use",
+    target_orgasms: true,
     message:
       "%target%, it's time to be pleasured.\n\nTie %player1%'s hands behind %1p% back. Then grip %1p% chin firmly and probe %1p% mouth with your fingers. Probe deep, it's okay if %1h% chokes.\n\nWhen you're satisfied that you've probed %1s% thoroughly, force %1s% to %1p% knees and continue the oral inspection with your cock. Hold %1p% head tightly and keep thrusting into %1p% mouth until you're finished.",
     target_sex: 1,
@@ -3120,6 +3172,7 @@ export const actionCards = [
   },
   {
     name: "Messy Fun",
+    target_orgasms: true,
     message:
       "%target%, it's time to have a nice, hard orgasm. And %player1% is going to help you...indirectly.\n\n%player1%, go find a vibrator or dildo. Then kneel in front of %target%. You will suck on it, eyes closed, while %target% strokes himself until he comes all over your face.",
     target_sex: 1,

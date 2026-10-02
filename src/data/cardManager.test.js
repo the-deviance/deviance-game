@@ -206,6 +206,56 @@ describe('card drawing and the used pile', () => {
     expect(found).toBeGreaterThan(0);
   });
 
+  it('never deals a man an orgasm card below spice 5', () => {
+    const bareBob = { ...bob, dress: 3 };
+    const bareAlice = { ...alice, dress: 3 };
+    const spicy = { ...gameData, players: [bareAlice, bareBob], spiceLevel: 4 };
+    for (let i = 0; i < 200; i++) {
+      const card = getActionCardforTarget({ target: bareBob, player: bareAlice, gameData: spicy });
+      if (!card) break;
+      expect(card.target_orgasms).toBeFalsy();
+    }
+  });
+
+  it('never casts a man in the climaxing partner slot below spice 5', () => {
+    const bareBob = { ...bob, dress: 3 };
+    const bareAlice = { ...alice, dress: 3 };
+    const spicy = { ...gameData, players: [bareAlice, bareBob], spiceLevel: 4 };
+    for (let i = 0; i < 200; i++) {
+      const card = getActionCardforTarget({ target: bareAlice, player: bareBob, gameData: spicy });
+      if (!card) break;
+      // Bob is the only possible partner, so any player_orgasms card is a leak.
+      expect(card.player_orgasms).toBeFalsy();
+    }
+  });
+
+  it('still deals women orgasm cards at the printed level', () => {
+    // Orgasm cards mostly want an undressed target, so play these naked.
+    const bareAlice = { ...alice, dress: 3 };
+    const carol = { ...makePlayer(2, 'Carol', Gender.Female), dress: 3 };
+    const girls = { ...gameData, players: [bareAlice, carol], spiceLevel: 4 };
+    let found = false;
+    for (let i = 0; i < 400; i++) {
+      const card = getActionCardforTarget({ target: bareAlice, player: carol, gameData: girls });
+      if (!card) break;
+      if (card.target_orgasms) { found = true; break; }
+    }
+    expect(found).toBe(true);
+  });
+
+  it('deals men orgasm cards once the game reaches spice 5', () => {
+    const bareBob = { ...bob, dress: 3 };
+    const bareAlice = { ...alice, dress: 3 };
+    const naked = { ...gameData, players: [bareAlice, bareBob] };
+    let found = false;
+    for (let i = 0; i < 400; i++) {
+      const card = getActionCardforTarget({ target: bareBob, player: bareAlice, gameData: naked });
+      if (!card) break;
+      if (card.target_orgasms) { found = true; break; }
+    }
+    expect(found).toBe(true);
+  });
+
   it('returns null (not a stack overflow) when no encounter partner is compatible', () => {
     const straightAlice = { ...makePlayer(0, 'Alice', Gender.Female), sexuality: Sexuality.Straight };
     const straightSue = { ...makePlayer(1, 'Sue', Gender.Female), sexuality: Sexuality.Straight };
