@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
+import { Form, FormGroup, Label, Input, Row, Col, Table } from "reactstrap";
 import {
   Player,
   DressLevel,
   DRESS_LABELS,
   Gender,
   Sexuality,
+  PrefKey,
+  PREF_PAIRS,
+  PREF_SINGLES,
+  defaultPrefs,
 } from "../../types/game";
 
 interface PlayerFormProps {
@@ -25,16 +29,7 @@ export default function PlayerForm({ player }: PlayerFormProps) {
     player.gender = Gender.Male;
     player.sexuality = Sexuality.Straight;
     player.dress = DressLevel.FullyClothed;
-    player.prefs = {
-      dominant: false,
-      submissive: false,
-      humiliation_giving: false,
-      humiliation_receiving: false,
-      anal_giving: false,
-      anal_receiving: false,
-      blindfolded: false,
-      resisting: false,
-    };
+    player.prefs = defaultPrefs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -152,87 +147,46 @@ export default function PlayerForm({ player }: PlayerFormProps) {
           <span>Fully Clothed</span>
         </div>
       </FormGroup>
-      <Row>
-        <Col>
-          <Label for="limits">D/S</Label>
-          <FormGroup check>
-            <Input id="dominant" type="checkbox" onChange={updatePlayer} />
-            <Label for="dominant" check>
-              Dominant
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Input id="submissive" type="checkbox" onChange={updatePlayer} />
-            <Label for="submissive" check>
-              Submissive
-            </Label>
-          </FormGroup>
-        </Col>
-
-        <Col>
-          <Label for="limits">Humiliation</Label>
-          <FormGroup check>
-            <Input
-              id="humiliation_giving"
-              type="checkbox"
-              onChange={updatePlayer}
-            />
-            <Label for="humiliation_giving" check>
-              Giving
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Input
-              id="humiliation_receiving"
-              type="checkbox"
-              onChange={updatePlayer}
-            />
-            <Label for="humiliation_receiving" check>
-              Receiving
-            </Label>
-          </FormGroup>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Label className="mt-3" for="limits">
-            Anal
-          </Label>
-          <FormGroup check>
-            <Input id="anal_giving" type="checkbox" onChange={updatePlayer} />
-            <Label for="anal_giving" check>
-              Giving
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Input
-              id="anal_receiving"
-              type="checkbox"
-              onChange={updatePlayer}
-            />
-            <Label for="anal_receiving" check>
-              Receiving
-            </Label>
-          </FormGroup>
-        </Col>
-        <Col>
-          <Label className="mt-3" for="limits">
-            Other
-          </Label>
-          <FormGroup check>
-            <Input id="blindfolded" type="checkbox" onChange={updatePlayer} />
-            <Label for="blindfolded" check>
-              Blindfolded
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Input id="resisting" type="checkbox" onChange={updatePlayer} />
-            <Label for="resisting" check>
-              Resisting
-            </Label>
-          </FormGroup>
-        </Col>
-      </Row>
+      <div className="prefs-section">
+        <Label className="prefs-heading">Into (tick what you consent to)</Label>
+        <Table borderless size="sm" className="prefs-table">
+          <thead>
+            <tr>
+              <th />
+              <th className="text-center">Give</th>
+              <th className="text-center">Receive</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PREF_PAIRS.map(({ label, giving, receiving }) => (
+              <tr key={giving}>
+                <td>{label}</td>
+                <td className="text-center">
+                  <Input id={giving} type="checkbox" onChange={updatePlayer} />
+                </td>
+                <td className="text-center">
+                  <Input id={receiving} type="checkbox" onChange={updatePlayer} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        <Row>
+          {PREF_SINGLES.map(({ label, key }) => (
+            <Col xs={6} key={key}>
+              <FormGroup check>
+                <Input id={key} type="checkbox" onChange={updatePlayer} />
+                <Label for={key} check>
+                  {label}
+                </Label>
+              </FormGroup>
+            </Col>
+          ))}
+        </Row>
+        <div className="small text-muted mt-2">
+          Nothing ticked is ever asked of you. You can still opt out of any card.
+        </div>
+      </div>
     </Form>
   );
 }

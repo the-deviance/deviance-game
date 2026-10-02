@@ -1,9 +1,21 @@
-import {actionCards} from "./actionCards";
-import {fateCards} from "./fateCards";
-import {chamberCards} from "./chamberCards";
-import {stageCards} from "./stageCards";
+import {actionCards as baseActionCards} from "./actionCards";
+import {fateCards as baseFateCards} from "./fateCards";
+import {chamberCards as baseChamberCards} from "./chamberCards";
+import {stageCards as baseStageCards} from "./stageCards";
+import {actionExpansionLow} from "./expansion/actionExpansionLow";
+import {actionExpansionHigh} from "./expansion/actionExpansionHigh";
+import {chamberExpansion} from "./expansion/chamberExpansion";
+import {stageExpansion} from "./expansion/stageExpansion";
+import {fateExpansion} from "./expansion/fateExpansion";
 import toys from "./toys.json";
-import {Gender, Sexuality, TargetSex, genderToTargetSex} from "../types/game";
+
+// Original decks + expansion batches (see docs/card-spec.md). New card
+// batches are a new file in expansion/ plus a spread here.
+const actionCards = [...baseActionCards, ...actionExpansionLow, ...actionExpansionHigh];
+const chamberCards = [...baseChamberCards, ...chamberExpansion];
+const stageCards = [...baseStageCards, ...stageExpansion];
+const fateCards = [...baseFateCards, ...fateExpansion];
+import {Gender, Sexuality, TargetSex, genderToTargetSex, PREF_KEYS} from "../types/game";
 
 // The used-card pile lives in localStorage so it survives reloads, but it is
 // always read at draw time (never cached at module load) so a new game can
@@ -142,51 +154,15 @@ const getCardForPlayerInDeck = ({player, deck, skip = 0, gameData}) => {
     };
 };
 
-const canDoAction = ({player, card, isTarget}) => {
+// A card may carry `target_<pref>` / `player_<pref>` gates; each one only
+// passes if that person ticked the matching pref in setup. Driven by
+// PREF_KEYS so a new pref is one list entry, not two more copy-paste blocks.
+export const canDoAction = ({player, card, isTarget}) => {
     if (!card) return null;
-    // player.prefs = {
-    //   dominant: false,
-    //   submissive: false,
-    //   humiliation_giving: false,
-    //   humiliation_recieving: false,
-    //   anal_giving: false,
-    //   anal_recieving: false,
-    //   blindfolded: false,
-    //   resisting: false,
-    // };
-
-    if (isTarget) {
-        if (card.target_dominant && !player.prefs?.dominant) return false;
-        if (card.target_submissive && !player.prefs?.submissive) return false;
-        if (card.target_humiliation_giving && !player.prefs?.humiliation_giving)
-            return false;
-        if (
-            card.target_humiliation_receiving &&
-            !player.prefs?.humiliation_receiving
-        )
-            return false;
-        if (card.target_anal_giving && !player.prefs?.anal_giving) return false;
-        if (card.target_anal_receiving && !player.prefs?.anal_receiving)
-            return false;
-        if (card.target_blindfolded && !player.prefs?.blindfolded) return false;
-        if (card.target_resisting && !player.prefs?.resisting) return false;
-    } else {
-        if (card.player_dominant && !player.prefs?.dominant) return false;
-        if (card.player_submissive && !player.prefs?.submissive) return false;
-        if (card.player_humiliation_giving && !player.prefs?.humiliation_giving)
-            return false;
-        if (
-            card.player_humiliation_receiving &&
-            !player.prefs?.humiliation_receiving
-        )
-            return false;
-        if (card.player_anal_giving && !player.prefs?.anal_giving) return false;
-        if (card.player_anal_receiving && !player.prefs?.anal_receiving)
-            return false;
-        if (card.player_blindfolded && !player.prefs?.blindfolded) return false;
-        if (card.player_resisting && !player.prefs?.resisting) return false;
-    }
-    return true;
+    const role = isTarget ? "target" : "player";
+    return PREF_KEYS.every(
+        (key) => !card[`${role}_${key}`] || Boolean(player.prefs?.[key])
+    );
 };
 
 const shuffle = (array) => {
@@ -230,44 +206,19 @@ const replacePlaceholders = ({task, players, target}) => {
         task.message = task.message.replaceAll("%and bra%", "");
     }
 
-    if (task.message.includes("%d10%")) {
-        task.message = task.message.replaceAll("%d10%", "10");
-        task.timer = 10;
-    }
-    if (task.message.includes("%d20%")) {
-        task.message = task.message.replaceAll("%d20%", "20");
-        task.timer = 20;
-    }
-    if (task.message.includes("%d30%")) {
-        task.message = task.message.replaceAll("%d30%", "30");
-        task.timer = 30;
-    }
-    if (task.message.includes("%d45%")) {
-        task.message = task.message.replaceAll("%d45%", "45");
-        task.timer = 45;
-    }
-    if (task.message.includes("%d60%")) {
-        task.message = task.message.replaceAll("%d60%", "60");
-        task.timer = 60;
-    }
-    if (task.message.includes("%d90%")) {
-        task.message = task.message.replaceAll("%d90%", "90");
-        task.timer = 90;
-    }
-
-    if (task.message.includes("%m2%")) {
-        task.message = task.message.replaceAll("%m3%", "3");
-        task.timer = 120;
-    }
-
-    if (task.message.includes("%m2%")) {
-        task.message = task.message.replaceAll("%m2%", "2");
-        task.timer = 120;
-    }
-
-    if (task.message.includes("%m1%")) {
-        task.message = task.message.replaceAll("%m1%", "1");
-        task.timer = 60;
+    // %dNN% = NN seconds, %mN% = N minutes. The longest token present wins
+    // the countdown. (The old hand-rolled version only replaced %m3% when
+    // %m2% was also in the text, leaving literal "%m3%" on screen.)
+    const TIMER_TOKENS = [
+        ["%d10%", 10], ["%d20%", 20], ["%d30%", 30], ["%d45%", 45],
+        ["%d60%", 60], ["%d90%", 90],
+        ["%m1%", 60], ["%m2%", 120], ["%m3%", 180],
+    ];
+    for (const [token, seconds] of TIMER_TOKENS) {
+        if (task.message.includes(token)) {
+            task.message = task.message.replaceAll(token, token.slice(2, -1));
+            task.timer = Math.max(task.timer || 0, seconds);
+        }
     }
 
     p.forEach((i) => {
@@ -336,17 +287,18 @@ const getCardForTargetInDeck = ({
         console.log(`${deckCopy.length} Action cards at all spice levels`);
     }
 
-    // Filter out toys
-    deckCopy = deckCopy.filter((task) => {
-        return toys.map((toy) => {
-            if (task[toy]) {
-                if (gameData.toys[toy]) return task;
-            } else {
-                return task;
-            }
-            return null;
-        });
-    });
+    // A card that needs a toy is only drawn if the group ticked that toy in
+    // setup. (The old filter returned a .map() array, which is always truthy,
+    // so toy gates were silently ignored.) AddToys stores keys lowercased, so
+    // accept either casing to stay compatible with existing saves.
+    deckCopy = deckCopy.filter((task) =>
+        toys.every(
+            (toy) =>
+                (!task[toy] && !task[toy.toLowerCase()]) ||
+                gameData.toys?.[toy] ||
+                gameData.toys?.[toy.toLowerCase()]
+        )
+    );
 
     console.log(`${deckCopy.length} Action cards with toys`);
 

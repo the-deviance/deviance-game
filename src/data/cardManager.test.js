@@ -1,11 +1,19 @@
 import {
+  canDoAction,
   canPlayersInteract,
   getActionCardforTarget,
   getUsedCardPile,
   resetUsedCards,
 } from './cardManager';
 import { actionCards } from './actionCards';
-import { Gender, Sexuality, TargetSex, genderToTargetSex } from '../types/game';
+import {
+  Gender,
+  Sexuality,
+  TargetSex,
+  genderToTargetSex,
+  PREF_KEYS,
+  defaultPrefs,
+} from '../types/game';
 
 const player = (gender, sexuality) => ({ gender, sexuality });
 
@@ -89,17 +97,35 @@ describe('genderToTargetSex', () => {
   });
 });
 
+describe('canDoAction pref gating', () => {
+  it('honours every pref key for both roles, including the newer gates', () => {
+    for (const key of PREF_KEYS) {
+      const withPref = { prefs: { [key]: true } };
+      const withoutPref = { prefs: defaultPrefs() };
+      const targetGated = { [`target_${key}`]: true };
+      const playerGated = { [`player_${key}`]: true };
+
+      expect(canDoAction({ player: withPref, card: targetGated, isTarget: true })).toBe(true);
+      expect(canDoAction({ player: withoutPref, card: targetGated, isTarget: true })).toBe(false);
+      expect(canDoAction({ player: withPref, card: playerGated, isTarget: false })).toBe(true);
+      expect(canDoAction({ player: withoutPref, card: playerGated, isTarget: false })).toBe(false);
+    }
+  });
+
+  it('passes ungated cards for players with no prefs at all', () => {
+    expect(canDoAction({ player: {}, card: { name: 'x' }, isTarget: true })).toBe(true);
+    expect(canDoAction({ player: {}, card: { name: 'x' }, isTarget: false })).toBe(true);
+  });
+
+  it('fails closed when a gated pref is missing from the player', () => {
+    expect(
+      canDoAction({ player: {}, card: { target_will_orgasm: true }, isTarget: true })
+    ).toBe(false);
+  });
+});
+
 describe('card drawing and the used pile', () => {
-  const fullPrefs = {
-    dominant: true,
-    submissive: true,
-    humiliation_giving: true,
-    humiliation_receiving: true,
-    anal_giving: true,
-    anal_receiving: true,
-    blindfolded: true,
-    resisting: true,
-  };
+  const fullPrefs = Object.fromEntries(PREF_KEYS.map((key) => [key, true]));
 
   const makePlayer = (id, name, gender) => ({
     id,

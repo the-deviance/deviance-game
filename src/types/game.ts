@@ -49,16 +49,61 @@ export function genderToTargetSex(gender: Gender): TargetSex {
   return gender === Gender.Male ? TargetSex.Male : TargetSex.Female;
 }
 
-export interface PlayerPrefs {
-  dominant?: boolean;
-  submissive?: boolean;
-  humiliation_giving?: boolean;
-  humiliation_receiving?: boolean;
-  anal_giving?: boolean;
-  anal_receiving?: boolean;
-  blindfolded?: boolean;
-  resisting?: boolean;
-}
+// Every consent toggle a player can set during setup. Cards gate on these via
+// `player_<key>` / `target_<key>` fields; canDoAction checks this list, so a
+// key missing here is a gate that never opens.
+export const PREF_KEYS = [
+  'dominant',
+  'submissive',
+  'humiliation_giving',
+  'humiliation_receiving',
+  'anal_giving',
+  'anal_receiving',
+  'oral_giving',
+  'oral_receiving',
+  'pain_giving',
+  'pain_receiving',
+  'restraining',
+  'restrained',
+  'blindfolded',
+  'forceful',
+  'resisting',
+  'will_orgasm',
+  'exhibitionism',
+  'feet',
+  'roleplay',
+] as const;
+export type PrefKey = (typeof PREF_KEYS)[number];
+
+export type PlayerPrefs = Partial<Record<PrefKey, boolean>>;
+
+export const defaultPrefs = (): PlayerPrefs =>
+  Object.fromEntries(PREF_KEYS.map((key) => [key, false]));
+
+// Give/receive pairs rendered as grid rows in setup; singles as a checklist.
+export const PREF_PAIRS: {
+  label: string;
+  giving: PrefKey;
+  receiving: PrefKey;
+}[] = [
+  { label: 'Pain (spanking, pinching)', giving: 'pain_giving', receiving: 'pain_receiving' },
+  { label: 'Humiliation', giving: 'humiliation_giving', receiving: 'humiliation_receiving' },
+  { label: 'Oral', giving: 'oral_giving', receiving: 'oral_receiving' },
+  { label: 'Anal', giving: 'anal_giving', receiving: 'anal_receiving' },
+  { label: 'Bondage (tying / being tied)', giving: 'restraining', receiving: 'restrained' },
+];
+
+export const PREF_SINGLES: { label: string; key: PrefKey }[] = [
+  { label: 'Dominant', key: 'dominant' },
+  { label: 'Submissive', key: 'submissive' },
+  { label: 'Being blindfolded', key: 'blindfolded' },
+  { label: 'Being forceful with others', key: 'forceful' },
+  { label: 'Resisting / being overpowered (play)', key: 'resisting' },
+  { label: 'Orgasm in front of the group', key: 'will_orgasm' },
+  { label: 'Performing / showing off', key: 'exhibitionism' },
+  { label: 'Foot play', key: 'feet' },
+  { label: 'Roleplay scenarios', key: 'roleplay' },
+];
 
 export interface Player {
   id: number;

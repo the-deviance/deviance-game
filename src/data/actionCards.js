@@ -2127,11 +2127,17 @@ export const actionCards = [
     message:
       "%player1%, here’s the plan. First, you’re going to bind %target%’s hands behind %tp% back and tie %tp% feet together. Then, sit in front of %ts%, force %ts% down to %tp% knees, and bury %tp% face between your legs.\n\nPin %ts% there with your legs, and use a pair of scissors to cut off %tp% underwear. Take your time about it, and feel free to spank %ts% while you’re at it.",
     target_sex: 0,
-    spice_level: 5,
+    spice_level: 3,
     dress_level_from: 2,
     dress_level_to: 2,
     number_of_participants: 2,
 
+    Scissors: true,
+    Rope: true,
+    lose_dress_level: true,
+    player_restraining: true,
+    player_pain_giving: true,
+    target_pain_receiving: true,
     target_restrained: true,
     target_pain_receiving: true,
     player_pain_giving: true,
