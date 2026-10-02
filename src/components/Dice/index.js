@@ -22,7 +22,8 @@ const PIP_CELLS = {
     6: [1, 3, 4, 6, 7, 9],
 };
 
-// Must match the transition/animation durations in dice.css.
+// Must match the die-jump animation duration in dice.css. The cube's face
+// rotation transition is shorter so the face settles before touchdown.
 const ROLL_MS = 1400;
 
 export default function Dice({onChange, accent = "#c70039", disabled = false}) {
