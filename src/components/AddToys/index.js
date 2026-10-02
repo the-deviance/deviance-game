@@ -14,6 +14,7 @@ import {
   Input,
 } from "reactstrap";
 import toys from "../../data/toys.json";
+import { track } from "../../utils/analytics";
 
 export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
   const { gameData, updateToyList } = useGameData();
@@ -111,6 +112,7 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }) {
           color="secondary"
           onClick={() => {
             updateToyList(toyList);
+            track("Game Setup Complete", { players: gameData.players.length });
             setSetupStep(0);
           }}
         >

@@ -13,6 +13,7 @@ import {colours} from "../../data/constants";
 import {DRESS_LABELS} from "../../types/game";
 import Chick from "../../components/Chick";
 import {toast} from 'react-toastify';
+import {track} from "../../utils/analytics";
 
 export default function Card({id}) {
     const {gameData, movePlayer, endTurn, increaseSpiceLevel} = useGameData();
@@ -59,6 +60,7 @@ export default function Card({id}) {
 
     useEffect(() => {
         if (gameData.currentPlayer !== undefined && !rolling && value) {
+            track('Dice Rolled', {value});
             console.log('Moving player', gameData.currentPlayer, 'by', value, 'steps');
             console.log('Current player data:', gameData.players[gameData.currentPlayer]);
             movePlayer(value).then((player) => {
@@ -122,6 +124,10 @@ export default function Card({id}) {
         const player = gameData.players[gameData.currentPlayer];
         const property = propertyData[player.position];
         setShowRentModal(false);
+        track('Rent Settled', {
+            method: workingItOff ? 'favour' : 'cash',
+            property: property?.name,
+        });
         if (workingItOff) {
             setActionModal(property);
         } else {

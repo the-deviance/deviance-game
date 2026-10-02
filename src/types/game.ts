@@ -87,6 +87,13 @@ export interface GameData {
   totalMoves: number;
 }
 
+// A game counts as "in progress" once setup has produced named players; a
+// freshly reset game has one anonymous placeholder player and doesn't count.
+export function hasGameInProgress(gameData?: GameData | null): boolean {
+  if (!gameData || !gameData.started) return false;
+  return gameData.players.some(p => Boolean(p.name && p.name.trim()));
+}
+
 export interface Card {
   name: string;
   message: string;

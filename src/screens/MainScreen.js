@@ -1,14 +1,31 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {Button} from "reactstrap";
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from "reactstrap";
 import Board from "../components/Board";
 import Flame from "../components/Flame";
 import useGameData from "../utils/useGameData";
+import useNewGame from "../utils/useNewGame";
+import {hasGameInProgress} from "../types/game";
 
 const MIN_SCREEN_WIDTH = 1000;
 
 export default function MainScreen() {
     const [isScreenLargeEnough, setIsScreenLargeEnough] = useState(true);
-    const {gameData, startNewGame, increaseSpiceLevel} = useGameData();
+    const [confirmNewGame, setConfirmNewGame] = useState(false);
+    const {gameData, increaseSpiceLevel} = useGameData();
+    const newGame = useNewGame();
+
+    const handleNewGameClick = () => {
+        if (hasGameInProgress(gameData)) {
+            setConfirmNewGame(true);
+        } else {
+            newGame();
+        }
+    };
+
+    const handleConfirmNewGame = () => {
+        setConfirmNewGame(false);
+        newGame();
+    };
 
     const checkScreenSize = useCallback(() => {
         setIsScreenLargeEnough(window.innerWidth >= MIN_SCREEN_WIDTH);
@@ -89,10 +106,27 @@ export default function MainScreen() {
 
                 <h1 style={{color: "#aaa", margin: 0}}>Deviance</h1>
 
-                <Button color="secondary" onClick={startNewGame}>
+                <Button color="secondary" onClick={handleNewGameClick}>
                     Start New Game
                 </Button>
             </div>
+            <Modal isOpen={confirmNewGame} toggle={() => setConfirmNewGame(false)}>
+                <ModalHeader toggle={() => setConfirmNewGame(false)}>
+                    Start a new game?
+                </ModalHeader>
+                <ModalBody>
+                    There's a game in progress. Starting a new one wipes the
+                    players, money, properties and card history. No take-backs.
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="secondary" onClick={() => setConfirmNewGame(false)}>
+                        Keep Playing
+                    </Button>
+                    <Button color="danger" onClick={handleConfirmNewGame}>
+                        New Game
+                    </Button>
+                </ModalFooter>
+            </Modal>
             <Board/>
         </div>
     );

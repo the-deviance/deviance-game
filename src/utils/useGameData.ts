@@ -5,17 +5,16 @@ import {
   PASS_GO_BONUS,
 } from '../contexts/GameContext';
 import { Player } from '../types/game';
+import { track } from './analytics';
 
 const MOVE_ANIMATION_MS = 200;
 
 export default function useGameData() {
   const { gameData, dispatch } = useGame();
 
+  // Resets game state only. The card pile and property board live in their
+  // own stores; use useNewGame() for the full reset, not this directly.
   const startNewGame = useCallback(() => {
-    // The card pile and property ownership live in their own stores; a new
-    // game resets those too (the old code did a blanket localStorage.clear()).
-    localStorage.removeItem('cardData');
-    localStorage.removeItem('propertyData');
     dispatch({ type: 'NEW_GAME' });
     // 'started' flips true a beat later so the setup flow re-triggers even
     // when a previous game was already in progress.
@@ -45,6 +44,7 @@ export default function useGameData() {
   );
 
   const increaseSpiceLevel = useCallback(() => {
+    track('Spice Increased');
     dispatch({ type: 'INCREASE_SPICE' });
   }, [dispatch]);
 

@@ -7,9 +7,8 @@ export default function Card({ id }) {
   const { gameData } = useGameData();
   const { propertyData } = usePropertyData();
 
-  if (!propertyData) return null;
-
-  const property = propertyData[id];
+  const property = propertyData?.[id];
+  if (!property) return null;
 
   return (
     <div
@@ -56,7 +55,7 @@ export default function Card({ id }) {
           {property?.owner !== undefined ? (
             <>
               <div>{`Rent: £${property.rent}`}</div>
-              <p>Owned by {gameData.players[property.owner].name}</p>
+              <p>Owned by {gameData.players[property.owner]?.name}</p>
             </>
           ) : (
             <>{property.price && <div>{`Price: £${property?.price}`}</div>}</>

@@ -5,7 +5,27 @@ import {stageCards} from "./stageCards";
 import toys from "./toys.json";
 import {Gender, Sexuality, TargetSex, genderToTargetSex} from "../types/game";
 
-const usedCardPile = JSON.parse(localStorage.getItem('cardData')) || [];
+// The used-card pile lives in localStorage so it survives reloads, but it is
+// always read at draw time (never cached at module load) so a new game can
+// reset it without a page refresh.
+export const getUsedCardPile = () => {
+    try {
+        return JSON.parse(localStorage.getItem('cardData')) || [];
+    } catch (error) {
+        console.error('Failed to read used card pile:', error);
+        return [];
+    }
+};
+
+export const resetUsedCards = () => {
+    localStorage.removeItem('cardData');
+};
+
+const markCardUsed = (card) => {
+    const pile = getUsedCardPile();
+    pile.push(card);
+    localStorage.setItem('cardData', JSON.stringify(pile));
+};
 
 export const getActionCardforTarget = ({
                                            target,
@@ -195,6 +215,10 @@ const replacePlaceholders = ({task, players, target}) => {
     console.log(players, target);
     if (!task) return null;
 
+    // Work on a copy: the decks are shared module data, and writing player
+    // names into them would bake this game's names into every later draw.
+    task = {...task};
+
     task.message = task.message.replaceAll("%target%", target.name);
     task.message = task.message.replaceAll(`%th%`, target.pronouns.he);
     task.message = task.message.replaceAll(`%ts%`, target.pronouns.him);
@@ -211,7 +235,7 @@ const replacePlaceholders = ({task, players, target}) => {
         task.timer = 10;
     }
     if (task.message.includes("%d20%")) {
-        task.message = task.message.replaceAll("%d20%", "60");
+        task.message = task.message.replaceAll("%d20%", "20");
         task.timer = 20;
     }
     if (task.message.includes("%d30%")) {
@@ -351,17 +375,11 @@ const getCardForTargetInDeck = ({
     );
 
     // Exclude used cards
-    if (usedCardPile && usedCardPile.length) {
-        deckCopy.filter((task) => {
-            let hasBeenUsed = false;
-            console.log({usedCardPile})
-            usedCardPile.forEach((card) => {
-                if (card.name === task.name) {
-                    hasBeenUsed = true;
-                }
-            })
-            return !hasBeenUsed;
-        });
+    if (!includeUsed) {
+        const usedNames = new Set(getUsedCardPile().map((card) => card.name));
+        if (usedNames.size) {
+            deckCopy = deckCopy.filter((task) => !usedNames.has(task.name));
+        }
     }
 
     console.log(`${deckCopy.length} Action cards that are not excluded`);
@@ -390,7 +408,6 @@ const getCardForTargetInDeck = ({
     }
 
     if (!deckCopy.length) {
-        console.log("Used card pile: ", usedCardPile);
         console.log(`No cards found for target: ${target}`)
     }
 
@@ -407,9 +424,6 @@ const getCardForTargetInDeck = ({
 
     console.log("Returning", deckCopy[skip]);
 
-    usedCardPile.push(deckCopy[skip]);
-    localStorage.setItem('cardData', JSON.stringify(
-        usedCardPile
-    ));
+    markCardUsed(deckCopy[skip]);
     return deckCopy[skip];
 };

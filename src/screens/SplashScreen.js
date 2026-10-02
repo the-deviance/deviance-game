@@ -1,8 +1,22 @@
 import React from "react";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useGameData from "../utils/useGameData";
+import useNewGame from "../utils/useNewGame";
+import { hasGameInProgress } from "../types/game";
+import { track } from "../utils/analytics";
 
-export default function SplashScreen({ setConsent }) {
+export default function SplashScreen() {
+  const { gameData } = useGameData();
+  const newGame = useNewGame();
+  const navigate = useNavigate();
+  const canResume = hasGameInProgress(gameData);
+
+  const startFresh = () => {
+    newGame();
+    navigate("/game");
+  };
+
   return (
     <div
       style={{
@@ -58,18 +72,45 @@ export default function SplashScreen({ setConsent }) {
           <Button
             className="m-3"
             onClick={() => {
+              track("Under 18");
               window.location.href = "https://theuselessweb.com/";
             }}
           >
             No, i'm under 18
           </Button>
 
-          <Link to="/game">
-            <Button color="primary" className="m-3">
+          {canResume ? (
+            <>
+              <Button
+                color="primary"
+                className="m-3"
+                onClick={() => {
+                  track("Resume Game");
+                  navigate("/game");
+                }}
+              >
+                Yes, resume our game
+              </Button>
+              <Button color="danger" className="m-3" onClick={startFresh}>
+                Yes, start a new game
+              </Button>
+            </>
+          ) : (
+            <Button color="primary" className="m-3" onClick={startFresh}>
               Yes, I'm over 18
             </Button>
-          </Link>
+          )}
         </div>
+        {canResume && (
+          <div style={{ color: "#aaa", fontSize: "14px" }}>
+            You have a game in progress with{" "}
+            {gameData.players
+              .filter((p) => p.name)
+              .map((p) => p.name)
+              .join(", ")}
+            .
+          </div>
+        )}
       </div>
     </div>
   );
