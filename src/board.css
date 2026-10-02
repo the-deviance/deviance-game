@@ -1,7 +1,8 @@
 /* Responsive board layout.
-   Desktop: centre panel lives inside the ring of tiles.
-   Mobile (<768px): centre panel drops below the ring, tiles shrink,
-   per-tile detail text hides (tap a tile to see it). */
+   Desktop: 6x4 ring, centre panel inside it.
+   Mobile (<768px): the ring reflows portrait to 4x6 so tiles stay big,
+   the centre panel compacts into the 2x4 hole, per-tile detail text
+   hides (tap a tile to see it). */
 
 .game-screen {
   background:
@@ -255,16 +256,19 @@
     font-size: 30px;
   }
 
+  /* Portrait ring: tile order still walks t0 -> t15 clockwise. */
   .board-grid {
-    --token-size: 13px;
-    --token-step: 15px;
+    --token-size: 14px;
+    --token-step: 17px;
     gap: 4px;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "t0  t1  t2  t3  t4 t5"
-      "t15 .   .   .   .  t6"
-      "t14 .   .   .   .  t7"
-      "t13 t12 t11 t10 t9 t8"
-      "c   c   c   c   c  c";
+      "t0  t1  t2  t3"
+      "t15 c   c   t4"
+      "t14 c   c   t5"
+      "t13 c   c   t6"
+      "t12 c   c   t7"
+      "t11 t10 t9  t8";
   }
 
   .board-tile {
@@ -273,7 +277,7 @@
   }
 
   .tile-name {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: -0.2px;
     padding: 0 1px;
   }
@@ -286,40 +290,72 @@
     bottom: 2px;
   }
 
+  /* The centre panel lives in the 2x4 hole: tall and narrow, so the
+     stats compact to two lines per player and the banner + die stack
+     below them instead of floating in the corners. */
   .center-panel {
-    margin-top: 10px;
-    min-height: 230px;
+    min-height: 0;
+    border-radius: 10px;
   }
 
   .center-inner {
-    padding: 14px 12px 104px 12px;
-  }
-
-  .stat-row {
-    font-size: 15px;
+    height: 100%;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
   }
 
   .stat-head {
+    display: none;
+  }
+
+  .stat-row {
+    flex-wrap: wrap;
+    row-gap: 1px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .stat-col-player {
+    width: 58%;
+    font-weight: 700;
+  }
+
+  .stat-col-bank {
+    width: 38%;
+    text-align: right;
+  }
+
+  .stat-col-dress {
+    width: 58%;
     font-size: 11px;
+    color: var(--dv-text-dim);
+  }
+
+  .stat-col-optouts {
+    width: 38%;
+    justify-content: flex-end;
   }
 
   .turn-banner {
-    left: 12px;
-    bottom: 12px;
-    max-width: 55%;
+    position: static;
+    margin-top: auto;
   }
 
   .turn-banner-text {
-    font-size: 15px;
-    padding: 7px 10px;
+    font-size: 13px;
+    padding: 6px 8px;
+    text-align: center;
   }
 
   .dice-dock {
-    right: 12px;
-    bottom: 12px;
+    position: static;
+    margin-top: 10px;
   }
 
   .dice-hint {
-    font-size: 12px;
+    font-size: 11px;
+    margin-top: 6px;
   }
 }
