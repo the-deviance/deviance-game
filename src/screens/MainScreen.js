@@ -46,10 +46,6 @@ export default function MainScreen() {
                 </div>
 
                 <h1 className="main-title dv-title">Deviance</h1>
-
-                <button className="dv-new-game-btn" onClick={handleNewGameClick}>
-                    Start New Game
-                </button>
             </div>
             <Modal isOpen={confirmNewGame} toggle={() => setConfirmNewGame(false)}>
                 <ModalHeader toggle={() => setConfirmNewGame(false)}>
@@ -69,6 +65,11 @@ export default function MainScreen() {
                 </ModalFooter>
             </Modal>
             <Board/>
+            <div className="board-footer">
+                <button className="dv-new-game-btn" onClick={handleNewGameClick}>
+                    Start New Game
+                </button>
+            </div>
         </div>
     );
 }
