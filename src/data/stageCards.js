@@ -461,17 +461,6 @@ export const stageCards = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Pretty stories",
-    message:
-      "%target%, please choose another player and describe a sexual fantasy, in detail, involving you and that player. Masturbate while you describe your fantasy, but don’t bring yourself off.\n\nWhen you’re finished, give that player a long, deep kiss.",
-    target_sex: 0,
-    spice_level: 3,
-    dress_level_from: 0,
-    dress_level_to: 3,
-    number_of_participants: 2,
-    appropriate_for_bi_curious: true,
-  },
-  {
     name: "The Auction",
     message:
       "%player1%, you’re a slave trader at a public auction, and %target% is your merchandise. You’re going to try to sell %ts% for use as a sex slave. Describe %tp% skills and what sort of sexual use you think %th% would be good for.\n\nWhile you are extolling %target%’s virtues as a sexual slave, the other players may, if they choose, inspect the merchandise. Poking, prodding, fondling, and other examination is allowed. The auction will last for %m2% minutes.",
@@ -1229,17 +1218,6 @@ export const stageCards = [
     dress_level_from: 2,
     dress_level_to: 2,
     number_of_participants: 1,
-    appropriate_for_bi_curious: true,
-  },
-  {
-    name: "Storytelling",
-    message:
-      "%target%, you’re going to entertain us while you’re on stage by telling us a story about %player1%. This will be a sexually explicit story, and you should not omit any details.\n\n%player1%, you’ll provide the plot of this story. Tell %target% some way you would like to have sex with %ts%. %target%, then you will describe in detail a sexual fantasy in which you and %player1% are having sex in that way, while you masturbate openly. You may not masturbate to orgasm, however!",
-    target_sex: 0,
-    spice_level: 3,
-    dress_level_from: 0,
-    dress_level_to: 3,
-    number_of_participants: 2,
     appropriate_for_bi_curious: true,
   },
   {

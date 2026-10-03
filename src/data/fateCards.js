@@ -421,17 +421,6 @@ export const fateCards = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Telling fables",
-    message:
-      "Here’s what fate has in store for you. First, you’re going to be mounted by %player1%, who’s going to fuck your brains out. While this is happening, you’re going to call someone of your choice on the phone and talk to that person.\n\nIf you get an answering machine, you should leave a message telling a story or fairy tale while %player1% is taking you. If there’s no answer, call somebody else!",
-    target_sex: 0,
-    spice_level: 4,
-    dress_level_from: 3,
-    dress_level_to: 3,
-    number_of_participants: 2,
-    appropriate_for_bi_curious: true,
-  },
-  {
     name: "Hospital visit",
     message:
       "It`s that time, %target%. You need your yearly proctological exam, and %player1% is your doctor. %player1%, please examine him. Lube him up and shove your finger up his ass. Be thorough.\n\nThe exam cost you a hundred bucks, too. Insurance deductible, you know.",
@@ -560,17 +549,6 @@ export const fateCards = [
     dress_level_to: 3,
     number_of_participants: 1,
     gag: true,
-    appropriate_for_bi_curious: true,
-  },
-  {
-    name: "Learning More",
-    message:
-      "%target%, we'd like to learn more about you. We'd like to get to know a bit better how you lost your virginity.\n\nBut we'd like more than just a story. This is show and tell, and %player1%, you are going to take the place of %target%'s first partner.\n\n%target%, describe what led up to you losing your virginity--how you made out, how you kissed, how you touched. %player1% will help you re-enact everything up to the moment...but not the moment itself! No actual sex and certainly no orgasm!",
-    target_sex: 0,
-    spice_level: 3,
-    dress_level_from: 2,
-    dress_level_to: 3,
-    number_of_participants: 2,
     appropriate_for_bi_curious: true,
   },
   {

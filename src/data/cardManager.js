@@ -4,6 +4,7 @@ import {chamberCards as baseChamberCards} from "./chamberCards";
 import {stageCards as baseStageCards} from "./stageCards";
 import {actionExpansionLow} from "./expansion/actionExpansionLow";
 import {actionExpansionHigh} from "./expansion/actionExpansionHigh";
+import {actionExpansionSex} from "./expansion/actionExpansionSex";
 import {chamberExpansion} from "./expansion/chamberExpansion";
 import {chamberExpansionBdsm} from "./expansion/chamberExpansionBdsm";
 import {stageExpansion} from "./expansion/stageExpansion";
@@ -13,7 +14,7 @@ import {targetSexMatchesBody, PREF_KEYS} from "../types/game";
 
 // Original decks + expansion batches (see docs/card-spec.md). New card
 // batches are a new file in expansion/ plus a spread here.
-const actionCards = [...baseActionCards, ...actionExpansionLow, ...actionExpansionHigh];
+const actionCards = [...baseActionCards, ...actionExpansionLow, ...actionExpansionHigh, ...actionExpansionSex];
 const chamberCards = [...baseChamberCards, ...chamberExpansion, ...chamberExpansionBdsm];
 const stageCards = [...baseStageCards, ...stageExpansion];
 const fateCards = [...baseFateCards, ...fateExpansion];

@@ -48,6 +48,7 @@ const decks = {
     ...loadDeck("actionCards.js", "actionCards"),
     ...loadDeck("expansion/actionExpansionLow.js", "actionExpansionLow"),
     ...loadDeck("expansion/actionExpansionHigh.js", "actionExpansionHigh"),
+    ...loadDeck("expansion/actionExpansionSex.js", "actionExpansionSex"),
   ],
   chamber: [
     ...loadDeck("chamberCards.js", "chamberCards"),
