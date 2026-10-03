@@ -20,7 +20,7 @@ function seedGame(players: Player[]) {
 function renderModal() {
   return render(
     <GameProvider>
-      <AddPlayers modal={true} toggle={() => {}} setSetupStep={() => {}} />
+      <AddPlayers modal={true} setSetupStep={() => {}} />
     </GameProvider>
   );
 }
@@ -44,6 +44,14 @@ describe("AddPlayers setup sanity checks", () => {
 
     expect(screen.getByRole("button", { name: /next step/i })).toBeDisabled();
     expect(screen.getByText(/every player needs a name/i)).toBeInTheDocument();
+  });
+
+  test("setup modal has no close button: the wizard can't be dismissed", () => {
+    seedGame([createDefaultPlayer(0)]);
+    const { container } = renderModal();
+
+    expect(container.querySelector(".btn-close")).toBeNull();
+    expect(document.querySelector(".btn-close")).toBeNull();
   });
 
   test("two named players: Next Step unlocks as names are typed", () => {

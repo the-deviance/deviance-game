@@ -18,11 +18,10 @@ import { track } from "../../utils/analytics";
 
 interface AddToysProps {
   modal: boolean;
-  toggle: () => void;
   setSetupStep: (step: number) => void;
 }
 
-export default function AddToys({ modal, toggle: toggleModal, setSetupStep }: AddToysProps) {
+export default function AddToys({ modal, setSetupStep }: AddToysProps) {
   const { gameData, updateToyList } = useGameData();
 
   const [toyList, setToyList] = useState<Record<string, boolean>>(gameData.toys || {})
@@ -44,8 +43,9 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }: Ad
   };
 
   return (
-    <Modal isOpen={modal} toggle={toggleModal}>
-      <ModalHeader toggle={toggleModal}>Toys</ModalHeader>
+    // Setup can't be dismissed mid-flow; Back/Start Game are the only exits.
+    <Modal isOpen={modal} backdrop="static" keyboard={false}>
+      <ModalHeader>Toys</ModalHeader>
       <ModalBody>
         <Form>
           <Row>
@@ -104,18 +104,11 @@ export default function AddToys({ modal, toggle: toggleModal, setSetupStep }: Ad
         </Form>
       </ModalBody>
       <ModalFooter>
-        {/* <Button
-          color="primary"
-          disabled={gameData.players.length > 3}
-          onClick={() => {
-            addPlayer();
-            setOpenId((parseInt(openId, 10) + 1).toString());
-          }}
-        >
-          Add Another Player
-        </Button> */}
+        <Button color="secondary" onClick={() => setSetupStep(2)}>
+          Back
+        </Button>
         <Button
-          color="secondary"
+          color="primary"
           onClick={() => {
             updateToyList(toyList);
             track("Game Setup Complete", { players: gameData.players.length });

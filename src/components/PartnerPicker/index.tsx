@@ -18,11 +18,10 @@ import { Player } from "../../types/game";
 // both ticked each other), so nothing is inferred from orientation labels.
 interface PartnerPickerProps {
   modal: boolean;
-  toggle: () => void;
   setSetupStep: (step: number) => void;
 }
 
-export default function PartnerPicker({ modal, toggle: toggleModal, setSetupStep }: PartnerPickerProps) {
+export default function PartnerPicker({ modal, setSetupStep }: PartnerPickerProps) {
   const { gameData, updatePlayers } = useGameData();
 
   // playerId -> ids they're up for. Initialised when the modal opens so it
@@ -67,8 +66,9 @@ export default function PartnerPicker({ modal, toggle: toggleModal, setSetupStep
   }, 0);
 
   return (
-    <Modal isOpen={modal} toggle={toggleModal}>
-      <ModalHeader toggle={toggleModal}>Who plays with whom?</ModalHeader>
+    // Setup can't be dismissed mid-flow; Back/Next are the only exits.
+    <Modal isOpen={modal} backdrop="static" keyboard={false}>
+      <ModalHeader>Who plays with whom?</ModalHeader>
       <ModalBody>
         <div className="small text-muted mb-3">
           Tick everyone you're up for playing with tonight. Cards only pair

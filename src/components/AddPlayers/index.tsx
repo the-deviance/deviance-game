@@ -15,13 +15,11 @@ import {
 
 interface AddPlayersProps {
   modal: boolean;
-  toggle: () => void;
   setSetupStep: (step: number) => void;
 }
 
 export default function AddPlayers({
   modal,
-  toggle: toggleModal,
   setSetupStep,
 }: AddPlayersProps) {
   const [openId, setOpenId] = useState("1");
@@ -43,8 +41,10 @@ export default function AddPlayers({
   const readyForNextStep = enoughPlayers && allNamed;
 
   return (
-    <Modal isOpen={modal} toggle={toggleModal}>
-      <ModalHeader toggle={toggleModal}>Players</ModalHeader>
+    // Setup can't be dismissed mid-flow: no X, no backdrop click, no Esc.
+    // The only exits are the step buttons, so a game can't start half-configured.
+    <Modal isOpen={modal} backdrop="static" keyboard={false}>
+      <ModalHeader>Players</ModalHeader>
       <ModalBody>
         <Accordion open={openId} toggle={toggle}>
           {gameData.players?.map((player, index) => {

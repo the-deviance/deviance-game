@@ -158,27 +158,9 @@ export default function Card({id}: CenterCardProps) {
 
     return (
         <div className="center-panel">
-            <AddPlayers
-                modal={setupStep === 1}
-                toggle={() => {
-                    setSetupStep(0);
-                }}
-                setSetupStep={setSetupStep}
-            ></AddPlayers>
-            <PartnerPicker
-                modal={setupStep === 2}
-                toggle={() => {
-                    setSetupStep(0);
-                }}
-                setSetupStep={setSetupStep}
-            ></PartnerPicker>
-            <AddToys
-                modal={setupStep === 3}
-                toggle={() => {
-                    setSetupStep(0);
-                }}
-                setSetupStep={setSetupStep}
-            ></AddToys>
+            <AddPlayers modal={setupStep === 1} setSetupStep={setSetupStep}/>
+            <PartnerPicker modal={setupStep === 2} setSetupStep={setSetupStep}/>
+            <AddToys modal={setupStep === 3} setSetupStep={setSetupStep}/>
             <PurchaseProperty property={purchaseModal} next={endPlayerTurn}/>
             <NoFundsModal property={noFundsModal} next={endPlayerTurn}/>
             <ShowRentModal property={showRentModal} next={showAction}/>
