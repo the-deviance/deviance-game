@@ -222,6 +222,21 @@ export function hasGameInProgress(gameData?: GameData | null): boolean {
   return gameData.players.some(p => Boolean(p.name && p.name.trim()));
 }
 
+// A board square. Ownable squares carry price/rent/colour; the corner and
+// event squares (Go, Chance, etc) are just a name.
+export interface Property {
+  name: string;
+  price?: number;
+  rent?: number;
+  colour?: string;
+}
+
+// A board square once the game owns it: the live board is a copy of
+// properties with owner ids written in as squares are bought.
+export interface OwnedProperty extends Property {
+  owner?: number;
+}
+
 export interface Card {
   name: string;
   message: string;

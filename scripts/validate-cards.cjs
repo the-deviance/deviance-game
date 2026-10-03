@@ -12,12 +12,13 @@ const path = require("path");
 
 const SRC = path.join(__dirname, "..", "src", "data");
 
-// The data files are ES modules; do a crude import by rewriting to CJS in-memory.
+// The data files are ES modules (TypeScript since the TS migration); do a
+// crude import by rewriting to CJS in-memory and dropping the Card[] annotation.
 function loadDeck(relPath, exportName) {
   const code = fs.readFileSync(path.join(SRC, relPath), "utf8");
   const rewritten = code
     .replace(/^import[^;]*;$/gm, "")
-    .replace(new RegExp(`export const ${exportName}`), `const ${exportName}`)
+    .replace(new RegExp(`export const ${exportName}[^=]*=`), `const ${exportName} =`)
     + `\nmodule.exports = ${exportName};`;
   const mod = { exports: {} };
   new Function("module", "exports", "require", rewritten)(mod, mod.exports, require);
@@ -45,23 +46,23 @@ const TIMER_TOKENS = ["%d10%", "%d20%", "%d30%", "%d45%", "%d60%", "%d90%", "%m1
 
 const decks = {
   action: [
-    ...loadDeck("actionCards.js", "actionCards"),
-    ...loadDeck("expansion/actionExpansionLow.js", "actionExpansionLow"),
-    ...loadDeck("expansion/actionExpansionHigh.js", "actionExpansionHigh"),
-    ...loadDeck("expansion/actionExpansionSex.js", "actionExpansionSex"),
+    ...loadDeck("actionCards.ts", "actionCards"),
+    ...loadDeck("expansion/actionExpansionLow.ts", "actionExpansionLow"),
+    ...loadDeck("expansion/actionExpansionHigh.ts", "actionExpansionHigh"),
+    ...loadDeck("expansion/actionExpansionSex.ts", "actionExpansionSex"),
   ],
   chamber: [
-    ...loadDeck("chamberCards.js", "chamberCards"),
-    ...loadDeck("expansion/chamberExpansion.js", "chamberExpansion"),
-    ...loadDeck("expansion/chamberExpansionBdsm.js", "chamberExpansionBdsm"),
+    ...loadDeck("chamberCards.ts", "chamberCards"),
+    ...loadDeck("expansion/chamberExpansion.ts", "chamberExpansion"),
+    ...loadDeck("expansion/chamberExpansionBdsm.ts", "chamberExpansionBdsm"),
   ],
   stage: [
-    ...loadDeck("stageCards.js", "stageCards"),
-    ...loadDeck("expansion/stageExpansion.js", "stageExpansion"),
+    ...loadDeck("stageCards.ts", "stageCards"),
+    ...loadDeck("expansion/stageExpansion.ts", "stageExpansion"),
   ],
   fate: [
-    ...loadDeck("fateCards.js", "fateCards"),
-    ...loadDeck("expansion/fateExpansion.js", "fateExpansion"),
+    ...loadDeck("fateCards.ts", "fateCards"),
+    ...loadDeck("expansion/fateExpansion.ts", "fateExpansion"),
   ],
 };
 
