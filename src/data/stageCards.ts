@@ -115,7 +115,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Personal Servants",
+    name: "Royal treatment",
     message:
       "For the next %m2% minutes, %target%, you’re in the lap of luxury. %player1% is going to massage your shoulders, while %player2% gives you a foot massage. Just relax, close your eyes, and enjoy.",
     target_sex: 0,
@@ -182,7 +182,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Showoff",
+    name: "All eyes on you",
     message:
       "%target%, you’re the center of attention. Put on a show for us by caressing, stroking, and fondling your own body from head to foot. Take your time at it, and give us all a good show. While you're at it, remove all your clothes except your underwear.",
     target_sex: 0,
@@ -205,7 +205,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Explorations",
+    name: "Blind date",
     message:
       "%target%, please put on a blindfold. You’re going to make out with %player1% for about one minute each while blindfolded, hope you’re good at finding your way around by feel!\n\nBe sure to get plenty of kissing, petting, and fondling in.",
     target_sex: 0,
@@ -216,7 +216,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Explorations",
+    name: "Blind date for three",
     message:
       "%target%, please put on a blindfold. You’re going to make out with %player1% and %player2% for about one minute each while blindfolded, hope you’re good at finding your way around by feel!\n\nBe sure to get plenty of kissing, petting, and fondling in.",
     target_sex: 0,
@@ -227,7 +227,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Explorations",
+    name: "Blind date for four",
     message:
       "%target%, please put on a blindfold. You’re going to make out with %player1%, %player3%, and %player2% for about one minute each while blindfolded, hope you’re good at finding your way around by feel!\n\nGet in plenty of kissing and petting!",
     target_sex: 0,
@@ -238,7 +238,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Teasing",
+    name: "The lollipop test",
     message:
       "%target%, let’s find out how much of a tease you are. Find a lollipop, or ice cream, or something else you can suck on. Then, sit in each appropriate player’s lap for about 20 seconds or so while you suck it.\n\nBe as suggestive as possible. See if you can make everyone squirm.",
     target_sex: 2,
@@ -260,7 +260,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Fun for her",
+    name: "Land of milk and honey",
     message:
       "%target%, please put some honey or syrup or anything else sweet on your breasts and nipples. Then sit back and enjoy while all the appropriate players lick it off.",
     target_sex: 2,
@@ -370,7 +370,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Entertain us",
+    name: "Solo performance",
     message:
       "%target%, it’s time for you to put on a show. For the next %m3% minutes, you’re going to masturbate for our amusement, using nothing but your hand. Run them all over your body, then down between your legs. Show us your favorite technique, but don’t bring yourself off!",
     target_sex: 0,
@@ -405,7 +405,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Pillow fun",
+    name: "Pillow ride",
     target_orgasms: true,
     message:
       "Here’s a new twist on pillow talk. %target%, place a pillow between your legs and rub against it until you climax, while we watch.",
@@ -474,40 +474,40 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Improv theatre",
+    name: "Teacher’s Pet",
     message:
       "%player1%, you get to play director! %target% and %player2% are your subjects. Make up a quick 3-minute story about the two of them, and have them act it out. It can involve anything in the current spice level, except removing clothes or orgasm.\n\nYour basic scenario: %target% is a college professor, %player2% is the pet student. They’re meeting after class. Be creative!",
     target_sex: 0,
     spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 3,
-    number_of_participants: 2,
+    number_of_participants: 3,
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Improv theatre",
+    name: "The Interrogation",
     message:
       "%player1%, you get to play director! %target% and %player2% are your subjects. Make up a quick 3-minute story about the two of them, and have them act it out. It can involve anything in the current spice level, except removing clothes or orgasm.\n\nHere’s your storyline: %target% is a thief who’s just been captured by %player2%, the hardened cop. %player2% is interrogating %target%. Have fun!",
     target_sex: 0,
     spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 0,
-    number_of_participants: 2,
+    number_of_participants: 3,
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Improv theatre",
+    name: "Working Late",
     message:
       "%player1%, you get to play director! %target% and %player2% are your subjects. Make up a quick 3-minute story about the two of them, and have them act it out. It can involve anything in the current spice level, except removing clothes or orgasm.\n\nThe scene: %target% is the bigshot executive, %player2% is %tp% secretary who will do anything for %2p% boss. It’s late at night, and they’re in the office alone. The rest is up to you.",
     target_sex: 0,
     spice_level: 2,
     dress_level_from: 0,
     dress_level_to: 0,
-    number_of_participants: 2,
+    number_of_participants: 3,
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Improv theatre",
+    name: "Landing the Account",
     message:
       "%player1%, you get to play director! %target% and %player2% are your subjects. Make up a quick 3-minute story about the two of them, and have them act it out. It can involve anything in the current spice level, except removing clothes or orgasm.\n\nHere’s your scenario: %target% is an account executive for a big international firm, %player2% is a potential new client who can bring the firm a lot of money. %target% is eager to land the account. Get creative.",
     target_sex: 0,
@@ -518,7 +518,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Manhandled",
     message:
       "%target%, you’re about to be picked up by %player2% and %player3% and placed on your back on the table. %player2% and %player3% will grab you by the ankles and hold your legs apart.\n\nOnce they’ve got you, they will hold you there and %player1% will have %1p% way with you. Have fun! %player1% may make you orgasm, if %1h% wants to, though %1h% is not allowed to orgasm. You may struggle if you like, the other players won’t mind...",
     target_sex: 0,
@@ -698,7 +698,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Explorations",
+    name: "Uncouth louts",
     message:
       "There you are, %target%, minding your own business, when you’re suddenly accosted by a couple of uncouth louts... %player1% and %player2%. The two of them circle around you and back you into a corner.\n\nSuddenly, %player1% seizes your hands and pins them behind your back while %player2% reaches under your shirt and feels you up. You struggle and try to get away, but %player1%’s grip is too strong, %player2% fondles and squeezes your breasts at will.",
     target_sex: 2,
@@ -937,7 +937,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Entertain us",
+    name: "One-woman show",
     message:
       "%target%, you’re going to put on a one-woman show for us. Kindly penetrate yourself with two dfferent objects of your choice, once orally and once anally, and tease yourself until you are completely frustrated.",
     target_sex: 2,
@@ -1197,7 +1197,7 @@ export const stageCards: Card[] = [
     spice_level: 5,
     dress_level_from: 2,
     dress_level_to: 3,
-    number_of_participants: 1,
+    number_of_participants: 2,
     appropriate_for_bi_curious: true,
   },
   {
@@ -1325,7 +1325,7 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "On Stage",
+    name: "Twenty questions",
     message:
       "%target%, you're on stage, and we'd like to take this opportunity to get to know you better! All the appropriate players get to ask you about 5 things each, and you'll answer whether those things are a turn on or a turn off for you.\n\nAnd then comes the fun part: For each thing that is a turn on, that player will get to give you a long, lingering kiss on any part of you that he or she wants.",
     target_sex: 0,
@@ -1360,7 +1360,7 @@ export const stageCards: Card[] = [
   {
     name: "The Revue",
     message:
-      "%target%, now that you're on stage, let's see you do a revue! You're going to get up and dance in front of everyone until we are all just quivering with excitement. When we can't contain ourselves any more, all the appropriate players are going to swarm you, pull off your shirt %and bra% and then start running their hands all over your chest.",
+      "%target%, now that you're on stage, let's see you do a revue! You're going to get up and dance in front of everyone until we are all just quivering with excitement. When we can't contain ourselves any more, all the appropriate players are going to swarm you, pull off your shirt and then start running their hands all over your chest.",
     target_sex: 1,
     spice_level: 2,
     dress_level_from: 0,
@@ -1370,14 +1370,14 @@ export const stageCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Tickle torture",
+    name: "Ticklish feet",
     message:
       "Bad news, %target%. You get to lie down on your stomach with your feet in the air while %player1% sits on you and tickles your feet at will for %m1% minute. You may not resist or try to escape! If you squirm, %player1% may sit on you to keep you in place.",
     target_sex: 0,
     spice_level: 1,
     dress_level_from: 0,
     dress_level_to: 3,
-    number_of_participants: 1,
+    number_of_participants: 2,
     appropriate_for_bi_curious: true,
   },
 ];

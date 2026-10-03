@@ -203,7 +203,7 @@ export const fateExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "The Velvet Rope",
+    name: "Door Policy",
     message:
       "The hottest club in town has a strict door policy, %target%, and tonight the bouncer decided your shoes were 'ambitious'. You paid 100 to get past the velvet rope anyway. Worth it?",
     target_sex: 0,
@@ -599,7 +599,7 @@ export const fateExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Lap of Honour",
+    name: "Victory Lap",
     message:
       "Take a victory lap around the room, %target%, blowing kisses to your adoring fans. You have %d20%. You haven't won anything. That is not the point.",
     target_sex: 0,

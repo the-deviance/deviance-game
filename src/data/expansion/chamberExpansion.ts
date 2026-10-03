@@ -63,7 +63,7 @@ export const chamberExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "The Quiet Game",
+    name: "Library Rules",
     message:
       "%target%, the rules are insultingly simple: for the next %m1% minute, you make no sound at all. No moans, no gasps, no swearing at %player1%, who will meanwhile be touching, kissing and teasing you with the sole aim of making you break.\n\nEvery sound you make earns one swat on the backside, delivered the moment the timer ends. Silence is golden. Failure is pink.",
     target_sex: 0,
@@ -206,7 +206,7 @@ export const chamberExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Red Light, Green Light",
+    name: "Green Light",
     message:
       "%target%, your hands belong to %player1% now. Place them flat on %1p% shoulders and keep them there.\n\n%player1% will call 'green light' and you may kiss and nuzzle %1p% neck; 'red light' and you freeze instantly, mid-motion, lips wherever they landed. %1h% controls the lights for %d90% seconds, and %1h% is encouraged to be cruel with the timing.",
     target_sex: 0,
@@ -568,7 +568,7 @@ export const chamberExpansion: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Echo Chamber",
+    name: "Repeat After Me",
     message:
       "%target%, %player1% is going to teach you some new personal mottos. Kneel, look up at %1s%, and repeat every sentence %1h% feeds you, word for word, with conviction.\n\nThe script is %player1%'s to write: how needy you are, what you're for, whose attention you depend on. Five sentences, each repeated until your delivery satisfies. Stumble, blush or giggle, and that sentence goes back to the top of the list.",
     target_sex: 0,
@@ -1061,7 +1061,7 @@ export const chamberExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Backseat Driver",
+    name: "Remote Control",
     message:
       "%target%, touch yourself for us. %player1% will be doing the steering.\n\nEvery stroke happens on %player1%'s instructions: where, how fast, when to slow down, when to stop entirely and put your hands flat on your thighs. %m2% minutes of driving by committee, and the committee is a sadist. You do not finish. You arrive at the destination flushed, obedient, and nowhere near done.",
     target_sex: 0,
@@ -1086,7 +1086,7 @@ export const chamberExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "The Ten-Second Rule",
+    name: "Keep It Moving",
     message:
       "Simple physics, %target%: %player1%'s hands and mouth may stay in any one place on you for ten seconds, maximum, and then must move somewhere new.\n\n%m2% minutes, the room counting each ten out loud. Nowhere gets long enough to be satisfying, everywhere gets just long enough to matter. %player1%, when you find somewhere that makes %ts% breathe differently, that's exactly the place to leave at the count of ten.",
     target_sex: 0,
@@ -1140,7 +1140,7 @@ export const chamberExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Room Service",
+    name: "Service With a Smile",
     message:
       "%target%, you're tonight's waiter, and the establishment has standards. %player1% will attach three clothespins to you, placement entirely at %1p% discretion.\n\nNow prepare and deliver a drink to %player1%, carried across the room on a tray or flat palm, served with a bow and the words 'Will there be anything else?' There will. There's always something else. Complete %player1%'s one extra request, then the pins come off at a pace that will feel editorial.",
     target_sex: 0,

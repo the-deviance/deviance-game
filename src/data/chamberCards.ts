@@ -81,7 +81,7 @@ export const chamberCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Say Uncle!",
+    name: "No mercy",
     message:
       "Are your feet ticklish, %target%? %player1% and %player2% are going to find out. Each of them will remove one shoe and sock and tickle your feet. They’re both going to keep it up until you say “Uncle.”",
     target_sex: 0,
@@ -251,7 +251,7 @@ export const chamberCards: Card[] = [
     number_of_participants: 2,
     target_submissive: true,
     target_pain_receiving: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
     player_dominant: true,
     player_pain_giving: true,
     appropriate_for_bi_curious: false,
@@ -313,7 +313,7 @@ export const chamberCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Say Uncle!",
+    name: "Tug of war",
     message:
       "%player1%, you will begin by removing %target%'s shirt %and bra% to expose %tp% nipples. Then, stand in front of %target% and grasp her nipples. Tug on them and squeeze them, gradually increasing the pressure until she says “Uncle.”",
     target_sex: 2,
@@ -545,7 +545,7 @@ export const chamberCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Roleplaying",
+    name: "Secret agent",
     message:
       "%target%, you’re a secret agent in enemy territory, and %player1% has just captured you. %player1% will tie your ankles together, lie you on your back on the floor, and tie your feet to a chair so they’re sticking up in the air.\n\n%player1%, now that %th%’s at your mercy, apply a paddle or wooden spoon to the soles of %tp% feet, one after the other, until %th% agrees to talk.",
     target_sex: 0,
@@ -562,7 +562,7 @@ export const chamberCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Say Uncle!",
+    name: "Under pressure",
     message:
       "%target%, let’s see what you’re made of. You’re going to lie on your back while %player1% presses %1p% foot into your testicles until you say 'Uncle.'",
     target_sex: 1,
@@ -575,7 +575,7 @@ export const chamberCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Endurance",
+    name: "Take it like a man",
     message:
       "Okay, %target%, what kind of man are you? Let’s see if you can take five lashes with a cord or thong to your cock. %player1%, please administer the torture.",
     target_sex: 1,
@@ -691,7 +691,7 @@ export const chamberCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Paddling",
+    name: "Breast paddling",
     message:
       "%target%, you're in the Torture Chamber. %player1% believes you are here because you've been naughty, and %player1% is going to do something about that.\n\n%player1%, get a paddle. Then, have %target% stand with her shoulders back and her hands behind her. Paddle her breasts with short, quick strokes until they are nice and sensitive.",
     target_sex: 2,

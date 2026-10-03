@@ -1036,7 +1036,7 @@ export const actionExpansionLow: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Lap of Luxury",
+    name: "Free Roam",
     message:
       "%target%, take a seat in %player1%’s lap and get comfortable, you’ll be there for %m1%. %player1%, your hands have free roam over %tp% clothed body for the duration: stroking, squeezing, wandering.\n\n%target%, here’s the luxury clause: you may not guide, redirect, or assist. Sit there and be appreciated.",
     target_sex: 0,

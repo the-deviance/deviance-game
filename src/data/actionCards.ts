@@ -323,7 +323,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Light touch",
+    name: "Barely there",
     message:
       "%target%, close your eyes while %player1% sensuously caresses your breasts until your nipples become erect.\n\n%player1%, you should make this experience as sensual as possible. You may caress %target%’s neck, face, and back as well, and you may also kiss her neck, face, or shoulders if you like, but you should focus your attention primarily on her breasts.",
     target_sex: 2,
@@ -762,7 +762,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Heating up",
+    name: "Male revue",
     message:
       "%player1%, sit back and relax while %target% puts on a male revue for you. He will waggle his ass for you and grind against you, but you may not touch him in any way.\n\n%target%, when you have %player1% frustrated, allow %1s% to remove your underwear, but don’t permit %1s% to touch you.",
     target_sex: 1,
@@ -851,12 +851,12 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Explorations",
+    name: "Toe-curling",
     target_orgasms: true,
     message:
       "%player1%, you’re going to try to bring %target% to orgasm, using only your toes. She will sit in front of you and allow you to stroke and penetrate her with your big toe until she is writhing in ecstasy. You have %m3% minutes, starting from when you click Do It, to bring her off.\n\n%target%, if you don't get off in that amount of time, too bad. Hope you’re up to it!",
@@ -882,7 +882,7 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     target_dominant: true,
     target_forceful: true,
@@ -918,7 +918,7 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
@@ -935,7 +935,7 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
@@ -949,7 +949,7 @@ export const actionCards: Card[] = [
     dress_level_to: 3,
     number_of_participants: 2,
 
-    massage_oil: true,
+    "massage oil": true,
 
     appropriate_for_bi_curious: true,
   },
@@ -969,7 +969,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Passive fun",
+    name: "Take a seat",
     target_orgasms: true,
     message:
       "%target%, while you sit quietly, %player1% is going to sit in your lap. As %1h% straddles you, %1h% will impale %1s%self on you and take you to the heights of ecstasy.",
@@ -980,7 +980,7 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
@@ -997,7 +997,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Things to come",
+    name: "Coming attractions",
     message:
       "%player1%, let’s give %target% a hint of things to come (so to speak). Take her in your arms, kiss her, and slide your hand into her panties. Finger her for %d60% seconds, but do not penetrate her, and no orgasm!",
     target_sex: 2,
@@ -1018,7 +1018,7 @@ export const actionCards: Card[] = [
     dress_level_to: 3,
     number_of_participants: 2,
 
-    massage_oil: true,
+    "massage oil": true,
 
     appropriate_for_bi_curious: false,
   },
@@ -1047,12 +1047,12 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Warm-up",
+    name: "Rising to the occasion",
     message:
       "%player1%, time to get %target% ready. Kiss and caress his thighs, and stroke his cock through his underwear. Keep stroking until he’s erect.\n\nYou may not move, remove, or go into his underwear, and be careful not to bring him off yet.",
     target_sex: 1,
     spice_level: 2,
-    dress_level_from: 32,
+    dress_level_from: 2,
     dress_level_to: 2,
     number_of_participants: 2,
 
@@ -1107,7 +1107,7 @@ export const actionCards: Card[] = [
     dress_level_to: 3,
     number_of_participants: 2,
 
-    others_will_orgasm: true,
+    player_will_orgasm: true,
     target_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
@@ -1137,7 +1137,7 @@ export const actionCards: Card[] = [
     dress_level_to: 2,
     number_of_participants: 2,
 
-    massage_oil: true,
+    "massage oil": true,
 
     lose_dress_level: true,
     appropriate_for_bi_curious: false,
@@ -1411,7 +1411,7 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
@@ -1462,7 +1462,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Explorations",
+    name: "Tonsil hockey",
     message:
       "%target%, this is the idea: Bring %player1% close to you, and put your arms around %1s%. Then, begin kissing %1s%. Stick out your tongue, and allow %1s% to wrap %1p% lips around it and give your tongue a blowjob.",
     target_sex: 1,
@@ -1609,7 +1609,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Explorations",
+    name: "Body tour",
     message:
       "%target%, let’s see how many places on %player1%’s body you can find to stimulate yourself. Kneel over %1s% and explore every nook of %1p% body with your erect cock.\n\nBe creative! Penetrate %1s% everywhere you can think of, including between %1p% toes, between %1p% thighs, under %1p% arms... You may not stay in any one place for longer than two strokes, however, and you may not come.",
     target_sex: 1,
@@ -1651,7 +1651,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Adventure card",
+    name: "Intimate knowledge",
     target_orgasms: true,
     message:
       "%player1%, you’re going to give %target% the pleasure of knowing you personally and intimately. Carefully lubricate his cock, then bend over and ask him to take you up the ass until he comes. You are not allowed to orgasm, though.",
@@ -1665,7 +1665,7 @@ export const actionCards: Card[] = [
     target_anal_giving: true,
     player_anal_receiving: true,
 
-    others_will_orgasm: true,
+    target_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
@@ -1682,7 +1682,7 @@ export const actionCards: Card[] = [
     number_of_participants: 2,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     target_anal_giving: true,
     target_anal_receiving: true,
@@ -1744,12 +1744,12 @@ export const actionCards: Card[] = [
     player_anal_receiving: true,
 
     target_will_orgasm: true,
-    others_will_orgasm: true,
+    player_will_orgasm: true,
 
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Adventure card",
+    name: "Handiwork",
     message:
       "Lie back and relax, %target%. %player1%, your job will be to pleasure her with your hand. Begin by massaging her clitoris with your fingers, then gradually penetrate her more and more deeply until you have inserted as much of your hand as you can.\n\nKeep working your hand bit by bit, using small motions, until you make her orgasm. ",
     target_orgasms: true,
@@ -1809,7 +1809,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Adventure time",
+    name: "Backdoor adventure",
     target_orgasms: true,
     message:
       "%target%, please lie on your back. %player1%, lubricate your fingers thoroughly, then slide your index finger into %target%’s ass and take his shaft in your mouth. Suck and finger him until you bring him to orgasm.",
@@ -1959,7 +1959,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: ".",
+    name: "Ready to scream",
     message:
       "%target%, please get down on your hands and knees. %player1%, your job is to get behind him and stroke his cock while licking his asscheeks, anus, and balls. Keep it up until he’s ready to scream, but don’t allow him to orgasm.",
     target_sex: 1,
@@ -2163,7 +2163,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Bound to please",
     message:
       "%player1%, here’s the plan. First, you’re going to bind %target%’s hands behind %tp% back and tie %tp% feet together. Then, sit in front of %ts%, force %ts% down to %tp% knees, and bury %tp% face between your legs.\n\nPin %ts% there with your legs, and use a pair of scissors to cut off %tp% underwear. Take your time about it, and feel free to spank %ts% while you’re at it.",
     target_sex: 0,
@@ -2183,7 +2183,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "A handful of hair",
     message:
       "%target%, get down on your hands and knees. %player1%, get behind her and mount her doggy-style in any way you see fit. Grab a handful of her hair, pull her head back, and call her every sexually explicit name you can think of.\n\n%player1%, continue until she climaxes. You may not reach orgasm. If necessary, stop what you’re doing and finish her off with your fingers, but you don’t get to come. Sorry.",
     target_orgasms: true,
@@ -2361,7 +2361,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Opening moves",
+    name: "First base",
     message:
       "%target%, %player1% is going to give you a %m1%-minute breast massage, through your clothing. Enjoy!",
     target_sex: 2,
@@ -2397,7 +2397,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Getting acquainted",
+    name: "Tangled up",
     message:
       "%target%, you and %player1% will sit on the floor facing each other. Wrap your legs around one another, and kiss, touch, stroke, and fondle each other for the next %d60% second",
     target_sex: 0,
@@ -2421,7 +2421,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Massage fun",
+    name: "Scalp treatment",
     message:
       "%target%, sit comfortably while %player1% massages your neck and scalp for the next %m2% minutes, starting when you click 'Do It.' %player1%, if you like, you can nuzzle and kiss %target%'s neck while you do it.",
     target_sex: 0,
@@ -2433,7 +2433,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Roleplaying",
+    name: "The con artist",
     message:
       "%player1%, you’re the internationally-famous con artist, and %target% is the inexperienced, naive bounty hunter who’s just captured you. Your job is to escape.\n\nUsing your sexual charm, you’re going to seduce %target% into dropping %tp% guard. Flatter %ts%, kiss %ts%, and caress %ts% until you’ve charmed %ts% into releasing you.",
     target_sex: 0,
@@ -2495,7 +2495,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Harmless fun",
+    name: "Mostly harmless",
     message:
       "%target%, kindly remove your pants and have a seat. %player1% will kneel in front of you and spend the next %d60% seconds massaging your legs and inner thighs.",
     target_sex: 2,
@@ -2549,7 +2549,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Sofa so good",
     message:
       "%target%, sit on the sofa while %player1% straddles you and sits on your lap, facing you. Penetrate %1s% as %1h% sits. Now, kiss one another and explore each other’s bodies with your hands.\n\nNo thrusting! You may not reach orgasm, merely sit that way and fondle and caress until you’re both highly aroused. Then %player1% should get up and walk away.",
     target_sex: 1,
@@ -2561,7 +2561,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Reach around",
     message:
       "%player1%, you’re going to help %target% to pleasure. Sit on the sofa and allow her to sit between your legs, facing away from you. Reach around, fondle her breasts, and kiss the back of her neck while she masturbates.\n\n%target%, bring yourself off with your fingers, then let %player1% lick them clean.",
     target_sex: 2,
@@ -2585,7 +2585,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Arousal",
+    name: "Mutual appreciation",
     message:
       "%target%, stand behind %player1%. Caress and fondle %1s%, and kiss the back of %1p% neck, while %1h% reaches behind you and strokes your cock. %player1% should continue until you’re highly aroused.",
     target_sex: 1,
@@ -2597,7 +2597,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Back to back",
     message:
       "%target%, you and %player1% will stand back to back. Each of you should reach around and place your hands between the other person’s legs. Stroke, rub, and fondle until both of you are ready to scream--but make sure neither of you has an orgasm!",
     target_sex: 0,
@@ -2621,7 +2621,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Inner thighs",
     message:
       "%target%, please get down on your hands and knees. %player1%, you will kneel behind %target%. Run your hands up along %tp% inner thighs, slowly, until you reach %tp% crotch.\n\nNow stimulate %ts% by hand, however you want. If %th% moves or makes a sound, stop, if you believe %th% is about to orgasm, stop. Don’t let %ts% come.",
     target_sex: 0,
@@ -2699,7 +2699,7 @@ export const actionCards: Card[] = [
   {
     name: "Maid and housewife",
     message:
-      "%target%, you’re playing the role of the wealthy, decadent housewife, %player1% is your servant. %player1% is willing to do anything to serve %1p% mistress.\n\n%frank% is cleaning up when you decide you want some attention. Have %1s% dust your breasts and body with a feather duster or soft cloth. When it starts to turn you on, tell %1s% to remove your panties and stimulate your clitoris with whatever you choose until you’re quivering with arousal...but no orgasm!",
+      "%target%, you’re playing the role of the wealthy, decadent housewife, %player1% is your servant. %player1% is willing to do anything to serve %1p% mistress.\n\n%player1% is cleaning up when you decide you want some attention. Have %1s% dust your breasts and body with a feather duster or soft cloth. When it starts to turn you on, tell %1s% to remove your panties and stimulate your clitoris with whatever you choose until you’re quivering with arousal...but no orgasm!",
     target_sex: 2,
     spice_level: 3,
     dress_level_from: 3,
@@ -2751,7 +2751,7 @@ export const actionCards: Card[] = [
     dress_level_to: 3,
     number_of_participants: 2,
 
-    massage_oil: true,
+    "massage oil": true,
 
     appropriate_for_bi_curious: true,
   },
@@ -2794,7 +2794,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Adult fun",
+    name: "Behind the scenes",
     message:
       "%player1%, please locate a vibrator. Your job is to go down on %target% while stimulating the area just behind his testicles with the vibrator. As you do this, reach up and stroke his cock. Continue until you bring him off.",
     target_sex: 1,
@@ -2808,7 +2808,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Roleplaying",
+    name: "Business trip",
     message:
       "%target%, you and %player1% are going to roleplay a little scenario. You, %target%, are the wealthy executive on a business trip, and %player1% is the two thousand dollar a night escort you’ve hired to satisfy your hungers.\n\n%player1%, you’re going to satisfy %target% in any manner of %tp% choosing...and you’re going to like doing it!\n\n%target%, tell %player1% exactly what to do to you and how. Remember, you're paying a lot of money for these services! %player1% will do anything you like. You get to decide if %player1% can come or not.",
     target_sex: 0,
@@ -3108,7 +3108,7 @@ export const actionCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Worship",
+    name: "Devotion",
     message:
       "%target%, you are going to be the object of %player1%'s worship.\n\n%player1%, kneel reverently in front of %target% and worship her clit with your mouth. You are not trying to get her off, instead, show her how much reverence you have. Worship it carefully with your tongue and lips, gradually licking faster and harder as you gaze up at her. Pay close attention to every part of it, reverently, with total devotion. You will do this for %m1% minute, but make sure she does not come.",
     target_sex: 2,

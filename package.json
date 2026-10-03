@@ -27,6 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "validate": "node scripts/validate-cards.cjs",
+    "prebuild": "node scripts/validate-cards.cjs",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

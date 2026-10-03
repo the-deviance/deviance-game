@@ -507,7 +507,7 @@ export const stageExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Cold Open",
+    name: "The Forecast",
     message:
       "%target%, you're the weather presenter. %player1% stands behind you tracing an ice cube slowly across your chest and shoulders while you deliver tomorrow's forecast to the room without a single gasp. The audience is watching for breaks in the cold front.",
     target_sex: 0,
@@ -1053,7 +1053,7 @@ export const stageExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Surround Sound",
+    name: "In Stereo",
     message:
       "%target%, stand or recline centre stage. %player1% settles in below for %m2% of oral attention while %player2% handles the upper registers: your mouth, neck and chest. The remaining audience provides the ambience: low appreciative murmuring, rising with the action. Full immersion.",
     target_sex: 0,
@@ -1244,7 +1244,7 @@ export const stageExpansion: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Spank You Very Much",
+    name: "May I Have Another",
     message:
       "%target%, assume a gracious bend over the nearest furniture. Every willing player files past and delivers exactly one paddle swat, and you must thank each of them by name, warmly and sincerely, like you're accepting an award. Because you are. The award is the swats.",
     target_sex: 0,

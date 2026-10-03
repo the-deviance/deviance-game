@@ -125,7 +125,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Good news, bad news",
+    name: "Fifteen minutes of fame",
     message:
       "The good news, %target%, is that you’ve been chosen to be on TV. The BAD news is it’s a talk show segment called “The Things People Do to Llamas.” But look on the bright side: at least they gave you $100 for appearing.",
     target_sex: 0,
@@ -184,7 +184,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Bad news",
+    name: "Fast living",
     message:
       "Well, well, well. All this fast living has caught up with you, %target%... you’ve just ended up in the hospital with a--how to put this delicately--social disease. Cost you $100 to take care of it.",
     target_sex: 0,
@@ -207,7 +207,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Learning more",
+    name: "The first time",
     message:
       "We’d all like to find out more about you, %target%. Please describe for us how you lost your virginity. ",
     target_sex: 0,
@@ -218,7 +218,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Telling secrets",
+    name: "Deepest secrets",
     message:
       "We’re all anxious to learn more about your deepest secrets, %target%. Please describe a recurring sexual fantasy for us.",
     target_sex: 0,
@@ -264,7 +264,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Good news, bad news",
+    name: "Too good to be true",
     message:
       "Well, what do you know? There’s an Opt Out, %target%, lying on the ground right in front of you. You reach down to pick it up...\n\n...and get your pocket picked. For two hundred dollars. They do say nothing’s really free.",
     target_sex: 0,
@@ -359,7 +359,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Good news, bad news",
+    name: "Bedside manner",
     target_orgasms: true,
     message:
       "The bad news, %target%, is that you just had a brief hospital stay that cost you $100... insurance co-pay, you know. The good news is that your head nurse was %player1%, and %1h% was very... um, eager to make your stay pleasant.\n\nSo eager, in fact, that %1h% did exactly what head nurses the world over are famous for, and gave you some. Head, that is. %player1%, if you will please do the honors. Continue to orgasm.",
@@ -398,7 +398,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Cruel fate",
+    name: "The hand of fate",
     message:
       "%target%, the hand of fate has touched you, and it is your fate to wear a collar (or something similar) for the rest of the game.",
     target_sex: 0,
@@ -410,7 +410,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Cruel fate",
+    name: "Pinned by fate",
     message:
       "I have consulted the Book of Fate, %target%, and it is your fate to wear a pair of clothespins or nipple clamps on your nipples for your next 3 turns.",
     target_sex: 0,
@@ -423,7 +423,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Hospital visit",
+    name: "The yearly checkup",
     message:
       "It`s that time, %target%. You need your yearly proctological exam, and %player1% is your doctor. %player1%, please examine him. Lube him up and shove your finger up his ass. Be thorough.\n\nThe exam cost you a hundred bucks, too. Insurance deductible, you know.",
     target_sex: 1,
@@ -684,7 +684,7 @@ export const fateCards: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Atonement",
+    name: "Confession",
     message:
       "%target%, you feel like it's been a while since you properly atoned for your sins, so you decided it's probably time for a confession.\n\nUnfortunately, what you didn't know is that the priest was out to lunch, and filling in was...%player1%.\n\nYou are going to confess your sins to %player1%. Afterward, %1h% will tell you to do penance. Only not the kind of penance you're used to, instead of Hail Marys, he will direct you to do nipple-pinchings and masturbation.\n\nYou think it's a little odd, but who are you to question? Do what %player1% directs...as long as you don't reach orgasm!",
     target_sex: 0,

@@ -3,7 +3,7 @@ import { Card } from "../../types/game";
 export const actionExpansionHigh: Card[] = [
   // ===== SPICE 2 =====
   {
-    name: "Room Service",
+    name: "Do Not Disturb",
     message:
       "%target%, recline somewhere comfortable. You have ordered room service, and %player1% is the hotel's most attentive employee.\n\n%player1%, approach, greet the guest politely, and deliver the full oral service package for the next %m2% minutes. Tips are earned, not given. %target%, provide feedback like the demanding guest you are.",
     target_sex: 0,
@@ -127,7 +127,7 @@ export const actionExpansionHigh: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Silent Service",
+    name: "No Hands",
     message:
       "%target%, your mouth is about to be very busy, so let's get the rules out of the way. You are going to pleasure %player1% orally with your hands clasped behind your back the entire time.\n\nNo hands, no shortcuts, just technique. %player1%, you may offer encouragement, direction, or applause as you see fit.",
     target_sex: 0,
@@ -420,7 +420,7 @@ export const actionExpansionHigh: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "The Quiet Game",
+    name: "Not a Sound",
     message:
       "%target% and %player1%, you're going to have each other right here, and you're going to do it in total silence. Not a moan, not a whimper, not a squeaky floorboard if you can help it.\n\nThe group listens like hawks. Every sound either of you makes costs that person $50 to the bank. %player1%, it is entirely legal to try to make %target% crack.",
     target_sex: 2,
@@ -468,7 +468,7 @@ export const actionExpansionHigh: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Backseat Driver",
+    name: "Chauffeur Service",
     message:
       "%player1%, you're doing the driving; %target% is the backseat driver, and for once the backseat driver is in charge. %player1%, take %ts% in whatever position %th% orders, and follow every instruction: faster, slower, harder, left a bit, stop, go.\n\n%target%, be demanding. Be specific. %player1%, exactly zero initiative is permitted. You're the chauffeur.",
     target_sex: 2,
@@ -634,7 +634,7 @@ export const actionExpansionHigh: Card[] = [
     appropriate_for_bi_curious: false,
   },
   {
-    name: "Royal Decree",
+    name: "Absolute Power",
     message:
       "%target%, you have %m2% minutes of absolute power over %player1%. Issue commands, one at a time, and watch them obeyed: kneel there, strip that, kiss this, touch me exactly like so.\n\n%player1%, each command gets a 'Yes, my liege' before you move. %target%, a monarch who wastes their reign on timid orders will be mocked by history, and by this table.",
     target_sex: 0,
@@ -649,7 +649,7 @@ export const actionExpansionHigh: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Lap of Luxury",
+    name: "The Slow Grind",
     message:
       "%target%, sit back. %player1% is going to straddle your lap, facing you, and treat you to a slow, grinding, hands-on lap session: kissing your neck, rolling %1p% hips against you, guiding your hands wherever %1h% wants them.\n\n%target%, your only job is to receive luxury graciously for %m2% minutes. Tipping is encouraged. Actual currency accepted.",
     target_sex: 0,
@@ -1036,7 +1036,7 @@ export const actionExpansionHigh: Card[] = [
     appropriate_for_bi_curious: true,
   },
   {
-    name: "Cold Open",
+    name: "Meltdown",
     message:
       "%player1%, fetch an ice cube and pop it in your mouth. Keep it there. Now go down on %target% and don't stop until the ice has completely melted.\n\n%target%, the first thirty seconds are an experience. The rest is a victory lap. %player1%, if you need a fresh cube to finish the job properly, the freezer supports your ambition.",
     target_sex: 0,
