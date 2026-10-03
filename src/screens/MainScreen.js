@@ -31,6 +31,8 @@ export default function MainScreen() {
     return (
         <div className="game-screen">
             <div className="main-header">
+                <h1 className="main-title dv-title">Deviance</h1>
+
                 <div className="spice-control">
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                         <span className="spice-label">Spice Level</span>
@@ -44,8 +46,6 @@ export default function MainScreen() {
                         ))}
                     </div>
                 </div>
-
-                <h1 className="main-title dv-title">Deviance</h1>
             </div>
             <Modal isOpen={confirmNewGame} toggle={() => setConfirmNewGame(false)}>
                 <ModalHeader toggle={() => setConfirmNewGame(false)}>
