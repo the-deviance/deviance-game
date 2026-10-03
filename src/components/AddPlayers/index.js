@@ -19,6 +19,10 @@ export default function AddPlayers({
   setSetupStep,
 }) {
   const [openId, setOpenId] = useState("1");
+  // PlayerForm mutates player objects in place; this forces a re-render so
+  // the accordion names and the Next Step gate track what's being typed.
+  const [, setFormVersion] = useState(0);
+  const onFormChanged = () => setFormVersion((v) => v + 1);
   const toggle = (id) => {
     setOpenId(openId === id ? "" : id);
   };
@@ -26,6 +30,11 @@ export default function AddPlayers({
   const { gameData, addPlayer, removePlayer, updatePlayers } = useGameData();
 
   if (!modal) return null;
+
+  // Sanity gate: it takes two to tango, and everyone needs a name.
+  const enoughPlayers = gameData.players.length >= 2;
+  const allNamed = gameData.players.every((p) => p.name && p.name.trim());
+  const readyForNextStep = enoughPlayers && allNamed;
 
   return (
     <Modal isOpen={modal} toggle={toggleModal}>
@@ -40,7 +49,10 @@ export default function AddPlayers({
                   {`Player ${index + 1}${player.name ? ` - ${player.name}` : ''}`}
                 </AccordionHeader>
                 <AccordionBody accordionId={itemId}>
-                  <PlayerForm player={gameData.players[index]} />
+                  <PlayerForm
+                    player={gameData.players[index]}
+                    onChanged={onFormChanged}
+                  />
                 </AccordionBody>
               </AccordionItem>
             );
@@ -48,6 +60,13 @@ export default function AddPlayers({
         </Accordion>
       </ModalBody>
       <ModalFooter>
+        {!readyForNextStep && (
+          <div className="small text-warning me-auto">
+            {enoughPlayers
+              ? "Every player needs a name."
+              : "You need at least two players."}
+          </div>
+        )}
         {gameData.players?.length > 1 ? (
           <Button
             color="danger"
@@ -71,6 +90,7 @@ export default function AddPlayers({
         </Button>
         <Button
           color="secondary"
+          disabled={!readyForNextStep}
           onClick={() => {
             console.log("About to update:", gameData.players);
             updatePlayers(gameData.players);

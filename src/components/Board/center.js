@@ -136,6 +136,10 @@ export default function Card({id}) {
         }
     };
 
+    // Sanity gate: the die stays locked until there are at least two players
+    // (solo Deviance is just sad admin) and setup is out of the way.
+    const needMorePlayers = gameData.players.length < 2;
+
     const endPlayerTurn = () => {
         console.log("Ending turn");
         setPurchaseModal(false);
@@ -213,7 +217,7 @@ export default function Card({id}) {
                         );
                     })}
 
-                    {gameData.players[gameData.currentPlayer] && (
+                    {!needMorePlayers && gameData.players[gameData.currentPlayer] && (
                         <div className="turn-banner">
                             <h2
                                 key={gameData.currentPlayer}
@@ -231,12 +235,23 @@ export default function Card({id}) {
                             accent={colours[gameData.currentPlayer] || "#c70039"}
                             disabled={Boolean(
                                 purchaseModal || noFundsModal || showRentModal ||
-                                actionModal || specialModal
+                                actionModal || specialModal ||
+                                setupStep > 0 || needMorePlayers
                             )}
                         />
                         <p className="dice-hint">
-                            {rolling ? "Rolling..." : "Tap the die to roll it."}
+                            {needMorePlayers
+                                ? "It takes at least two to play."
+                                : rolling ? "Rolling..." : "Tap the die to roll it."}
                         </p>
+                        {needMorePlayers && !setupStep && (
+                            <button
+                                className="spice-button"
+                                onClick={() => setSetupStep(1)}
+                            >
+                                Add players
+                            </button>
+                        )}
                     </div>
                 </div>
             ) : null}

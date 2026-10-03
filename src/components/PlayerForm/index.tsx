@@ -12,13 +12,17 @@ import {
 
 interface PlayerFormProps {
   player: Player;
+  // Edits mutate the player object in place, which the parent can't see.
+  // This lets the setup modal re-render (live accordion names, the
+  // everyone-needs-a-name gate on Next Step).
+  onChanged?: () => void;
 }
 
 // The slider runs the opposite way to the game scale: slider 0 = Naked,
 // slider 3 = Fully Clothed. Game scale is the reverse (DressLevel).
 const sliderToDress = (value: number): DressLevel => (3 - value) as DressLevel;
 
-export default function PlayerForm({ player }: PlayerFormProps) {
+export default function PlayerForm({ player, onChanged }: PlayerFormProps) {
   const [dress, setDress] = useState(3);
   const [body, setBody] = useState(defaultBody());
   const [orgasmEndsNight, setOrgasmEndsNight] = useState(false);
@@ -45,12 +49,14 @@ export default function PlayerForm({ player }: PlayerFormProps) {
       setOrgasmEndsNight(checked);
       player.orgasmEndsNight = checked;
     }
+    onChanged?.();
   };
 
   const updateOrgasmRule = (checked: boolean) => {
     setOrgasmTouched(true);
     setOrgasmEndsNight(checked);
     player.orgasmEndsNight = checked;
+    onChanged?.();
   };
 
   const getDressLabel = (value: number): string =>
@@ -61,6 +67,7 @@ export default function PlayerForm({ player }: PlayerFormProps) {
       player.dress = e as DressLevel;
       console.log(`Setting dress level to ${e}`)
       setDress(3-e);
+      onChanged?.();
       return;
     }
     if (!e.target) return;
@@ -69,14 +76,19 @@ export default function PlayerForm({ player }: PlayerFormProps) {
       if (e.target.name === "pronouns") {
       switch (e.target.value) {
         case "1":
-          return (player.pronouns = { he: "he", him: "him", his: "his" });
+          player.pronouns = { he: "he", him: "him", his: "his" };
+          break;
         case "2":
-          return (player.pronouns = { he: "she", him: "her", his: "her" });
+          player.pronouns = { he: "she", him: "her", his: "her" };
+          break;
         case "3":
-          return (player.pronouns = { he: "they", him: "them", his: "their" });
+          player.pronouns = { he: "they", him: "them", his: "their" };
+          break;
         default:
-          return;
+          break;
       }
+      onChanged?.();
+      return;
     }
     if (e.target.type === "checkbox") {
       if (!player.prefs) player.prefs = {};
@@ -84,7 +96,7 @@ export default function PlayerForm({ player }: PlayerFormProps) {
     }
     (player as Record<string, any>)[e.target.name] = value;
     console.log(`Updated player: ${e.target.name} with ${value}`);
-    console.log(player)
+    onChanged?.();
   };
 
   return (
