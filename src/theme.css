@@ -22,8 +22,11 @@ html {
   background-color: var(--dv-bg-0);
 }
 
+/* Must stay transparent: once html has its own background, body's paints
+   as a normal element, above the negative-z-index fixed gradient layer,
+   and an opaque body hides the gradient entirely. */
 body {
-  background-color: var(--dv-bg-0);
+  background-color: transparent;
   color: var(--dv-text);
   font-size: 16px;
 }
