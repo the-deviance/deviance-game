@@ -5,7 +5,8 @@ import {
   DressLevel,
   DRESS_LABELS,
   PREF_PAIRS,
-  PREF_SINGLES,
+  PREF_SINGLE_GROUPS,
+  PrefKey,
   defaultPrefs,
   defaultBody,
 } from "../../types/game";
@@ -59,6 +60,15 @@ export default function PlayerForm({ player, onChanged }: PlayerFormProps) {
     onChanged?.();
   };
 
+  // Pref key passed explicitly rather than read off e.target.id: ids are
+  // per-player (the accordion renders every player's form into the DOM, so
+  // a bare id would bind every label to player 1's checkbox).
+  const updatePref = (key: PrefKey, checked: boolean) => {
+    if (!player.prefs) player.prefs = {};
+    player.prefs[key] = checked;
+    onChanged?.();
+  };
+
   const getDressLabel = (value: number): string =>
     DRESS_LABELS[sliderToDress(value)] || "";
 
@@ -90,29 +100,25 @@ export default function PlayerForm({ player, onChanged }: PlayerFormProps) {
       onChanged?.();
       return;
     }
-    if (e.target.type === "checkbox") {
-      if (!player.prefs) player.prefs = {};
-      player.prefs[e.target.id as keyof typeof player.prefs] = e.target.checked
-    }
     (player as Record<string, any>)[e.target.name] = value;
     console.log(`Updated player: ${e.target.name} with ${value}`);
     onChanged?.();
   };
 
   return (
-    <Form>
+    <Form className="dv-player-form">
       <FormGroup>
-        <Label for="name">Name</Label>
+        <Label for={`name-${player.id}`}>Name</Label>
         <Input
           type="text"
           name="name"
-          id="name"
+          id={`name-${player.id}`}
           placeholder="Joe Blogs"
           onChange={updatePlayer}
         />
       </FormGroup>
-      <FormGroup>
-        <Label className="prefs-heading">Your body</Label>
+      <div className="dv-form-section">
+        <div className="dv-form-heading">Your body</div>
         <div className="small text-muted mb-2">
           Cards are matched to what you tick here, not to a gender label.
         </div>
@@ -157,45 +163,48 @@ export default function PlayerForm({ player, onChanged }: PlayerFormProps) {
             Holds cards that make you come until the top spice level.
           </div>
         </FormGroup>
-      </FormGroup>
-      <FormGroup>
-        <Label for="pronouns">Pronouns</Label>
-        <Input
-          type="select"
-          name="pronouns"
-          id="pronouns"
-          className="form-control"
-          onChange={updatePlayer}
-        >
-          <option value="1">He, Him, His</option>
-          <option value="2">She, Her, Hers</option>
-          <option value="3">They, Them, Theirs</option>
-        </Input>
-      </FormGroup>
-      <FormGroup>
-        <Label for="dress">Dress Level: {getDressLabel(dress)}</Label>
-        <Input
-          type="range"
-          name="dress"
-          id="dress"
-          min={0}
-          max={3}
-          value={dress}
-          onChange={(e) => {
-            const value = parseInt(e.target.value);
-            setDress(value);
-            updatePlayer(sliderToDress(value));
-          }}
-        />
-        <div className="d-flex justify-content-between small text-muted">
-          <span>Naked</span>
-          <span>Underwear</span>
-          <span>Topless</span>
-          <span>Fully Clothed</span>
-        </div>
-      </FormGroup>
-      <div className="prefs-section">
-        <Label className="prefs-heading">Into (tick what you consent to)</Label>
+      </div>
+      <div className="dv-form-section">
+        <div className="dv-form-heading">Pronouns &amp; dress</div>
+        <FormGroup>
+          <Label for={`pronouns-${player.id}`}>Pronouns</Label>
+          <Input
+            type="select"
+            name="pronouns"
+            id={`pronouns-${player.id}`}
+            className="form-control"
+            onChange={updatePlayer}
+          >
+            <option value="1">He, Him, His</option>
+            <option value="2">She, Her, Hers</option>
+            <option value="3">They, Them, Theirs</option>
+          </Input>
+        </FormGroup>
+        <FormGroup className="mb-0">
+          <Label for={`dress-${player.id}`}>Dress Level: {getDressLabel(dress)}</Label>
+          <Input
+            type="range"
+            name="dress"
+            id={`dress-${player.id}`}
+            min={0}
+            max={3}
+            value={dress}
+            onChange={(e) => {
+              const value = parseInt(e.target.value);
+              setDress(value);
+              updatePlayer(sliderToDress(value));
+            }}
+          />
+          <div className="d-flex justify-content-between small text-muted">
+            <span>Naked</span>
+            <span>Underwear</span>
+            <span>Topless</span>
+            <span>Fully Clothed</span>
+          </div>
+        </FormGroup>
+      </div>
+      <div className="dv-form-section">
+        <div className="dv-form-heading">Into (tick what you consent to)</div>
         <Table borderless size="sm" className="prefs-table">
           <thead>
             <tr>
@@ -209,27 +218,44 @@ export default function PlayerForm({ player, onChanged }: PlayerFormProps) {
               <tr key={giving}>
                 <td>{label}</td>
                 <td className="text-center">
-                  <Input id={giving} type="checkbox" onChange={updatePlayer} />
+                  <Input
+                    id={`${giving}-${player.id}`}
+                    type="checkbox"
+                    onChange={(e) => updatePref(giving, e.target.checked)}
+                  />
                 </td>
                 <td className="text-center">
-                  <Input id={receiving} type="checkbox" onChange={updatePlayer} />
+                  <Input
+                    id={`${receiving}-${player.id}`}
+                    type="checkbox"
+                    onChange={(e) => updatePref(receiving, e.target.checked)}
+                  />
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
-        <Row>
-          {PREF_SINGLES.map(({ label, key }) => (
-            <Col xs={6} key={key}>
-              <FormGroup check>
-                <Input id={key} type="checkbox" onChange={updatePlayer} />
-                <Label for={key} check>
-                  {label}
-                </Label>
-              </FormGroup>
-            </Col>
-          ))}
-        </Row>
+        {PREF_SINGLE_GROUPS.map(({ heading, items }) => (
+          <div className="prefs-group" key={heading}>
+            <div className="prefs-group-heading">{heading}</div>
+            <Row>
+              {items.map(({ label, key }) => (
+                <Col xs={6} key={key}>
+                  <FormGroup check>
+                    <Input
+                      id={`${key}-${player.id}`}
+                      type="checkbox"
+                      onChange={(e) => updatePref(key, e.target.checked)}
+                    />
+                    <Label for={`${key}-${player.id}`} check>
+                      {label}
+                    </Label>
+                  </FormGroup>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        ))}
         <div className="small text-muted mt-2">
           Nothing ticked is ever asked of you. You can still opt out of any card.
         </div>

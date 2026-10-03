@@ -110,16 +110,35 @@ export const PREF_PAIRS: {
   { label: 'Bondage (tying / being tied)', giving: 'restraining', receiving: 'restrained' },
 ];
 
-export const PREF_SINGLES: { label: string; key: PrefKey }[] = [
-  { label: 'Dominant', key: 'dominant' },
-  { label: 'Submissive', key: 'submissive' },
-  { label: 'Being blindfolded', key: 'blindfolded' },
-  { label: 'Being forceful with others', key: 'forceful' },
-  { label: 'Resisting / being overpowered (play)', key: 'resisting' },
-  { label: 'Orgasm in front of the group', key: 'will_orgasm' },
-  { label: 'Performing / showing off', key: 'exhibitionism' },
-  { label: 'Foot play', key: 'feet' },
-  { label: 'Roleplay scenarios', key: 'roleplay' },
+// Related toggles rendered together in setup (Dom next to sub, etc).
+export const PREF_SINGLE_GROUPS: {
+  heading: string;
+  items: { label: string; key: PrefKey }[];
+}[] = [
+  {
+    heading: 'Power play',
+    items: [
+      { label: 'Dominant', key: 'dominant' },
+      { label: 'Submissive', key: 'submissive' },
+      { label: 'Being forceful with others', key: 'forceful' },
+      { label: 'Resisting / being overpowered (play)', key: 'resisting' },
+    ],
+  },
+  {
+    heading: 'Exhibition',
+    items: [
+      { label: 'Performing / showing off', key: 'exhibitionism' },
+      { label: 'Orgasm in front of the group', key: 'will_orgasm' },
+    ],
+  },
+  {
+    heading: 'Scene & senses',
+    items: [
+      { label: 'Being blindfolded', key: 'blindfolded' },
+      { label: 'Foot play', key: 'feet' },
+      { label: 'Roleplay scenarios', key: 'roleplay' },
+    ],
+  },
 ];
 
 export interface Player {

@@ -377,6 +377,114 @@ body::before {
   }
 }
 
+/* ---------- Setup: player form ---------- */
+
+.dv-form-section {
+  background: var(--dv-bg-1);
+  border: 1px solid var(--dv-border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.dv-form-section:last-child {
+  margin-bottom: 0;
+}
+
+.dv-form-heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dv-flame);
+  margin-bottom: 8px;
+}
+
+/* Darkly gives .table an opaque near-black --bs-table-bg, which reads as a
+   random black slab inside the section card. Paint rows, not cells, so the
+   zebra shows through the transparent cells. */
+.prefs-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--dv-text);
+  margin-bottom: 4px;
+}
+
+.prefs-table th {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dv-text-dim);
+}
+
+.prefs-table td {
+  vertical-align: middle;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.prefs-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.prefs-group {
+  margin-top: 12px;
+}
+
+.prefs-group-heading {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dv-text-dim);
+  margin-bottom: 4px;
+}
+
+.dv-player-form .form-check {
+  margin-bottom: 6px;
+}
+
+.form-check-input:checked {
+  background-color: var(--dv-crimson);
+  border-color: var(--dv-crimson);
+}
+
+/* ---------- Setup: players modal footer ---------- */
+
+/* Error line (when shown) sits full-width above a single row of buttons. */
+.dv-setup-footer {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dv-setup-footer > * {
+  margin: 0;
+}
+
+.dv-setup-footer-error {
+  margin-bottom: 10px;
+}
+
+.dv-setup-footer-buttons {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.dv-setup-footer-buttons .btn {
+  flex: 1;
+  margin: 0;
+  white-space: nowrap;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+@media (max-width: 575px) {
+  .dv-setup-footer-buttons .btn {
+    font-size: 14px;
+  }
+}
+
 /* ---------- Countdown timer ---------- */
 
 .dv-timer {

@@ -59,46 +59,48 @@ export default function AddPlayers({
           })}
         </Accordion>
       </ModalBody>
-      <ModalFooter>
+      <ModalFooter className="dv-setup-footer">
         {!readyForNextStep && (
-          <div className="small text-warning me-auto">
+          <div className="small text-warning dv-setup-footer-error">
             {enoughPlayers
               ? "Every player needs a name."
               : "You need at least two players."}
           </div>
         )}
-        {gameData.players?.length > 1 ? (
+        <div className="dv-setup-footer-buttons">
+          {gameData.players?.length > 1 ? (
+            <Button
+              color="danger"
+              onClick={() => {
+                removePlayer();
+                setOpenId((parseInt(openId, 10) - 1).toString());
+              }}
+            >
+              Remove
+            </Button>
+          ) : null}
           <Button
-            color="danger"
+            color="primary"
+            disabled={gameData.players.length > 3}
             onClick={() => {
-              removePlayer();
-              setOpenId((parseInt(openId, 10) - 1).toString());
+              addPlayer();
+              setOpenId((gameData.players.length + 1).toString());
             }}
           >
-            Remove Player
+            Add Player
           </Button>
-        ) : null}
-        <Button
-          color="primary"
-          disabled={gameData.players.length > 3}
-          onClick={() => {
-            addPlayer();
-            setOpenId((gameData.players.length + 1).toString());
-          }}
-        >
-          Add Another Player
-        </Button>
-        <Button
-          color="secondary"
-          disabled={!readyForNextStep}
-          onClick={() => {
-            console.log("About to update:", gameData.players);
-            updatePlayers(gameData.players);
-            setSetupStep(2);
-          }}
-        >
-          Next Step
-        </Button>
+          <Button
+            color="secondary"
+            disabled={!readyForNextStep}
+            onClick={() => {
+              console.log("About to update:", gameData.players);
+              updatePlayers(gameData.players);
+              setSetupStep(2);
+            }}
+          >
+            Next Step
+          </Button>
+        </div>
       </ModalFooter>
     </Modal>
   );
