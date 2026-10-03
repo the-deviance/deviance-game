@@ -1,0 +1,2 @@
+# SPA fallback: serve the app for every route so reloading /game works.
+/*    /index.html   200
