@@ -1,8 +1,8 @@
 /* Responsive board layout.
    Desktop: 6x4 ring, centre panel inside it.
    Mobile (<768px): the ring reflows portrait to 4x6 so tiles stay big,
-   the centre panel compacts into the 2x4 hole, per-tile detail text
-   hides (tap a tile to see it). */
+   the centre panel compacts into the 2x4 hole, and tiles keep their
+   price/rent line but drop the owner's name (tap a tile for that). */
 
 .game-screen {
   background:
@@ -276,13 +276,24 @@
     border-width: 2px;
   }
 
+  .board-tile .tile-body {
+    margin-top: 5%;
+  }
+
   .tile-name {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: -0.2px;
     padding: 0 1px;
   }
 
+  /* Price/rent stays visible; the owner's name doesn't fit, and the
+     tile border already carries the owner's colour. */
   .tile-detail {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .tile-detail p {
     display: none;
   }
 
