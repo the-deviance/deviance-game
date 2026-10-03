@@ -47,9 +47,9 @@ export default function MainScreen() {
 
                 <h1 className="main-title dv-title">Deviance</h1>
 
-                <Button color="secondary" size="sm" onClick={handleNewGameClick}>
+                <button className="dv-new-game-btn" onClick={handleNewGameClick}>
                     Start New Game
-                </Button>
+                </button>
             </div>
             <Modal isOpen={confirmNewGame} toggle={() => setConfirmNewGame(false)}>
                 <ModalHeader toggle={() => setConfirmNewGame(false)}>

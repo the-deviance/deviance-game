@@ -18,10 +18,30 @@
   --dv-accent-grad: linear-gradient(135deg, var(--dv-crimson), var(--dv-flame));
 }
 
+html {
+  background-color: var(--dv-bg-0);
+}
+
 body {
   background-color: var(--dv-bg-0);
   color: var(--dv-text);
   font-size: 16px;
+}
+
+/* Ambient background. Painted on a fixed layer, not on the screen
+   element, so it stays put while the page scrolls and still covers
+   overscroll/rubber-banding (iOS ignores background-attachment: fixed,
+   a fixed pseudo-element works everywhere). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1100px 700px at 85% -10%, rgba(199, 0, 57, 0.16), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(88, 24, 69, 0.4), transparent 60%),
+    var(--dv-bg-0);
 }
 
 /* ---------- Typography ---------- */
@@ -73,6 +93,69 @@ body {
 .btn-primary:disabled {
   background: var(--dv-surface-2);
   box-shadow: none;
+}
+
+/* Start New Game: dark pill with a gradient border, a breathing ember
+   glow (visible on touch devices where :hover never fires), and a sheen
+   sweep on hover. Plain <button>, not reactstrap, so Bootstrap's
+   .btn-secondary doesn't fight the look. */
+.dv-new-game-btn {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dv-text);
+  cursor: pointer;
+  background:
+    linear-gradient(var(--dv-surface), var(--dv-surface)) padding-box,
+    var(--dv-accent-grad) border-box;
+  animation: dv-ember 3s ease-in-out infinite;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.dv-new-game-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -75%;
+  width: 50%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.45s ease;
+}
+
+.dv-new-game-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.dv-new-game-btn:hover::after {
+  left: 125%;
+}
+
+.dv-new-game-btn:active {
+  transform: scale(0.96);
+}
+
+@keyframes dv-ember {
+  0%,
+  100% {
+    box-shadow: 0 2px 12px rgba(199, 0, 57, 0.35);
+  }
+  50% {
+    box-shadow: 0 3px 18px rgba(255, 87, 51, 0.55);
+  }
 }
 
 /* ---------- Modals ---------- */

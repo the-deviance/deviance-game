@@ -5,17 +5,15 @@
    price/rent line but drop the owner's name (tap a tile for that). */
 
 .game-screen {
-  background:
-    radial-gradient(1100px 700px at 85% -10%, rgba(199, 0, 57, 0.16), transparent 60%),
-    radial-gradient(900px 600px at -10% 110%, rgba(88, 24, 69, 0.4), transparent 60%),
-    var(--dv-bg-0);
+  /* Background lives on the fixed body::before layer (theme.css) so the
+     gradient doesn't scroll with the board. */
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 32px 20px 20px;
   box-sizing: border-box;
 }
 
@@ -243,6 +241,8 @@
 @media (max-width: 767px) {
   .game-screen {
     padding: 10px;
+    /* Breathing room above the header; respects a notch if present */
+    padding-top: calc(24px + env(safe-area-inset-top, 0px));
   }
 
   .main-header {
